@@ -53,5 +53,7 @@ INSERT INTO insulin_type (insulin_type_name) VALUES ('type4');
 
 COMMIT TRANSACTION;
 
+SELECT * FROM user_input
+
 
 
