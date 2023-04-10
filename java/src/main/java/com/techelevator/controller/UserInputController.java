@@ -2,11 +2,10 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.UserInputDao;
 import com.techelevator.model.UserInput;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
@@ -18,10 +17,26 @@ public class UserInputController {
         this.userInputDao = userInputDao;
     }
 
-    @RequestMapping(path = "/test", method = RequestMethod.POST)
+    @ResponseStatus (HttpStatus.CREATED)
+    @RequestMapping(path = "/userinput", method = RequestMethod.POST)
     public UserInput addUserInput(@RequestBody UserInput userInput) {
         return userInputDao.addUserInput(userInput);
     }
+
+    @RequestMapping(path = "/userinput", method = RequestMethod.PUT)
+    public boolean updateUserInput(@RequestBody UserInput userInput) {
+
+        if (userInputDao.getUserInputByUserId(userInput.getUserId()) == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Input Not Found");
+        }
+        return userInputDao.updateUserInput(userInput);
+    }
+
+    @RequestMapping(path = "/userinput/{userId}", method = RequestMethod.GET)
+    public UserInput getUserInputByUserId(@PathVariable int userId) {
+        return userInputDao.getUserInputByUserId(userId);
+    }
+
 
 
 

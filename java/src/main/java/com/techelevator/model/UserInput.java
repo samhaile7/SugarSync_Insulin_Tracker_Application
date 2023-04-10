@@ -8,7 +8,7 @@ public class UserInput {
     private int weight;
     private double baseLevel;
     private int insulinTypeId;
-    private double insulinStrength;
+
 
     public int getInputId() {
         return inputId;
@@ -50,11 +50,4 @@ public class UserInput {
         this.insulinTypeId = insulinTypeId;
     }
 
-    public double getInsulinStrength() {
-        return insulinStrength;
-    }
-
-    public void setInsulinStrength(double insulinStrength) {
-        this.insulinStrength = insulinStrength;
-    }
 }

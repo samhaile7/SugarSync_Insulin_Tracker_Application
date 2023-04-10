@@ -28,6 +28,8 @@ CREATE TABLE meal (
 CREATE TABLE insulin_type (
 	insulin_type_id serial,
 	insulin_type_name varchar(60),
+	insulin_brand_name varchar(60),
+	insulin_strength decimal,
 	CONSTRAINT PK_insulin_type PRIMARY KEY (insulin_type_id) 
 
 );
@@ -38,7 +40,7 @@ CREATE TABLE user_input (
 	weight int,
 	base_level decimal,
 	insulin_type_id int,
-	insulin_strength decimal,
+
 	CONSTRAINT PK_user_input PRIMARY KEY (input_id),
 	CONSTRAINT FK_user_input_users FOREIGN KEY (user_id) REFERENCES users (user_id),
 	CONSTRAINT FK_user_input_insulin_type FOREIGN KEY (insulin_type_id) REFERENCES insulin_type (insulin_type_id)
