@@ -8,6 +8,10 @@ addUserInput(userInput) {
 
 getUserInput(id) {
     return axios.get(`/userinput/${id}`)
+},
+
+getUserInputTest() {
+    return axios.get(`/userinput`)
 }
 
 

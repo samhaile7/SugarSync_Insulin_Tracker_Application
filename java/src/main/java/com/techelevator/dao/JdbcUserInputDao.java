@@ -15,6 +15,17 @@ public class JdbcUserInputDao implements UserInputDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public int findIdByUsername (String username) {
+        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+
+        int userId;
+        try{
+            userId = jdbcTemplate.queryForObject("SELECT user_id FROM users WHERE username = ?", int.class, username);
+        } catch (NullPointerException e) {
+            throw new NullPointerException("User" + username + " was not found");
+        }
+        return userId;
+    }
 
     @Override
     public UserInput addUserInput(UserInput incomingUserInput) {

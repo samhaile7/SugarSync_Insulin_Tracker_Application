@@ -7,6 +7,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.security.Principal;
+
 @CrossOrigin
 @RestController
 public class UserInputController {
@@ -19,7 +21,9 @@ public class UserInputController {
 
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "/userinput", method = RequestMethod.POST)
-    public UserInput addUserInput(@RequestBody UserInput userInput) {
+    public UserInput addUserInput(@RequestBody UserInput userInput, Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        userInput.setUserId(id);
         return userInputDao.addUserInput(userInput);
     }
 
@@ -36,6 +40,12 @@ public class UserInputController {
     @RequestMapping(path = "/userinput/{userId}", method = RequestMethod.GET)
     public UserInput getUserInputByUserId(@PathVariable int userId) {
         return userInputDao.getUserInputByUserId(userId);
+    }
+
+    @RequestMapping(path = "/userinput", method = RequestMethod.GET)
+    public UserInput getUserInputByUserIdTEST(Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        return userInputDao.getUserInputByUserId(id);
     }
 
 

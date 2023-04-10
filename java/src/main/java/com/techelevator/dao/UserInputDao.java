@@ -11,4 +11,5 @@ public interface UserInputDao {
     UserInput getUserInputByUserId(int userId);
 
 
+    int findIdByUsername (String username);
 }
