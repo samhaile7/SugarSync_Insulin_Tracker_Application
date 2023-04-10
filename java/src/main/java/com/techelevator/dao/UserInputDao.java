@@ -6,7 +6,7 @@ public interface UserInputDao {
 
     UserInput addUserInput(UserInput incomingUserInput);
 
-    boolean updateUserInput(UserInput updatedUserInput);
+    boolean updateUserInput(UserInput updatedUserInput, int id);
 
     UserInput getUserInputByUserId(int userId);
 

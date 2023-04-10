@@ -23,13 +23,14 @@ public class UserInputController {
         return userInputDao.addUserInput(userInput);
     }
 
-    @RequestMapping(path = "/userinput", method = RequestMethod.PUT)
-    public boolean updateUserInput(@RequestBody UserInput userInput) {
 
-        if (userInputDao.getUserInputByUserId(userInput.getUserId()) == null) {
+    @RequestMapping(path = "/userinput/{id}", method = RequestMethod.PUT)
+    public boolean updateUserInput(@RequestBody UserInput userInput, @PathVariable int id) {
+
+        if (userInputDao.getUserInputByUserId(id) == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Input Not Found");
         }
-        return userInputDao.updateUserInput(userInput);
+        return userInputDao.updateUserInput(userInput, id);
     }
 
     @RequestMapping(path = "/userinput/{userId}", method = RequestMethod.GET)

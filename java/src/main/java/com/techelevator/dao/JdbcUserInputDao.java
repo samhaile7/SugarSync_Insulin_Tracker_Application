@@ -29,12 +29,12 @@ public class JdbcUserInputDao implements UserInputDao{
     }
 
     @Override
-    public boolean updateUserInput(UserInput updatedUserInput) {
+    public boolean updateUserInput(UserInput updatedUserInput, int id) {
 
             String sql = "UPDATE user_input SET  weight = ? , base_level = ? , insulin_type_id = ?" +
-                    " WHERE input_id = ?;";
+                    " WHERE user_id = ?;";
             jdbcTemplate.update(sql, updatedUserInput.getWeight(),
-                    updatedUserInput.getBaseLevel(), updatedUserInput.getInsulinTypeId(), updatedUserInput.getInputId());
+                    updatedUserInput.getBaseLevel(), updatedUserInput.getInsulinTypeId(), id);
 
             return true;
         }
