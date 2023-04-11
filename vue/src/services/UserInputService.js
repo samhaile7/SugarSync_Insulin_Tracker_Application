@@ -16,6 +16,10 @@ getUserInputTest() {
 
 updateUserInput(userInput) {
     return axios.put('/edit-profile', userInput)
+},
+
+addMeal(meal) {
+    return axios.post('/meal', meal)
 }
 
 

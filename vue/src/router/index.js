@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
+import LogAMeal from '../views/LogAMeal'
 
 Vue.use(Router)
 
@@ -23,6 +24,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/meal',
+      name: 'meal-log',
+      component: LogAMeal,
+      meta: {
+        requiresAuth: false
+      }
+    },
     {
       path: '/userinput',
       name: 'new-user',
