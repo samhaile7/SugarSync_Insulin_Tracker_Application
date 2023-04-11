@@ -12,6 +12,12 @@ INSERT INTO user_input (user_id, weight, base_level, insulin_type_id) VALUES (2,
 INSERT INTO user_input (user_id, weight, base_level, insulin_type_id) VALUES (2, 175, 70, 3);
 INSERT INTO user_input (user_id, weight, base_level, insulin_type_id) VALUES (3, 200, 75, 2);
 
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U100','NovaLog',100);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U200','NovaLog',200);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U300','NovaLog',300);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U400','NovaLog',400);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U500','NovaLog',500);
+
 
 COMMIT TRANSACTION;
 
@@ -19,6 +25,5 @@ SELECT * FROM users
 
 INSERT INTO user_input (weight, base_level, insulin_type_id, insulin_strength) VALUES (160, 70, 3, 80) 
 RETURNING input_id
-
 
 
