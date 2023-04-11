@@ -12,6 +12,10 @@ getUserInput(id) {
 
 getUserInputTest() {
     return axios.get(`/userinput`)
+},
+
+updateUserInput(userInput) {
+    return axios.put('/edit-profile', userInput)
 }
 
 

@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
+import NewUser from '../views/NewUser.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/new-user',
+      name: 'new-user',
+      component: NewUser,
+      meta: {
+        requiresAuth: false
+      }
+    },
     {
       path: '/edit-profile',
       name: 'edit-profile',
