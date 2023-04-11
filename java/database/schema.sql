@@ -47,10 +47,11 @@ CREATE TABLE user_input (
 
 );
 
-INSERT INTO insulin_type (insulin_type_name) VALUES ('type1');
-INSERT INTO insulin_type (insulin_type_name) VALUES ('type2');
-INSERT INTO insulin_type (insulin_type_name) VALUES ('type3');
-INSERT INTO insulin_type (insulin_type_name) VALUES ('type4');
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U100','NovaLog',100);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U200','NovaLog',200);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U300','NovaLog',300);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U400','NovaLog',400);
+INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U500','NovaLog',500);
 
 
 COMMIT TRANSACTION;

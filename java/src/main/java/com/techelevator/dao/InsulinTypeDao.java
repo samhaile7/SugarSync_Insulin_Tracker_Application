@@ -8,4 +8,6 @@ public interface InsulinTypeDao {
 
     List<InsulinType> getAllInsulinTypes();
 
+    int getInsulinStrengthOfCurrentUser(int userId);
+
 }

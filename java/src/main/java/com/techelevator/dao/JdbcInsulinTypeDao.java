@@ -27,11 +27,25 @@ public class JdbcInsulinTypeDao implements InsulinTypeDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
         while (results.next()) {
-            InsulinType insulinType = mapRowToInsulinType(results);
-            allInsulinTypes.add(insulinType);
+            allInsulinTypes.add(mapRowToInsulinType(results));
         }
         return allInsulinTypes;
     }
+
+
+
+    @Override
+    public int getInsulinStrengthOfCurrentUser(int userId) {
+        String sql = "SELECT insulin_strength  " +
+                "FROM insulin_type " +
+                "JOIN user_input " +
+                "ON user_input.insulin_type_id = insulin_type.insulin_type_id " +
+                "WHERE user_id = ?; ";
+        Integer strength = jdbcTemplate.queryForObject(sql, Integer.class, userId);
+
+        return strength;
+    }
+
 
     private InsulinType mapRowToInsulinType (SqlRowSet row) {
         InsulinType insulinType = new InsulinType();
