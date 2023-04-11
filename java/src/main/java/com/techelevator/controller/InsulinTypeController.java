@@ -25,13 +25,5 @@ public class InsulinTypeController {
     public List<InsulinType> getAllInsulinTypes() {
         return insulinTypeDao.getAllInsulinTypes();
     }
-
-//    @RequestMapping(path = "/allinsulintypes/strength", method = RequestMethod.GET)
-//    public int getInsulinStrengthOfCurrentUser() {
-//        return insulinTypeDao.getInsulinStrengthOfCurrentUser();
-//    }
-
-
-
-
+    
 }
