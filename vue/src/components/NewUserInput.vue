@@ -10,9 +10,6 @@
       <label for="">Weight (in lbs)</label>
       <input type="text" v-model.number="userInput.weight" />
 
-      <!--<label for="">Insulin Information</label>
-      <input type="select" v-model.number="userInput.insulinTypeId" /> -->
-
       <h4>Please make a selection:</h4>
       <div>
     <b-form-select v-model="userInput.insulinTypeId" class="mb-3">
