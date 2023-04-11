@@ -6,7 +6,7 @@ public class Meal {
     private int userId;
     private int numberOfCarbs;
     private int bloodSugarAtMealtime;
-    private int suggestedDose;
+    private double suggestedDose;
 
     public int getMealId() {
         return mealId;
@@ -40,11 +40,11 @@ public class Meal {
         this.bloodSugarAtMealtime = bloodSugarAtMealtime;
     }
 
-    public int getSuggestedDose() {
+    public double getSuggestedDose() {
         return suggestedDose;
     }
 
-    public void setSuggestedDose(int suggestedDose) {
+    public void setSuggestedDose(double suggestedDose) {
         this.suggestedDose = suggestedDose;
     }
 }
