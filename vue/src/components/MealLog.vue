@@ -10,7 +10,11 @@
       <input type="text" v-model.number="mealInput.bloodSugarAtMealtime" />
 
     <button type="submit">Submit</button>
+
     </form>
+
+    {{calculatedDoseFromServer}}
+
   </div>
 </template>
 
@@ -23,15 +27,29 @@ export default {
         return {
             mealInput: {
                  mealId: 0,
-                 userId: 0
-            }
+                 userId: 0,
+                 suggestedDose: 0
+
+            },
+            calculatedDoseFromServer: 0,
+            
         }
     },
+    // computed: {
+    //     calculatedDoseFromServer: 0,
+    //     calculateDose() {
+    //         const mealInput = this.mealInput.suggestedDose;
+
+    //         return mealInput
+    //     },
+    // },
     methods: {
         postMealToServer() {
-            UserInputService.addMeal(this.meal).then((response) => {
+            UserInputService.addMeal(this.mealInput).then((response) => {
                 if (response.status === 201) {
-                    this.$router.push({name: 'home'});
+                    
+                    this.calculatedDoseFromServer = response.data.suggestedDose;
+
                     //display suggested dose ad don't actually push to home
                 }
             }).catch((err) => console.log(err));

@@ -18,8 +18,8 @@ updateUserInput(userInput) {
     return axios.put('/edit-profile', userInput)
 },
 
-addMeal(meal) {
-    return axios.post('/meal', meal)
+addMeal(mealInput) {
+    return axios.post('/meal', mealInput);
 }
 
 
