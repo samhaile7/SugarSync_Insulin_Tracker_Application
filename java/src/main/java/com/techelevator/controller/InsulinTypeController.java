@@ -25,5 +25,5 @@ public class InsulinTypeController {
     public List<InsulinType> getAllInsulinTypes() {
         return insulinTypeDao.getAllInsulinTypes();
     }
-    
+
 }
