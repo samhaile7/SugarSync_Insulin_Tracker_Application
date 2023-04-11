@@ -12,8 +12,8 @@
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div class="buttons">
-          <button id="login-button">Login</button>
-          <button id="register-button">Register</button>
+          <button id="login-button" v-on:click="routeToLogin()" >Login</button>
+          <button id="register-button" v-on:click="routeToRegister()" >Register</button>
         </div>
       </div>
       <!-- <img
@@ -35,6 +35,14 @@ export default {
   components: {
     TheFooter,
   },
+  methods: {
+    routeToLogin() {
+      this.$router.push('login')
+    },
+    routeToRegister() {
+      this.$router.push('register')
+    }
+  }
 };
 </script>
 
