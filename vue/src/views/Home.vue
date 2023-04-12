@@ -12,7 +12,7 @@
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div class="buttons">
-          <button id="login-button" v-on:click="routeToLogin()" >Login</button>
+          <button id="login-button" v-on:click="routeToLogin()" >Login</button><br>
           <button id="register-button" v-on:click="routeToRegister()" >Register</button>
         </div>
       </div>
@@ -62,12 +62,15 @@ h1 {
 .site-description {
   grid-area: site-description;
   z-index: 1;
+  text-align: center;
+  padding-top: 160px;
 }
 
 .buttons {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  align-items: center;
   
 
 }
@@ -75,11 +78,16 @@ h1 {
 #login-button {
   border-radius: 12px;
   grid-area: login-button;
+  padding: 10px 24px;
+  width: 50%;
+  justify-content: center;
 }
 
 #register-button {
   border-radius: 12px;
   grid-area: register-button;
+  padding: 10px 24px;
+  width: 50%;
 }
 
 #main-grid {
