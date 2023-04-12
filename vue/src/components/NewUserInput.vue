@@ -51,6 +51,7 @@ export default {
         .then((response) => {
           if (response.status === 201) {
             this.$router.push({ name: "home" });
+            this.$store.state.userInputSuccess = true;
           }
         })
         .catch((err) => console.log(err));
