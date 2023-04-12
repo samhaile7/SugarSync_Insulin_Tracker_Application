@@ -65,12 +65,9 @@ export default {
 <style scoped>
 
 
-.mb-3 {
-
-}
 
 
-.input-grid {
+/* .input-grid {
   grid-area: input;
   
   font-family: sans-serif;
@@ -86,7 +83,7 @@ export default {
   ". input ."
   ". . ."
   ;
-}
+} */
 
 
 

@@ -21,6 +21,8 @@
           src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg"
           alt=""
         /> -->
+
+        
     </main>
 
     <the-footer />
@@ -63,7 +65,9 @@ h1 {
   grid-area: site-description;
   z-index: 1;
   text-align: center;
-  padding-top: 160px;
+  padding-top: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .buttons {

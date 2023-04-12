@@ -16,6 +16,7 @@
 
     
     
+    
     <p>Suggested dose: {{calculatedDoseFromServer}}</p>
     
     
@@ -29,6 +30,7 @@
 <script>
 
 import UserInputService from "../services/UserInputService.js";
+
 
 export default {
     data() {
@@ -70,13 +72,18 @@ export default {
 
 <style scoped>
 
+#itrack {
+    grid-area: itrack;
+
+}
+
 .tracker {
     font-family: sans-serif;
     color: rgb(56, 56, 56);
     line-height: 2;
     grid-area: tracker;
     padding: 50px;
-    background-color: rgb(162, 223, 223);
+    background-color: rgb(177, 252, 252);
     border-style: outset;
     justify-content: center;
 }
@@ -92,6 +99,7 @@ export default {
     ". . ."
     ". . ."
     ;
+    
     
 }
 
