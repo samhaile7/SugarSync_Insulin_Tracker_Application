@@ -8,6 +8,7 @@ import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
 import LogAMeal from '../views/LogAMeal'
+import InsulinDevice from '../views/InsulinDevice.vue'
 
 Vue.use(Router)
 
@@ -77,6 +78,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/insulindevice",
+      name: "insulindevice",
+      component: InsulinDevice,
       meta: {
         requiresAuth: false
       }

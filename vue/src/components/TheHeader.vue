@@ -15,12 +15,14 @@
         >Add a Meal</router-link
       >&nbsp;&nbsp;
       <router-link
+        class="logbuttons"
         id="logout-link"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
       <router-link
+      class="logbuttons"
         id="login-link"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token == ''"
@@ -37,6 +39,9 @@ export default {
 </script>
 
 <style>
+.logbuttons {
+
+}
 
 #logo {
   grid-area: logo;
@@ -60,10 +65,10 @@ export default {
 }
 
 #header-grid {
-  background-color: rgb(241, 204, 82);
+  background-color: rgb(254, 204, 152);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "logo home-link edit-profile-link add-meal-link logout-link";
+  grid-template-areas: "logo home-link edit-profile-link add-meal-link login-link";
 
   max-width: 100%;
 }
