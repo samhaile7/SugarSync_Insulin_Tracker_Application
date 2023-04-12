@@ -8,7 +8,43 @@ public class UserInput {
     private int weight;
     private double baseLevel;
     private int insulinTypeId;
+    private double targetRangeMin;
+    private double targetRangeMax;
+    private double criticalLow;
+    private double criticalHigh;
 
+
+    public double getTargetRangeMin() {
+        return targetRangeMin;
+    }
+
+    public void setTargetRangeMin(double targetRangeMin) {
+        this.targetRangeMin = targetRangeMin;
+    }
+
+    public double getTargetRangeMax() {
+        return targetRangeMax;
+    }
+
+    public void setTargetRangeMax(double targetRangeMax) {
+        this.targetRangeMax = targetRangeMax;
+    }
+
+    public double getCriticalLow() {
+        return criticalLow;
+    }
+
+    public void setCriticalLow(double criticalLow) {
+        this.criticalLow = criticalLow;
+    }
+
+    public double getCriticalHigh() {
+        return criticalHigh;
+    }
+
+    public void setCriticalHigh(double criticalHigh) {
+        this.criticalHigh = criticalHigh;
+    }
 
     public int getInputId() {
         return inputId;

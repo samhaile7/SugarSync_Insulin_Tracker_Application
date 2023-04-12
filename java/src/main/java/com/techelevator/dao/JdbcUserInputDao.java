@@ -28,10 +28,11 @@ public class JdbcUserInputDao implements UserInputDao{
 
     @Override
     public UserInput addUserInput(UserInput incomingUserInput) {
-        String sql = "INSERT INTO user_input (user_id, weight, base_level, insulin_type_id) VALUES (?, ?, ?, ?) " +
+        String sql = "INSERT INTO user_input (user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
                 " RETURNING input_id;";
         Integer userInputId = jdbcTemplate.queryForObject(sql, Integer.class, incomingUserInput.getUserId(), incomingUserInput.getWeight(),
-                incomingUserInput.getBaseLevel(), incomingUserInput.getInsulinTypeId());
+                incomingUserInput.getBaseLevel(), incomingUserInput.getTargetRangeMin(), incomingUserInput.getTargetRangeMax(), incomingUserInput.getCriticalLow(),
+                incomingUserInput.getCriticalHigh(), incomingUserInput.getInsulinTypeId());
 
         incomingUserInput.setInputId(userInputId);
 
@@ -41,10 +42,11 @@ public class JdbcUserInputDao implements UserInputDao{
     @Override
     public boolean updateUserInput(UserInput updatedUserInput, int id) {
 
-            String sql = "UPDATE user_input SET  weight = ? , base_level = ? , insulin_type_id = ?" +
+            String sql = "UPDATE user_input SET  weight = ? , base_level = ? , target_range_min = ?, target_range_max = ?, critical_low = ?, critical_high = ?, insulin_type_id = ? " +
                     " WHERE user_id = ?;";
             jdbcTemplate.update(sql, updatedUserInput.getWeight(),
-                    updatedUserInput.getBaseLevel(), updatedUserInput.getInsulinTypeId(), id);
+                    updatedUserInput.getBaseLevel(), updatedUserInput.getTargetRangeMin(), updatedUserInput.getTargetRangeMax(),
+                    updatedUserInput.getCriticalLow(), updatedUserInput.getCriticalHigh(), updatedUserInput.getInsulinTypeId(), id);
 
             return true;
         }
@@ -53,7 +55,7 @@ public class JdbcUserInputDao implements UserInputDao{
     @Override
     public UserInput getUserInputByUserId(int userId) {
         UserInput userInput = null;
-        String sql = "SELECT input_id, user_id, weight, base_level, insulin_type_id FROM user_input" +
+        String sql = "SELECT input_id, user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id FROM user_input" +
                 " WHERE user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
@@ -71,6 +73,10 @@ public class JdbcUserInputDao implements UserInputDao{
         newInputObject.setUserId(row.getInt("user_id"));
         newInputObject.setWeight(row.getInt("weight"));
         newInputObject.setBaseLevel(row.getInt("base_level"));
+        newInputObject.setTargetRangeMin(row.getDouble("target_range_min"));
+        newInputObject.setTargetRangeMax(row.getDouble("target_range_max"));
+        newInputObject.setCriticalLow(row.getDouble("critical_low"));
+        newInputObject.setCriticalHigh(row.getDouble("critical_high"));
         newInputObject.setInsulinTypeId(row.getInt("insulin_type_id"));
 
         return newInputObject;
