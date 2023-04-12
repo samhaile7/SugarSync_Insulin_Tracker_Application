@@ -2,7 +2,7 @@
   <div>
       <h1>Log your meal here:</h1>
     
-    <form v-show="$store.state.userInputSuccess != false"  action="" v-on:submit.prevent="postMealToServer()">
+    <form action="" v-on:submit.prevent="postMealToServer()">
       <label for="">Number of Carbs:</label>
       <input required type="text" v-model.number="mealInput.numberOfCarbs" />
 
@@ -14,12 +14,12 @@
     </form>
 
     
-    <div v-show="showCalculatedDose == true">
+    
     {{calculatedDoseFromServer}}
-    </div>
+    
 
 
-    <p v-show="$store.state.userInputSuccess == false">You have not entered your information. Please click here to set your information.</p>
+    <!-- <p v-show="$store.state.userInputSuccess == false">You have not entered your information. Please click here to set your information.</p> -->
 
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
 
             },
             calculatedDoseFromServer: 0,
-            showCalculatedDose: false,
+           
             
         }
     },
@@ -54,7 +54,6 @@ export default {
         postMealToServer() {
             UserInputService.addMeal(this.mealInput).then((response) => {
                 if (response.status === 201) {
-                    this.showCalculatedDose = true;
                     this.calculatedDoseFromServer = response.data.suggestedDose;
                     
                     //display suggested dose ad don't actually push to home
