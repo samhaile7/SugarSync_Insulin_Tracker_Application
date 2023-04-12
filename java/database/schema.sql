@@ -39,6 +39,10 @@ CREATE TABLE user_input (
 	user_id int,
 	weight int,
 	base_level decimal,
+	target_range_min decimal,
+	target_range_max decimal,
+	critical_high decimal,
+	critical_low decimal,
 	insulin_type_id int,
 
 	CONSTRAINT PK_user_input PRIMARY KEY (input_id),
