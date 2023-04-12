@@ -1,16 +1,17 @@
 <template>
-  <div>
+  <div class="main-grid">
+    <div class="input-grid">
     <h1>Welcome!</h1>
     <h3>Please enter your information below:</h3>
 
     <form action="" v-on:submit.prevent="postToServer()">
-      <label for="">Base Insulin Level</label>
-      <input type="text" v-model.number="userInput.baseLevel" />
+      <label for="">Base Insulin Level </label>&nbsp;&nbsp;
+      <input type="text" v-model.number="userInput.baseLevel" /><br>
 
-      <label for="">Weight (in lbs)</label>
+      <label for="">Weight (in lbs)</label>&nbsp;&nbsp;
       <input type="text" v-model.number="userInput.weight" />
 
-      <h4>Please make a selection:</h4>
+      <h4>Please select your insulin information:</h4>
       <div>
     <b-form-select v-model="userInput.insulinTypeId" class="mb-3">
       
@@ -22,11 +23,12 @@
       
        <div class="mt-2">Selected: <strong>{{ selected }}</strong></div>
     </b-form-select>
-
+    
   </div>
 
       <button type="submit">Submit</button>
     </form>
+    </div>
   </div>
 </template>
 
@@ -60,5 +62,33 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
+.mb-3 {
+
+}
+
+
+.input-grid {
+  grid-area: input;
+  
+  font-family: sans-serif;
+  line-height: 2;
+  justify-content: center;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+  ". . ."
+  ". input ."
+  ". . ."
+  ;
+}
+
+
+
+
 </style>

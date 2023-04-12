@@ -37,6 +37,7 @@ export default {
 </script>
 
 <style>
+
 #logo {
   grid-area: logo;
   width: 25%;
@@ -59,6 +60,7 @@ export default {
 }
 
 #header-grid {
+  background-color: rgb(241, 204, 82);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "logo home-link edit-profile-link add-meal-link logout-link";

@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <div class="main-grid">
+      <div class="tracker" style="overflow-y:scroll;">
       <h1>Log your meal here:</h1>
     
     <form action="" v-on:submit.prevent="postMealToServer()">
       <label for="">Number of Carbs:</label>
-      <input required type="text" v-model.number="mealInput.numberOfCarbs" />
+      <input required type="text" v-model.number="mealInput.numberOfCarbs" /><br>
 
-      <label for="">Blood Sugar at Mealtime</label>
-      <input required type="text" v-model.number="mealInput.bloodSugarAtMealtime" />
+      <label for="">Blood Sugar at Mealtime:</label>
+      <input required type="text" v-model.number="mealInput.bloodSugarAtMealtime" /><br>
 
     <button type="submit">Submit</button>
 
@@ -15,10 +16,11 @@
 
     
     
-    {{calculatedDoseFromServer}}
+    <p>Suggested dose: {{calculatedDoseFromServer}}</p>
+    
     
 
-
+    </div>
     <!-- <p v-show="$store.state.userInputSuccess == false">You have not entered your information. Please click here to set your information.</p> -->
 
   </div>
@@ -66,6 +68,33 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.tracker {
+    font-family: sans-serif;
+    color: rgb(56, 56, 56);
+    line-height: 2;
+    grid-area: tracker;
+    padding: 50px;
+    background-color: rgb(162, 223, 223);
+    border-style: outset;
+    justify-content: center;
+}
+.main-grid {
+
+    display: grid;
+    height: 100vh;
+  
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+    ". . ."
+    ". tracker ."
+    ". . ."
+    ". . ."
+    ;
+    
+}
+
+
 
 </style>
