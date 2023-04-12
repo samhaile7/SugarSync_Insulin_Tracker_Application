@@ -8,7 +8,7 @@ import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
 import LogAMeal from '../views/LogAMeal'
-import InsulinDevice from '../views/InsulinDevice.vue'
+import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
 
 Vue.use(Router)
 
@@ -85,11 +85,12 @@ const router = new Router({
     {
       path: "/insulindevice",
       name: "insulindevice",
-      component: InsulinDevice,
+      component: InsulinDeviceUserView,
       meta: {
         requiresAuth: false
       }
-    }
+    },
+
   ]
 })
 
