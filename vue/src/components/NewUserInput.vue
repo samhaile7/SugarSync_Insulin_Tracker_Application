@@ -5,15 +5,15 @@
     <h4>Please enter your information below:</h4>
 
     <form action="" v-on:submit.prevent="postToServer()">
-      <label for="">Base Insulin Level (U/mL)</label>&nbsp;&nbsp;
-      <input type="text" v-model.number="userInput.baseLevel" /><br>
+      <label for="">Base Insulin Level (U/mL): </label>&nbsp;&nbsp;
+      <input required type="text" id="text1" v-model.number="userInput.baseLevel" /><br>
 
-      <label for="">Weight (lbs)</label>&nbsp;&nbsp;
-      <input type="text" v-model.number="userInput.weight" />
+      <label for="">Weight (lbs):</label>&nbsp;&nbsp;
+      <input required type="text" id="text2" v-model.number="userInput.weight" />
 
       <h5>Please select your insulin medication information:</h5>
       <div>
-    <b-form-select v-model="userInput.insulinTypeId" class="dropdown">
+    <b-form-select required v-model="userInput.insulinTypeId" class="dropdown">
       
       <b-form-select-option value="1" >Novolog: U-100, 100 U/mL</b-form-select-option>
       <b-form-select-option value="2" >Novolog: U-200, 200 U/mL</b-form-select-option>
@@ -28,6 +28,7 @@
 
       <button id="submit" type="submit">Submit</button>
     </form>
+    
     </div>
   </div>
 </template>
@@ -42,7 +43,7 @@ export default {
         userId: 0,
         insulinTypeId: 0
       },
-      
+      successmsg: ""
     };
   },
 
@@ -52,11 +53,16 @@ export default {
       UserInputService.addUserInput(this.userInput)
         .then((response) => {
           if (response.status === 201) {
-            this.$router.push({ name: "home" });
+            // this.$router.push({ name: "home" });
+            this.clearForm();
+            alert("Your information was updated successfully!")
             this.$store.state.userInputSuccess = true;
           }
         })
         .catch((err) => console.log(err));
+    },
+    clearForm() {
+      this.userInput = {};
     },
   },
 };
@@ -97,7 +103,7 @@ h1 {
   margin: 5%;
 }
 #submit {
-  
+
 }
 
 

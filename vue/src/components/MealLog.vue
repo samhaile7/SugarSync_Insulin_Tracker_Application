@@ -4,10 +4,10 @@
       <h1 id="header">Log your meal here:</h1>
     
     <form action="" v-on:submit.prevent="postMealToServer()">
-      <label id="numofcarbs" for="">Number of Carbs (grams):</label>
+      <label id="numofcarbs" for="">Number of Carbs (grams):</label>&nbsp;&nbsp;
       <input required type="text" v-model.number="mealInput.numberOfCarbs" /><br>
 
-      <label id="bloodsugar" for="">Blood Sugar at Mealtime (mmol/L):</label>
+      <label id="bloodsugar" for="">Blood Sugar at Mealtime (mmol/L):</label>&nbsp;&nbsp;
       <input required type="text" v-model.number="mealInput.bloodSugarAtMealtime" /><br>
 
     <button type="submit">Submit</button>

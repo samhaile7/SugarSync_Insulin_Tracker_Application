@@ -3,17 +3,23 @@
     <main id="main-grid">
       <div class="sub-grid">
         <div class="site-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Say goodbye to the hassle of managing your insulin doses with
+          SugarSync, the ultimate insulin tracking app. Whether you're living
+          with diabetes or simply need to monitor your insulin intake, SugarSync
+          makes it easy to stay on top of your health. With intuitive features
+          like mealtime reminders, blood sugar logging, and dose tracking, you
+          can be confident that you're taking the right amount of insulin at the
+          right time. Plus, with personalized insights and analytics, you can
+          gain valuable insights into your glucose levels and make informed
+          decisions about your health. Download SugarSync today and take control
+          of your insulin management!
         </div>
         <div class="buttons">
-          <button id="login-button" v-on:click="routeToLogin()" >Login</button><br>
-          <button id="register-button" v-on:click="routeToRegister()" >Register</button>
+          <button id="login-button" v-on:click="routeToLogin()">Login</button
+          ><br />
+          <button id="register-button" v-on:click="routeToRegister()">
+            Register
+          </button>
         </div>
       </div>
       <!-- <img
@@ -21,8 +27,6 @@
           src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg"
           alt=""
         /> -->
-
-        
     </main>
 
     <the-footer />
@@ -39,12 +43,12 @@ export default {
   },
   methods: {
     routeToLogin() {
-      this.$router.push('login')
+      this.$router.push("login");
     },
     routeToRegister() {
-      this.$router.push('register')
-    }
-  }
+      this.$router.push("register");
+    },
+  },
 };
 </script>
 
@@ -75,8 +79,6 @@ h1 {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  
-
 }
 
 #login-button {

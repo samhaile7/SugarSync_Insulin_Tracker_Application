@@ -43,6 +43,7 @@ export default {
   border-color: black;
   border-radius: 75px;
   height: 50vh;
+  margin-bottom: 20px;
   box-shadow: black 10px 10px;
 }
 
@@ -111,6 +112,7 @@ export default {
     margin-top: 6%;
     margin-right: 33%;
     box-shadow: black 10px 10px;
+    margin-bottom: 50px;
   /* padding: 20px;
   width: 100vh;
   height: 150px; */

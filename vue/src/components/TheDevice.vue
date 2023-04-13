@@ -40,6 +40,7 @@ export default {
   background-color: white;
   border-color: black;
   border-radius: 75px;
+  margin-bottom: 20px;
 }
 
 #insulin-info-link {
@@ -101,6 +102,7 @@ export default {
     padding-bottom: 4%;
     margin-top: 6%;
     margin-right: 33%;
+    margin-bottom: 50px;
   /* padding: 20px;
   width: 100vh;
   height: 150px; */
