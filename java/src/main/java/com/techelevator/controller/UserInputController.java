@@ -21,7 +21,7 @@ public class UserInputController {
     }
 
     @ResponseStatus (HttpStatus.CREATED)
-    @RequestMapping(path = "/userinput", method = RequestMethod.POST)
+    @RequestMapping(path = "/insulindevice", method = RequestMethod.POST)
     public UserInput addUserInput(@RequestBody UserInput userInput, Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
         userInput.setUserId(id);

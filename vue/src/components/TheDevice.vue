@@ -40,6 +40,7 @@ export default {
   background-color: white;
   border-color: black;
   border-radius: 75px;
+  height: 500px;
   margin-bottom: 20px;
 }
 
@@ -98,11 +99,12 @@ export default {
     border-radius: 100px;
     border: 2px solid #73AD21;
     margin-left: 33%;
-    padding-top: 4%;
-    padding-bottom: 4%;
-    margin-top: 6%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
     margin-right: 33%;
     margin-bottom: 50px;
+    
   /* padding: 20px;
   width: 100vh;
   height: 150px; */
@@ -113,6 +115,7 @@ export default {
     ". devicescreen devicescreen devicescreen ."
     ". insulinbtn . mealbtn ."
     ". . fakebtn1 . ."
+    
     
   ;
 }

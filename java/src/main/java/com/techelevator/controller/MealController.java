@@ -29,7 +29,7 @@ public class MealController {
     }
 
     @ResponseStatus (HttpStatus.CREATED)
-    @RequestMapping (path = "/meal", method = RequestMethod.POST)
+    @RequestMapping (path = "/insulinmealdevice", method = RequestMethod.POST)
     public Meal addMeal(@RequestBody Meal meal, Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
 

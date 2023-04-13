@@ -1,5 +1,5 @@
-<template>
-  <div class="main-grid">
+<template >
+  <div class="main-grid ">
     <div class="input-grid">
     <h1>Welcome!</h1>
     <h4>Please enter your information below:</h4>
@@ -10,8 +10,7 @@
 
       <label for="">Weight (lbs):</label>&nbsp;&nbsp;
       <input required type="text" id="text2" v-model.number="userInput.weight" />
-      <label for="">Weight (lbs)</label>&nbsp;&nbsp;
-      <input type="text" v-model.number="userInput.weight" /><br>
+
 
       <label for="">Target Range Minimum (mmol/L):</label>
       <input required type="text" v-model.number="userInput.targetRangeMin" /><br>
@@ -139,6 +138,10 @@ h1 {
 }
 #submit {
 
+}
+
+.scrollable {
+  overflow-y: scroll;
 }
 
 

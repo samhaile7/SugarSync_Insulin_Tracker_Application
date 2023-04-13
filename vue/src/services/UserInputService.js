@@ -3,7 +3,7 @@ import axios from "axios";
 export default{
 
 addUserInput(userInput) {
-    return axios.post('/userinput', userInput)
+    return axios.post('/insulindevice', userInput)
 },
 
 getUserInput(id) {
@@ -19,7 +19,7 @@ updateUserInput(userInput) {
 },
 
 addMeal(mealInput) {
-    return axios.post('/meal', mealInput);
+    return axios.post('/insulinmealdevice', mealInput);
 }
 
 
