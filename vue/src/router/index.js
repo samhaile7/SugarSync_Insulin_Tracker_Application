@@ -8,8 +8,10 @@ import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
 // import LogAMeal from '../views/LogAMeal'
-import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
 import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
+//import LogAMeal from '../views/LogAMeal'
+import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
+import MealViewCopy from '../views/MealViewCopy.vue'
 
 Vue.use(Router)
 
@@ -26,6 +28,15 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/mealcopy',
+      name: 'meal-copy',
+      component: MealViewCopy,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
     // {
     //   path: '/meal',
     //   name: 'meal-log',
@@ -43,7 +54,7 @@ const router = new Router({
       }
     },
     {
-      path: '/userinput',
+      path: '/editprofile',
       name: 'edit-profile',
       component: EditProfile,
       meta: {
