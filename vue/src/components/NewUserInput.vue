@@ -9,7 +9,13 @@
       <input type="text" v-model.number="userInput.baseLevel" /><br>
 
       <label for="">Weight (lbs)</label>&nbsp;&nbsp;
-      <input type="text" v-model.number="userInput.weight" />
+      <input type="text" v-model.number="userInput.weight" /><br>
+
+      <label for="">Target Range Minimum (mmol/L):</label>
+      <input required type="text" v-model.number="userInput.targetRangeMin" /><br>
+
+      <label for="">Target Range Maximum (mmol/L):</label>
+      <input required type="text" v-model.number="userInput.targetRangeMax" />
 
       <h5>Please select your insulin medication information:</h5>
       <div>
@@ -40,10 +46,25 @@ export default {
     return {
       userInput: {
         userId: 0,
-        insulinTypeId: 0
+        insulinTypeId: 0,
+        targetRangeMin: 0,
+        targetRangeMax: 0,
+        //criticalLow: criticalLowCalculator(),
+
+
       },
       
     };
+  },
+
+  computed: {
+    criticalLowCalculator() {
+       return this.targetRangeMin - 40;
+    },
+    criticalHighCalculator() {
+      return this.targetRangeMax + 40;
+    }
+   
   },
 
   methods: {
