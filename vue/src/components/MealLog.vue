@@ -61,19 +61,70 @@ export default {
     //     },
     // },
     methods: {
+        // postMealToServer() {
+        //     UserInputService.addMeal(this.mealInput).then((response) => {
+        //         if (response.status === 201) {
+        //             this.calculatedDoseFromServer = response.data.suggestedDose;
+                    
+        //             //display suggested dose ad don't actually push to home
+        //         }
+        //     }).catch((err) => console.log(err));
+        // },
+
+        
         postMealToServer() {
             UserInputService.addMeal(this.mealInput).then((response) => {
                 if (response.status === 201) {
                     this.calculatedDoseFromServer = response.data.suggestedDose;
-                    
-                    //display suggested dose ad don't actually push to home
+                    this.getTargetRange(response.data);    
                 }
             }).catch((err) => console.log(err));
         },
 
+        getTargetRange(mealInput) {
+            UserInputService.getUserInputTest().then((response) => {
+                if (response.status === 200) {
+                    this.userInput = response.data;
+                    this.currentTargetMinFromServer = response.data.targetRangeMin;
+                    this.currentTargetMaxFromServer = response.data.targetRangeMax;
+                    
+                    if (mealInput.bloodSugarAtMealtime < response.data.targetRangeMin &&
+                        mealInput.bloodSugarAtMealtime > response.data.criticalLow) {
+                            this.$store.state.displayLowWarningMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
+                        }
+                    if (mealInput.bloodSugarAtMealtime <= response.data.criticalLow) {
+                            this.$store.state.displayLowAlertMessage = true;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
+                    }
+                    if (mealInput.bloodSugarAtMealtime > response.data.targetRangeMax && 
+                        mealInput.bloodSugarAtMealtime < response.data.criticalHigh) {
+                            this.$store.state.displayHighWarningMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
+                        }
+                    if (mealInput.bloodSugarAtMealtime >= response.data.criticalHigh) {
+                            this.$store.state.displayHighAlertMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                    }
+                
+                   else  {this.$store.state.displayLowAlertMessage == false && this.$store.state.displayLowWarningMessage == false
+                            && this.$store.state.displayHighWarningMessage == false && this.$store.state.displayHighAlertMessage == false;}
+                }
+            }).catch((err) => console.log(err));
+        },
     }
 
-}
+    }
+
+
 </script>
 
 <style scoped>

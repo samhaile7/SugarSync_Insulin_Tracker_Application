@@ -1,7 +1,17 @@
 <template>
+
+
   <div>
    
-      
+       <div id= "alert">
+        <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
+       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
+       <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
+       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
+       
+       </div>
+
+    
     <div class="deviceborder">
 
       <div class="devicescreen">
@@ -126,7 +136,55 @@ export default {
   ;
 }
 
+.speech-red-bubble {
+	position: relative;
+	background: #f20202;
+	border-radius: .4em;
+  display: inline;
+}
 
+.speech-red-bubble:after {
+  margin-top: 50%;
+  display: inline;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 71px solid transparent;
+	border-left-color: #f20202;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -35.5px;
+	margin-right: -71px;
+}
+
+.speech-yellow-bubble {
+	position: relative;
+	background: #ff9500;
+	border-radius: .4em;
+}
+
+.speech-yellow-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 71px solid transparent;
+	border-left-color: #ff9500;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -35.5px;
+	margin-right: -71px;
+}
+
+#alert {
+  display: flex;
+  
+}
 
 
 

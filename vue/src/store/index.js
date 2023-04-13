@@ -21,6 +21,10 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     userInputSuccess: false,
+    displayHighAlertMessage: false, 
+    displayHighWarningMessage: false,
+    displayLowAlertMessage: false, 
+    displayLowWarningMessage: false,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,6 +42,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+      state.displayHighAlertMessage=  false, 
+    state.displayHighWarningMessage= false,
+    state.displayLowAlertMessage= false, 
+    state.displayLowWarningMessage= false
     }
   }
 })
