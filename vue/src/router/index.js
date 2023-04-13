@@ -7,8 +7,9 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
-import LogAMeal from '../views/LogAMeal'
+// import LogAMeal from '../views/LogAMeal'
 import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
+import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
 
 Vue.use(Router)
 
@@ -25,14 +26,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/meal',
-      name: 'meal-log',
-      component: LogAMeal,
-      meta: {
-        requiresAuth: false
-      }
-    },
+    // {
+    //   path: '/meal',
+    //   name: 'meal-log',
+    //   component: LogAMeal,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
     {
       path: '/userinput',
       name: 'new-user',
@@ -86,6 +87,14 @@ const router = new Router({
       path: "/insulindevice",
       name: "insulindevice",
       component: InsulinDeviceUserView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/insulinmealdevice",
+      name: "insulinmealdevice",
+      component: AddMealDeviceUserView,
       meta: {
         requiresAuth: false
       }

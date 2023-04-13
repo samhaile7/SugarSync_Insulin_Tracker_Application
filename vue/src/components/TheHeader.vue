@@ -11,9 +11,6 @@
       <router-link id="edit-profile-link" v-bind:to="{ name: 'new-user' }"
         >Edit Profile</router-link
       >&nbsp;&nbsp;
-      <router-link id="add-meal-link" v-bind:to="{ name: 'meal-log' }"
-        >Add a Meal</router-link
-      >&nbsp;&nbsp;
       <router-link
         class="logbuttons"
         id="logout-link"

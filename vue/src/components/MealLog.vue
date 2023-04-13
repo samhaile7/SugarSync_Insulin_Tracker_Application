@@ -1,13 +1,13 @@
 <template>
   <div class="main-grid">
-      <div class="tracker" style="overflow-y:scroll;">
-      <h1>Log your meal here:</h1>
+      <div class="tracker">
+      <h1 id="header">Log your meal here:</h1>
     
     <form action="" v-on:submit.prevent="postMealToServer()">
-      <label for="">Number of Carbs (grams):</label>
+      <label id="numofcarbs" for="">Number of Carbs (grams):</label>
       <input required type="text" v-model.number="mealInput.numberOfCarbs" /><br>
 
-      <label for="">Blood Sugar at Mealtime (mmol/L):</label>
+      <label id="bloodsugar" for="">Blood Sugar at Mealtime (mmol/L):</label>
       <input required type="text" v-model.number="mealInput.bloodSugarAtMealtime" /><br>
 
     <button type="submit">Submit</button>
@@ -72,36 +72,19 @@ export default {
 
 <style scoped>
 
-#itrack {
-    grid-area: itrack;
-
+#header {
+    text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.tracker {
-    font-family: sans-serif;
-    color: rgb(56, 56, 56);
-    line-height: 2;
-    grid-area: tracker;
-    padding: 50px;
-    background-color: rgb(177, 252, 252);
-    border-style: outset;
-    justify-content: center;
+.main-grid { 
+  margin: 5%;
 }
-.main-grid {
 
-    display: grid;
-    height: 100vh;
-  
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: 
-    ". . ."
-    ". tracker ."
-    ". . ."
-    ". . ."
-    ;
-    
-    
+input {
+    width: 30%;
 }
+
 
 
 

@@ -2,7 +2,7 @@
   <div class="main-grid">
     <div class="input-grid">
     <h1>Welcome!</h1>
-    <h3>Please enter your information below:</h3>
+    <h4>Please enter your information below:</h4>
 
     <form action="" v-on:submit.prevent="postToServer()">
       <label for="">Base Insulin Level (U/mL)</label>&nbsp;&nbsp;
@@ -11,9 +11,9 @@
       <label for="">Weight (lbs)</label>&nbsp;&nbsp;
       <input type="text" v-model.number="userInput.weight" />
 
-      <h4>Please select your insulin medication information:</h4>
+      <h5>Please select your insulin medication information:</h5>
       <div>
-    <b-form-select v-model="userInput.insulinTypeId" class="mb-3">
+    <b-form-select v-model="userInput.insulinTypeId" class="dropdown">
       
       <b-form-select-option value="1" >Novolog: U-100, 100 U/mL</b-form-select-option>
       <b-form-select-option value="2" >Novolog: U-200, 200 U/mL</b-form-select-option>
@@ -26,7 +26,7 @@
     
   </div>
 
-      <button type="submit">Submit</button>
+      <button id="submit" type="submit">Submit</button>
     </form>
     </div>
   </div>
@@ -84,6 +84,21 @@ export default {
   ". . ."
   ;
 } */
+
+h1 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropdown {
+  max-width: 65%;
+}
+.input-grid {
+  margin: 5%;
+}
+#submit {
+  
+}
 
 
 

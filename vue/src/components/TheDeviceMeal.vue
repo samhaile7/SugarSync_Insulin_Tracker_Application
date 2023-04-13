@@ -7,11 +7,11 @@
 
 
       <div class="devicescreen">
-          <new-user-input></new-user-input>
+          <meal-log/>
        </div>
 
         <router-link id="insulin-info-link" v-bind:to="{name: 'insulindevice'}">Insulin Info</router-link>
-        <router-link id="add-meal-link" v-bind:to="{name: 'insulinmealdevice'}" >Add Meal</router-link>
+        <router-link id="add-meal-link" v-bind:to="{name: 'insulinmealdevice'}">Add Meal</router-link>
         <button class="fakebtn" id="fakebtn1"></button>
         <!-- <button class="fakebtn" id="fakebtn2"></button> -->
         
@@ -21,13 +21,15 @@
 </template>
 
 <script>
-import NewUserInput from './NewUserInput.vue'
+import MealLog from './MealLog.vue'
+
 
 export default {
   components: {
-      NewUserInput,
       
-   },
+      
+  
+    MealLog },
 
 }
     
@@ -40,6 +42,8 @@ export default {
   background-color: white;
   border-color: black;
   border-radius: 75px;
+  height: 50vh;
+  box-shadow: black 10px 10px;
 }
 
 #insulin-info-link {
@@ -57,6 +61,8 @@ export default {
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
+  margin-top: 25px;
+  box-shadow: black 5px 5px;
 }
 
 #add-meal-link {
@@ -74,8 +80,9 @@ export default {
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
+  margin-top: 25px;
+  box-shadow: black 5px 5px;
 }
-
 
 
 #fakebtn1 {
@@ -86,6 +93,8 @@ export default {
   width: 50px;
   justify-content: center;
   align-content: center;
+  box-shadow: black 5px 5px;
+
  
 }
 
@@ -101,6 +110,7 @@ export default {
     padding-bottom: 4%;
     margin-top: 6%;
     margin-right: 33%;
+    box-shadow: black 10px 10px;
   /* padding: 20px;
   width: 100vh;
   height: 150px; */
