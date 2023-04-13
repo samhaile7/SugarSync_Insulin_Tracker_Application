@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.UserInputDao;
+import com.techelevator.model.DoseCalculatorService;
 import com.techelevator.model.UserInput;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.security.Principal;
 public class UserInputController {
 
     private UserInputDao userInputDao;
+    private DoseCalculatorService doseCalculator = new DoseCalculatorService();
 
     public UserInputController(UserInputDao userInputDao) {
         this.userInputDao = userInputDao;
@@ -23,7 +25,9 @@ public class UserInputController {
     public UserInput addUserInput(@RequestBody UserInput userInput, Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
         userInput.setUserId(id);
-        return userInputDao.addUserInput(userInput);
+       UserInput userInputWithUpdatedCriticalValues =  doseCalculator.setCriticalTresholds(userInput);
+
+        return userInputDao.addUserInput(userInputWithUpdatedCriticalValues);
     }
 
 

@@ -49,27 +49,39 @@ export default {
         insulinTypeId: 0,
         targetRangeMin: 0,
         targetRangeMax: 0,
+        criticalLow : 0,
+        criticalHigh: 0
+        
         //criticalLow: criticalLowCalculator(),
-
+/* userInput: {
+        userId: 0,
+        insulinTypeId: 0,
+        targetRangeMin: 0,
+        targetRangeMax: 0,
+        criticalLow : this.userInput.targetRangeMin - 40,
+        criticaLHigh: this.userInput.targetRangeMax + 40
+      }, */
 
       },
       
     };
   },
 
-  computed: {
-    criticalLowCalculator() {
-       return this.targetRangeMin - 40;
-    },
-    criticalHighCalculator() {
-      return this.targetRangeMax + 40;
-    }
+  // computed: {
+  //   criticalLowCalculator() {
+  //      return this.targetRangeMin - 40;
+  //   },
+  //   criticalHighCalculator() {
+  //     return this.targetRangeMax + 40;
+  //   }
    
-  },
+  // },
 
   methods: {
     postToServer() {
       //const userId = this.$route.params.id;
+      // this.userInput.criticalLow = this.userInput.targetRangeMin + this.userInput.criticalLow,
+      // this.userInput.criticalHigh =  this.userInput.targetRangeMax + this.userInput.criticalHigh
       UserInputService.addUserInput(this.userInput)
         .then((response) => {
           if (response.status === 201) {
