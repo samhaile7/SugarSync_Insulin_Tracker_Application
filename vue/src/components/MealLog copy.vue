@@ -3,10 +3,7 @@
        <h1> Alerts here </h1>
        <p>Target Min: {{currentTargetMinFromServer}}</p>
        <p>Target Max: {{currentTargetMaxFromServer}}</p>
-       <p v-if="displayLowWarningMessage">Blood Sugar is Lower than Range</p>
-       <p v-if="displayLowAlertMessage">Blood Sugar is Critcially Low</p>
-       <p v-if="displayHighWarningMessage">Blood Sugar is Higher than Range</p>
-       <p v-if="displayHighAlertMessage">Blood Sugar is Critically High</p>
+
        
       <div class="tracker" style="overflow-y:scroll;">
  

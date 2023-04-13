@@ -111,6 +111,7 @@ export default {
     margin-right: 33%;
     box-shadow: black 10px 10px;
     margin-bottom: 50px;
+    width: 40%;
   /* padding: 20px;
   width: 100vh;
   height: 150px; */
