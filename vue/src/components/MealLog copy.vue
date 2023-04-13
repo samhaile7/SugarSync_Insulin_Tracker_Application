@@ -3,10 +3,13 @@
        <h1> Alerts here </h1>
        <p>Target Min: {{currentTargetMinFromServer}}</p>
        <p>Target Max: {{currentTargetMaxFromServer}}</p>
-       <p v-if="displayLowWarningMessage">Blood Sugar is Lower than Range</p>
-       <p v-if="displayLowAlertMessage">Blood Sugar is Critcially Low</p>
-       <p v-if="displayHighWarningMessage">Blood Sugar is Higher than Range</p>
-       <p v-if="displayHighAlertMessage">Blood Sugar is Critically High</p>
+       <div>
+       <p v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
+       <p v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
+       <p v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
+       <p v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
+       <p>Test sentence here. </p>
+       </div>
        
       <div class="tracker" style="overflow-y:scroll;">
  
@@ -74,33 +77,33 @@ export default {
                     
                     if (mealInput.bloodSugarAtMealtime < response.data.targetRangeMin &&
                         mealInput.bloodSugarAtMealtime > response.data.criticalLow) {
-                            this.displayLowWarningMessage = true;
-                            this.displayLowAlertMessage = false;
-                            this.displayHighWarningMessage = false;
-                            this.displayHighAlertMessage = false;
+                            this.$store.state.displayLowWarningMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
                         }
                     if (mealInput.bloodSugarAtMealtime <= response.data.criticalLow) {
-                            this.displayLowAlertMessage = true;
-                            this.displayLowWarningMessage = false;
-                            this.displayHighWarningMessage = false;
-                            this.displayHighAlertMessage = false;
+                            this.$store.state.displayLowAlertMessage = true;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
                     }
                     if (mealInput.bloodSugarAtMealtime > response.data.targetRangeMax && 
                         mealInput.bloodSugarAtMealtime < response.data.criticalHigh) {
-                            this.displayHighWarningMessage = true;
-                            this.displayLowAlertMessage = false;
-                            this.displayLowWarningMessage = false;
-                            this.displayHighAlertMessage = false;
+                            this.$store.state.displayHighWarningMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
                         }
                     if (mealInput.bloodSugarAtMealtime >= response.data.criticalHigh) {
-                            this.displayHighAlertMessage = true;
-                            this.displayLowAlertMessage = false;
-                            this.displayLowWarningMessage = false;
-                            this.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
                     }
                 
-                   else  {this.displayLowAlertMessage == false && this.displayLowWarningMessage == false
-                            && this.displayHighWarningMessage == false && this.displayHighAlertMessage == false;}
+                   else  {this.$store.state.displayLowAlertMessage == false && this.$store.state.displayLowWarningMessage == false
+                            && this.$store.state.displayHighWarningMessage == false && this.$store.state.displayHighAlertMessage == false;}
                 }
             }).catch((err) => console.log(err));
         },
