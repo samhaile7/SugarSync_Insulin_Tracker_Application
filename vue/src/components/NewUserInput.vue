@@ -5,13 +5,13 @@
     <h3>Please enter your information below:</h3>
 
     <form action="" v-on:submit.prevent="postToServer()">
-      <label for="">Base Insulin Level </label>&nbsp;&nbsp;
+      <label for="">Base Insulin Level (U/mL)</label>&nbsp;&nbsp;
       <input type="text" v-model.number="userInput.baseLevel" /><br>
 
-      <label for="">Weight (in lbs)</label>&nbsp;&nbsp;
+      <label for="">Weight (lbs)</label>&nbsp;&nbsp;
       <input type="text" v-model.number="userInput.weight" />
 
-      <h4>Please select your insulin information:</h4>
+      <h4>Please select your insulin medication information:</h4>
       <div>
     <b-form-select v-model="userInput.insulinTypeId" class="mb-3">
       
