@@ -12,10 +12,10 @@
       <input required type="text" id="text2" v-model.number="userInput.weight" />
 
 
-      <label for="">Target Range Minimum (mmol/L):</label>
+      <label for="">Minimum Blood Sugar Range (mmol/L):</label>&nbsp;&nbsp;
       <input required type="text" v-model.number="userInput.targetRangeMin" /><br>
 
-      <label for="">Target Range Maximum (mmol/L):</label>
+      <label for="">Maximum Blood Sugar Range (mmol/L):</label>&nbsp;&nbsp;
       <input required type="text" v-model.number="userInput.targetRangeMax" />
 
       <h5>Please select your insulin medication information:</h5>
@@ -138,6 +138,10 @@ h1 {
 }
 #submit {
 
+}
+
+input {
+  
 }
 
 .scrollable {

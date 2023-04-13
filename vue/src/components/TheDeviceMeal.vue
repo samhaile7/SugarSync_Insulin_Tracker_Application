@@ -3,8 +3,6 @@
    
       
     <div class="deviceborder">
-        
-
 
       <div class="devicescreen">
           <meal-log/>
