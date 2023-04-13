@@ -7,8 +7,9 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
-import LogAMeal from '../views/LogAMeal'
+//import LogAMeal from '../views/LogAMeal'
 import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
+import MealViewCopy from '../views/MealViewCopy.vue'
 
 Vue.use(Router)
 
@@ -26,13 +27,22 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/meal',
-      name: 'meal-log',
-      component: LogAMeal,
+      path: '/mealcopy',
+      name: 'meal-copy',
+      component: MealViewCopy,
       meta: {
         requiresAuth: false
       }
     },
+
+    // {
+    //   path: '/meal',
+    //   name: 'meal-log',
+    //   component: LogAMeal,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
     {
       path: '/userinput',
       name: 'new-user',
