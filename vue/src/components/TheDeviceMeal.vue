@@ -3,13 +3,12 @@
 
   <div>
    
-       <div>
+       <div id= "alert">
         <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
        <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
        <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
        <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
        
-<p>Test sentence here. </p>
        </div>
 
     
@@ -142,9 +141,12 @@ export default {
 	position: relative;
 	background: #f20202;
 	border-radius: .4em;
+  display: inline;
 }
 
 .speech-red-bubble:after {
+  margin-top: 50%;
+  display: inline;
 	content: '';
 	position: absolute;
 	right: 0;
@@ -180,6 +182,10 @@ export default {
 	margin-right: -71px;
 }
 
+#alert {
+  display: flex;
+  
+}
 
 
 
