@@ -11,7 +11,8 @@
     
       <router-link id="home-link" v-bind:to="{ name: 'home' }">Home</router-link
       >&nbsp;&nbsp;
-      <router-link
+      
+      <router-link 
         class="logbuttons"
         id="logout-link"
         v-bind:to="{ name: 'logout' }"
@@ -47,17 +48,28 @@ export default {
 
 #logo {
   grid-area: logo;
-  width: 25%;
+  width: 10%;
 }
 
 #home-link {
   grid-area: home-link;
+  display: flex;
+  color: rgb(252,141,62);
+  font-weight: bold;
+  font-size: 1.5em;
+  justify-content: center;
+  margin-top: 3%;
 }
 #edit-profile-link {
   grid-area: edit-profile-link;
+  margin-top: 3%;
 }
 #logout-link {
   grid-area: logout-link;
+  color: rgb(252,141,62);
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 3%;
 }
 #login-link {
   grid-area: login-link;
@@ -67,11 +79,15 @@ export default {
 }
 
 #header-grid {
-  background-color: rgb(254, 204, 152);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "logo home-link edit-profile-link add-meal-link login-link";
+   background-color: rgb(52, 61, 182); /* For browsers that do not support gradients */
+  background-image: linear-gradient( rgb(138, 175, 255),rgb(157,207,237));
+  display: flex;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "logo home-link edit-profile-link add-meal-link login-link"; */
+  justify-content: space-around;
+  align-content: space-between;
 
   max-width: 100%;
 }
+  
 </style>
