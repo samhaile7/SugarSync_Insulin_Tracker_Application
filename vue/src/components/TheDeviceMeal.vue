@@ -115,11 +115,11 @@ export default {
     display: grid;
     border-radius: 100px;
     border: 2px solid #73AD21;
-    margin-left: 33%;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 4%;
     padding-bottom: 4%;
     margin-top: 6%;
-    margin-right: 33%;
     box-shadow: black 10px 10px;
     margin-bottom: 50px;
     width: 40%;

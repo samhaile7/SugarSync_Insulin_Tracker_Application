@@ -88,6 +88,7 @@ export default {
   width: 50px;
   justify-content: center;
   align-content: center;
+  margin-left: 35%
  
 }
 
@@ -97,13 +98,14 @@ export default {
   background-color: rgb(101, 155, 236);
     display: grid;
     border-radius: 100px;
-    border: 2px solid #73AD21;
-    margin-left: 33%;
+    border: 2px solid #FECC98;
     padding-top: 2%;
     padding-bottom: 2%;
     margin-top: 3%;
-    margin-right: 33%;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
     
   /* padding: 20px;
   width: 100vh;

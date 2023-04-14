@@ -2,7 +2,7 @@
   <div id="app">
     <the-header />
     
-    <router-view />
+    <router-view class="page-view" />
     <the-footer/>
   </div>
 </template>
@@ -21,5 +21,15 @@ export default {
   
 }
 </script>
+
+<style scoped>
+/* 
+.page-view {
+  margin: auto
+
+} */
+
+</style>
+
 
 
