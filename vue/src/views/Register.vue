@@ -3,9 +3,7 @@
 
     <section
       class="vh-100 bg-image"
-      style="
-        background-image: url('https://images.pexels.com/photos/6941882/pexels-photo-6941882.jpeg');
-      "
+      
     >
       <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
@@ -153,12 +151,16 @@ label {
   margin-right: 0.5rem;
 }
 
-.bg-image {
-  background-image: url('https://images.pexels.com/photos/6941882/pexels-photo-6941882.jpeg');
-  background-size: 1150px;
-  zoom: 100%; 
-  
+.vh-100 {
+  background-image: url("https://images.pexels.com/photos/6941882/pexels-photo-6941882.jpeg");
+  background-color: transparent;
+  justify-content: space-evenly;
+  background-size: cover;
+  /*background-size: 1150px;*/
+  height: 100vh;
+
 }
+
 .btn-success{
   background-color: #FD7F00;
   border-color: #FD7F00;
