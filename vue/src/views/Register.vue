@@ -1,25 +1,5 @@
 <template>
   <div id="register" class="text-center">
-    <!-- <form @submit.prevent="register">
-      <h1>Create Account</h1>
-      <div role="alert" v-if="registrationErrors">
-        {{ registrationErrorMsg }}
-      </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
-      </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
-      </div>
-      <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
-      </div>
-      <button type="submit">Create Account</button>
-      <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
-    </form> -->
 
     <section
       class="vh-100 bg-image"
@@ -95,7 +75,7 @@
                           btn btn-success btn-block btn-lg
                           gradient-custom-4
                           text-body
-                        "
+                        " 
                       >
                         Register
                       </button>
@@ -182,14 +162,26 @@ label {
 .btn-success{
   background-color: #FD7F00;
   border-color: #FD7F00;
-  
 
 }
-
 .btn-success:hover {
   background-color: #FD6600;
   border-color: #FD6600;
   
+}
+.btn-success:active {
+  background-color: #FD6600;
+  border-color: #FD6600;
+  
+}
+
+/* [v-cloak] {
+  display: none;
+
+} */
+.text-center {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 </style>
