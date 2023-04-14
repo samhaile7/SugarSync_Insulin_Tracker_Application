@@ -7,6 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,11 @@ public class JdbcMealDao implements MealDao {
 
     @Override
     public Meal addMeal(Meal incomingMeal) {
-        String sql = "INSERT INTO meal (user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose) VALUES (?, ?, ?, ?) " +
-                " RETURNING meal_id;";
+        incomingMeal.setDateCreated(LocalDate.now());
+        String sql = "INSERT INTO meal (user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created) VALUES (?, ?, ?, ?, ?) " +
+                "RETURNING meal_id;";
         Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, incomingMeal.getUserId(), incomingMeal.getNumberOfCarbs(),
-                incomingMeal.getBloodSugarAtMealtime(), incomingMeal.getSuggestedDose());
+                incomingMeal.getBloodSugarAtMealtime(), incomingMeal.getSuggestedDose(), incomingMeal.getDateCreated());
 
         incomingMeal.setMealId(mealId);
 

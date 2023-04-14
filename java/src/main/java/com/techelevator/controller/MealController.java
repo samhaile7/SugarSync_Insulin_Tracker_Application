@@ -31,6 +31,7 @@ public class MealController {
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping (path = "/insulinmealdevice", method = RequestMethod.POST)
     public Meal addMeal(@RequestBody Meal meal, Principal principal) {
+        //add error catching for null pointer exception in case user is not logged in and principal is null
         int id = userInputDao.findIdByUsername(principal.getName());
 
         meal.setUserId(id);

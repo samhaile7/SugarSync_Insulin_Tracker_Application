@@ -21,6 +21,7 @@ CREATE TABLE meal (
 	number_of_carbs int,
 	blood_sugar_at_mealtime decimal,
 	suggested_dose decimal,
+	date_created date,
 	CONSTRAINT PK_meal PRIMARY KEY (meal_id),
 	CONSTRAINT FK_meal_users FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
