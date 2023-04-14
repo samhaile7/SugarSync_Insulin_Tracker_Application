@@ -1,15 +1,15 @@
 <template>
   <div>
     <main id="header-grid">
-      <img
+      <!-- image being clicked to route to home does not work now -->
+      <img 
+        v-on:click="routeToHome"
         id="logo"
         src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681440554/capstone_assets/sugarsync_1_j4p8yx.png"
         alt=""
       />
+    
       <router-link id="home-link" v-bind:to="{ name: 'home' }">Home</router-link
-      >&nbsp;&nbsp;
-      <router-link id="edit-profile-link" v-bind:to="{ name: 'new-user' }"
-        >Edit Profile</router-link
       >&nbsp;&nbsp;
       <router-link
         class="logbuttons"
@@ -32,6 +32,11 @@
 <script>
 export default {
   name: "the-header",
+  methods: {
+    routeToHome() {
+      this.$router.push({name: 'home'})
+    }
+  }
 };
 </script>
 

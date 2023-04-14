@@ -5,7 +5,6 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import EditProfile from '../views/EditProfile.vue'
 import NewUser from '../views/NewUser.vue'
 // import LogAMeal from '../views/LogAMeal'
 import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
@@ -53,15 +52,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    {
-      path: '/editprofile',
-      name: 'edit-profile',
-      component: EditProfile,
-      meta: {
-        requiresAuth: false
-      }
-    },
-
     {
       path: '/',
       name: 'home',
