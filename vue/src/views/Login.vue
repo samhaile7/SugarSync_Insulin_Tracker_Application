@@ -110,7 +110,7 @@
           </div>
           <div class="col-sm-6 px-0 d-none d-sm-block">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
+              src="../assets/verticaldiabietesphoto.png"
               alt="Login image"
               class="w-100 vh-100"
               style="object-fit: cover; object-position: left"
@@ -182,4 +182,35 @@ background-size: auto 100%;
 height: 100%;
 }
 }
+
+.btn-lg:hover {
+  background-color: #0141CF;
+  border-color: #0141CF;
+
+}
+
+.btn-lg {
+  background-color: #1874D2;
+  border-color: #1874D2;
+  
+}
+
+.fw-normal {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+.form-label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+#login {
+ 
+
+}
+
+
+
+
 </style>
