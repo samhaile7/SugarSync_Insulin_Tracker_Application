@@ -36,11 +36,13 @@ public class JdbcInsulinTypeDao implements InsulinTypeDao {
 
     @Override
     public int getInsulinStrengthOfCurrentUser(int userId) {
-        String sql = "SELECT insulin_strength  " +
-                "FROM insulin_type " +
-                "JOIN user_input " +
+        String sql = "SELECT insulin_strength   " +
+                "FROM insulin_type  " +
+                "JOIN user_input  " +
                 "ON user_input.insulin_type_id = insulin_type.insulin_type_id " +
-                "WHERE user_id = ?; ";
+                "WHERE user_id = ? " +
+                "ORDER BY input_id DESC " +
+                "LIMIT 1; ";
         Integer strength = jdbcTemplate.queryForObject(sql, Integer.class, userId);
 
         return strength;

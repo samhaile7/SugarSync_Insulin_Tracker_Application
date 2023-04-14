@@ -142,6 +142,7 @@ export default {
 	background: #f20202;
 	border-radius: .4em;
   display: inline;
+      padding: 5vh;
 }
 
 .speech-red-bubble:after {
@@ -165,6 +166,7 @@ export default {
 	position: relative;
 	background: #ff9500;
 	border-radius: .4em;
+       padding: 5vh;
 }
 
 .speech-yellow-bubble:after {
@@ -174,12 +176,14 @@ export default {
 	top: 50%;
 	width: 0;
 	height: 0;
-	border: 71px solid transparent;
+	border: 54px solid transparent;
 	border-left-color: #ff9500;
 	border-right: 0;
 	border-bottom: 0;
-	margin-top: -35.5px;
-	margin-right: -71px;
+	margin-top: -27px;
+	margin-right: -54px;
+ 
+
 }
 
 
@@ -187,6 +191,7 @@ export default {
 	position: relative;
 	background: #086e0d;
 	border-radius: .4em;
+      padding: 5vh;
 }
 
 .speech-green-bubble:after {
@@ -205,7 +210,8 @@ export default {
 }
 
 #alert {
-  display: flex;
+  display: grid;
+  grid-area: alert;
   
 }
 
