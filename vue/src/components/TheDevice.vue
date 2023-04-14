@@ -95,7 +95,7 @@ export default {
 
 
 .deviceborder {
-  background-color: rgb(101, 155, 236);
+  background-color: #8aaffe;
     display: grid;
     border-radius: 100px;
     border: 2px solid #FECC98;
