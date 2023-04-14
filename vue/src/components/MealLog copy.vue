@@ -3,6 +3,7 @@
        <h1> Alerts here </h1>
        <p>Target Min: {{currentTargetMinFromServer}}</p>
        <p>Target Max: {{currentTargetMaxFromServer}}</p>
+
        <div>
        <p v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
        <p v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>

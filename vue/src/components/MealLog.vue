@@ -39,13 +39,19 @@ export default {
                  mealId: 0,
                  userId: 0,
                  suggestedDose: 0
-
             },
-            calculatedDoseFromServer: 0,
-           
-            
+            userInput: {},
+
+            calculatedDoseFromServer: NaN,
+            currentTargetMinFromServer: NaN,
+            currentTargetMaxFromServer: NaN,
+            displayHighAlertMessage: false, 
+            displayHighWarningMessage: false,
+            displayLowAlertMessage: false, 
+            displayLowWarningMessage: false,
         }
     },
+
     // computed: {
     //     calculatedDoseFromServer: 0,
     //     calculateDose() {
