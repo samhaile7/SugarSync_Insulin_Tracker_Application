@@ -3,7 +3,7 @@
     <main id="header-grid">
       <img
         id="logo"
-        src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681228697/capstone_assets/alogo-1_eh6fli.webp"
+        src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681440554/capstone_assets/sugarsync_1_j4p8yx.png"
         alt=""
       />
       <router-link id="home-link" v-bind:to="{ name: 'home' }">Home</router-link
