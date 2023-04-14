@@ -47,7 +47,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public Meal getMealById(int mealId) {
         Meal meal = null;
-        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose FROM meal" +
+        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created FROM meal" +
                 " WHERE meal_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
@@ -61,7 +61,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public List<Meal> getAllMealsByUserId(int userId) {
         List<Meal> allMeals = new ArrayList<>();
-        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose FROM meal" +
+        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created FROM meal" +
                 " WHERE user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
@@ -82,7 +82,8 @@ public class JdbcMealDao implements MealDao {
         newMeal.setUserId(row.getInt("user_id"));
         newMeal.setNumberOfCarbs(row.getInt("number_of_carbs"));
         newMeal.setBloodSugarAtMealtime(row.getInt("blood_sugar_at_mealtime"));
-        newMeal.setSuggestedDose(row.getInt("suggested_dose"));
+        newMeal.setSuggestedDose(row.getDouble("suggested_dose"));
+        newMeal.setDateCreated(row.getDate("date_created").toLocalDate());
 
         return newMeal;
     }
