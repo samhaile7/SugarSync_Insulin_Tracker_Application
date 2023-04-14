@@ -44,9 +44,10 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
       state.displayHighAlertMessage=  false, 
-    state.displayHighWarningMessage= false,
-    state.displayLowAlertMessage= false, 
-    state.displayLowWarningMessage= false
+      state.displayHighWarningMessage= false,
+      state.displayLowAlertMessage= false, 
+      state.displayLowWarningMessage= false,
+      state.displayNormalMessage = false
     }
   }
 })
