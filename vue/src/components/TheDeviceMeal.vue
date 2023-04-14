@@ -4,11 +4,11 @@
   <div class = "parent-container">
    
        <div id= "alert">
-        <p class = " speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is <br> Lower than Range</p>
-       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is<br> Critcially Low</p>
-       <p class ="speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher <br> than Range</p>
-       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is <br> Critically High</p>
-        <p class = "  speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage">Blood Sugar is Within <br> Normal Range</p>
+        <p class = " speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is<br>Lower than Range   </p>
+       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage"          >Blood Sugar is<br> Critcially Low    </p>
+       <p class ="speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage"  >Blood Sugar is<br>Higher than Range  </p>
+       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage"        >Blood Sugar is<br>Critically High    </p>
+        <p class = "  speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage"     >Blood Sugar is<br>Within Normal Range</p>
        
        </div>
 
@@ -194,9 +194,8 @@ content: '';
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    margin-left: 5%;
    margin-top: 5%;
+   box-shadow: 10px 10px 5px gray;
   /* margin-right: 30%;  */
-
-  
 }
 
 .speech-yellow-bubble:after {
@@ -212,8 +211,6 @@ content: '';
 	border-bottom: 0;
 	margin-top: -23.5px;
 	margin-right: -47px;
- 
-
 }
 
 
@@ -221,14 +218,15 @@ content: '';
 	position: absolute;
 	background: #086e0d;
 	border-radius: .4em;
-       padding: 5vh;
-        text-align: center;
+  padding: 5vh;
+  text-align: center;
   color: black;
   font-weight: bold;
   font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin-left: 5%;
-   margin-top: 5%;
+  margin-left: 5%;
+  margin-top: 5%;
+  box-shadow: 10px 10px 5px gray;
 }
 
 .speech-green-bubble:after {
