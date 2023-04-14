@@ -8,6 +8,7 @@
        <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
        <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
        <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
+        <p class = " speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage">Blood Sugar is Within Normal Range</p>
        
        </div>
 
@@ -176,6 +177,28 @@ export default {
 	height: 0;
 	border: 71px solid transparent;
 	border-left-color: #ff9500;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -35.5px;
+	margin-right: -71px;
+}
+
+
+.speech-green-bubble {
+	position: relative;
+	background: #086e0d;
+	border-radius: .4em;
+}
+
+.speech-green-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 71px solid transparent;
+	border-left-color: #086e0d;
 	border-right: 0;
 	border-bottom: 0;
 	margin-top: -35.5px;

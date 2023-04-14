@@ -8,7 +8,7 @@
        <p v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
        <p v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
        <p v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
-       <p>Test sentence here. </p>
+       
        </div>
        
       <div class="tracker" style="overflow-y:scroll;">
@@ -78,6 +78,13 @@ export default {
                     if (mealInput.bloodSugarAtMealtime < response.data.targetRangeMin &&
                         mealInput.bloodSugarAtMealtime > response.data.criticalLow) {
                             this.$store.state.displayLowWarningMessage = true;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
+                        }
+                    if (mealInput.bloodSugarAtMealtime > response.data.targetRangeMin &&
+                        mealInput.bloodSugarAtMealtime < response.data.targetRangeMax) {
+                            this.$store.state.displayLowWarningMessage = false;
                             this.$store.state.displayLowAlertMessage = false;
                             this.$store.state.displayHighWarningMessage = false;
                             this.$store.state.displayHighAlertMessage = false;

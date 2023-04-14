@@ -25,6 +25,7 @@ export default new Vuex.Store({
     displayHighWarningMessage: false,
     displayLowAlertMessage: false, 
     displayLowWarningMessage: false,
+    displayNormalMessage: false,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

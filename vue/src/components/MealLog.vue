@@ -88,12 +88,22 @@ export default {
                             this.$store.state.displayLowAlertMessage = false;
                             this.$store.state.displayHighWarningMessage = false;
                             this.$store.state.displayHighAlertMessage = false;
+                            this.$store.state.displayNormalMessage= false;
+                        }
+                         if (mealInput.bloodSugarAtMealtime > response.data.targetRangeMin &&
+                        mealInput.bloodSugarAtMealtime < response.data.targetRangeMax) {
+                            this.$store.state.displayLowWarningMessage = false;
+                            this.$store.state.displayLowAlertMessage = false;
+                            this.$store.state.displayHighWarningMessage = false;
+                            this.$store.state.displayHighAlertMessage = false;
+                            this.$store.state.displayNormalMessage= true;
                         }
                     if (mealInput.bloodSugarAtMealtime <= response.data.criticalLow) {
                             this.$store.state.displayLowAlertMessage = true;
                             this.$store.state.displayLowWarningMessage = false;
                             this.$store.state.displayHighWarningMessage = false;
                             this.$store.state.displayHighAlertMessage = false;
+                              this.$store.state.displayNormalMessage= false;
                     }
                     if (mealInput.bloodSugarAtMealtime > response.data.targetRangeMax && 
                         mealInput.bloodSugarAtMealtime < response.data.criticalHigh) {
@@ -101,12 +111,14 @@ export default {
                             this.$store.state.displayLowAlertMessage = false;
                             this.$store.state.displayLowWarningMessage = false;
                             this.$store.state.displayHighAlertMessage = false;
+                              this.$store.state.displayNormalMessage= false;
                         }
                     if (mealInput.bloodSugarAtMealtime >= response.data.criticalHigh) {
                             this.$store.state.displayHighAlertMessage = true;
                             this.$store.state.displayLowAlertMessage = false;
                             this.$store.state.displayLowWarningMessage = false;
                             this.$store.state.displayHighWarningMessage = false;
+                              this.$store.state.displayNormalMessage= false;
                     }
                 
                    else  {this.$store.state.displayLowAlertMessage == false && this.$store.state.displayLowWarningMessage == false
