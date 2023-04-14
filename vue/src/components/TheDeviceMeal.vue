@@ -1,7 +1,7 @@
 <template>
 
 
-  <div>
+  <div class = "parent-container">
    
        <div id= "alert">
         <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
@@ -136,6 +136,20 @@ export default {
     
   ;
 }
+/* 
+.parent-container {
+
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    "alert . ."
+    " . deviceborder ."
+    ". . ."
+    
+    
+  ;
+
+} */
 
 .speech-red-bubble {
 	position: relative;
@@ -143,23 +157,25 @@ export default {
 	border-radius: .4em;
   display: inline;
       padding: 5vh;
+       text-align: center;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 .speech-red-bubble:after {
-  margin-top: 50%;
-  display: inline;
-	content: '';
+ content: '';
 	position: absolute;
-	right: 0;
-	top: 50%;
+	bottom: 0;
+	left: 50%;
 	width: 0;
 	height: 0;
-	border: 71px solid transparent;
-	border-left-color: #f20202;
-	border-right: 0;
+	border: 54px solid transparent;
+	border-top-color: #f20202;
 	border-bottom: 0;
-	margin-top: -35.5px;
-	margin-right: -71px;
+	margin-left: -54px;
+	margin-bottom: -54px;
 }
 
 .speech-yellow-bubble {
@@ -167,21 +183,25 @@ export default {
 	background: #ff9500;
 	border-radius: .4em;
        padding: 5vh;
+        text-align: center;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 .speech-yellow-bubble:after {
-	content: '';
+ content: '';
 	position: absolute;
-	right: 0;
-	top: 50%;
+	bottom: 0;
+	left: 50%;
 	width: 0;
 	height: 0;
 	border: 54px solid transparent;
-	border-left-color: #ff9500;
-	border-right: 0;
+	border-top-color: #ff9500;
 	border-bottom: 0;
-	margin-top: -27px;
-	margin-right: -54px;
+	margin-left: -54px;
+	margin-bottom: -54px;
  
 
 }
@@ -191,22 +211,26 @@ export default {
 	position: relative;
 	background: #086e0d;
 	border-radius: .4em;
-      padding: 5vh;
+  padding: 5vh;
+  text-align: center;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 .speech-green-bubble:after {
-	content: '';
+content: '';
 	position: absolute;
-	right: 0;
-	top: 50%;
+	bottom: 0;
+	left: 50%;
 	width: 0;
 	height: 0;
-	border: 71px solid transparent;
-	border-left-color: #086e0d;
-	border-right: 0;
+	border: 54px solid transparent;
+	border-top-color: #086e0d;
 	border-bottom: 0;
-	margin-top: -35.5px;
-	margin-right: -71px;
+	margin-left: -54px;
+	margin-bottom: -54px;
 }
 
 #alert {
