@@ -4,11 +4,11 @@
   <div class = "parent-container">
    
        <div id= "alert">
-        <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is Lower than Range</p>
-       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is Critcially Low</p>
-       <p class = "speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher than Range</p>
-       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is Critically High</p>
-        <p class = " speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage">Blood Sugar is Within Normal Range</p>
+        <p class = " speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is <br> Lower than Range</p>
+       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage">Blood Sugar is<br> Critcially Low</p>
+       <p class ="speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage">Blood Sugar is Higher <br> than Range</p>
+       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage">Blood Sugar is <br> Critically High</p>
+        <p class = "  speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage">Blood Sugar is Within <br> Normal Range</p>
        
        </div>
 
@@ -135,16 +135,17 @@ export default {
     ". . fakebtn1 . ."
     
   ;
+  display: flex;
 }
 /* 
 .parent-container {
 
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 0.1fr 1fr;
   grid-template-areas: 
-    "alert . ."
-    " . deviceborder ."
-    ". . ."
+    "alert . "
+    " . deviceborder "
+    ". . "
     
     
   ;
@@ -152,90 +153,102 @@ grid-template-columns: 1fr 1fr 1fr;
 } */
 
 .speech-red-bubble {
-	position: relative;
+	position: absolute;
 	background: #f20202;
 	border-radius: .4em;
-  display: inline;
-      padding: 5vh;
-       text-align: center;
-  color: white;
+       padding: 5vh;
+        text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 30%;
-  margin-right: 30%;
+   margin-left: 5%;
+   margin-top: 5%;
+   box-shadow: 10px 10px 5px gray;
 }
 
 .speech-red-bubble:after {
- content: '';
+content: '';
 	position: absolute;
-	bottom: 0;
-	left: 50%;
+	right: 0;
+	top: 50%;
 	width: 0;
 	height: 0;
-	border: 54px solid transparent;
-	border-top-color: #f20202;
+	border: 47px solid transparent;
+	border-left-color: #f20202;
+	border-right: 0;
 	border-bottom: 0;
-	margin-left: -54px;
-	margin-bottom: -54px;
+	margin-top: -23.5px;
+	margin-right: -47px;
 }
 
 .speech-yellow-bubble {
-	position: relative;
+	position: absolute;
 	background: #ff9500;
 	border-radius: .4em;
        padding: 5vh;
         text-align: center;
-  color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 30%;
-  margin-right: 30%;
+   margin-left: 5%;
+   margin-top: 5%;
+  /* margin-right: 30%;  */
+
+  
 }
 
 .speech-yellow-bubble:after {
- content: '';
+content: '';
 	position: absolute;
-	bottom: 0;
-	left: 50%;
+	right: 0;
+	top: 50%;
 	width: 0;
 	height: 0;
-	border: 54px solid transparent;
-	border-top-color: #ff9500;
+	border: 47px solid transparent;
+	border-left-color: #ff9500;
+	border-right: 0;
 	border-bottom: 0;
-	margin-left: -54px;
-	margin-bottom: -54px;
+	margin-top: -23.5px;
+	margin-right: -47px;
  
 
 }
 
 
 .speech-green-bubble {
-	position: relative;
+	position: absolute;
 	background: #086e0d;
 	border-radius: .4em;
-  padding: 5vh;
-  text-align: center;
-  color: white;
+       padding: 5vh;
+        text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 30%;
-  margin-right: 30%;
+   margin-left: 5%;
+   margin-top: 5%;
 }
 
 .speech-green-bubble:after {
 content: '';
 	position: absolute;
-	bottom: 0;
-	left: 50%;
+	right: 0;
+	top: 50%;
 	width: 0;
 	height: 0;
-	border: 54px solid transparent;
-	border-top-color: #086e0d;
+	border: 47px solid transparent;
+	border-left-color: #086e0d;
+	border-right: 0;
 	border-bottom: 0;
-	margin-left: -54px;
-	margin-bottom: -54px;
+	margin-top: -23.5px;
+	margin-right: -47px;
 }
 
 #alert {
-  display: grid;
-  grid-area: alert;
+  display: flex;
+  justify-content: flex-start;
   
 }
 
