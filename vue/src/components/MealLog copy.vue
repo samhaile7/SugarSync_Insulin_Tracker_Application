@@ -27,7 +27,7 @@
 
     </form>
 
-    <p>Suggested dose (mL): {{calculatedDoseFromServer}}</p>
+    <p>Suggested dose (Units): {{calculatedDoseFromServer}}</p>
     
     </div>
 
@@ -63,7 +63,7 @@ export default {
         postMealToServer() {
             UserInputService.addMeal(this.mealInput).then((response) => {
                 if (response.status === 201) {
-                    this.calculatedDoseFromServer = response.data.suggestedDose;
+                    this.calculatedDoseFromServer = response.data.suggestedDose.toFixed(2);
                     this.getTargetRange(response.data);    
                 }
             }).catch((err) => console.log(err));
