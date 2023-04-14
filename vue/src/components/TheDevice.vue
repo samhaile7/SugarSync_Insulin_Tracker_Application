@@ -88,7 +88,7 @@ export default {
   width: 50px;
   justify-content: center;
   align-content: center;
- 
+  margin-left: 60px;
 }
 
 

@@ -3,15 +3,15 @@
     <main id="main-grid">
       <div class="sub-grid">
         <div class="site-description">
-          Say goodbye to the hassle of managing your insulin doses with
-          SugarSync, the ultimate insulin tracking app. Whether you're living
+          Get ready to say goodbye to the hassle of managing insulin doses with
+          SugarSync, the ultimate insulin tracking app. If you are living
           with diabetes or simply need to monitor your insulin intake, SugarSync
           makes it easy to stay on top of your health. With intuitive features
-          like mealtime reminders, blood sugar logging, and dose tracking, you
-          can be confident that you're taking the right amount of insulin at the
-          right time. Plus, with personalized insights and analytics, you can
-          gain valuable insights into your glucose levels and make informed
-          decisions about your health. Download SugarSync today and take control
+          like blood sugar logging and dose tracking, you can be confident that 
+          you're taking the right amount of insulin at the right time. Plus, 
+          with personalized dose recommendations and analytics, you can gain 
+          valuable insights into your glucose levels and make informed decisions 
+          regarding <br>your health. Download SugarSync today and take <br> control
           of your insulin management!
         </div>
         <div class="buttons">
@@ -68,6 +68,9 @@ h1 {
 .site-description {
   grid-area: site-description;
   z-index: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
   text-align: center;
   padding-top: 100px;
   padding-left: 25px;
@@ -114,7 +117,7 @@ h1 {
     "site-description register-button";
   background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg");
   height: 100vh;
-  background-size: contain;
+  background-size: cover;
   background-color: transparent;
 }
 </style>
