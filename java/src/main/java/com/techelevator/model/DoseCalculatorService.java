@@ -38,7 +38,9 @@ public class DoseCalculatorService {
         double doseInMl = outputDoseInUnits / userInsulinStrength;
 
         //sets suggest dose to incoming meal object
-        incomingMeal.setSuggestedDose(doseInMl);
+        //incomingMeal.setSuggestedDose(doseInMl);
+        incomingMeal.setSuggestedDose(outputDoseInUnits);
+
 
 
         return incomingMeal;

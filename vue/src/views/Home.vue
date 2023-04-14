@@ -14,7 +14,7 @@
           regarding <br>your health. Download SugarSync today and take <br> control
           of your insulin management!
         </div>
-        <div class="buttons">
+        <div class="buttons" v-if="$store.state.token == ''">
           <button id="login-button" v-on:click="routeToLogin()">Login</button
           ><br />
           <button id="register-button" v-on:click="routeToRegister()">
@@ -28,18 +28,17 @@
           alt=""
         /> -->
     </main>
-
-    <the-footer />
+        
+    
   </div>
 </template>
 
 <script>
-import TheFooter from "../components/TheFooter.vue";
 
 export default {
   name: "home",
   components: {
-    TheFooter,
+  
   },
   methods: {
     routeToLogin() {
