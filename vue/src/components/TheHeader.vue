@@ -8,7 +8,7 @@
         src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681440554/capstone_assets/sugarsync_1_j4p8yx.png"
         alt=""
       />
-      <router-link id="home-link" v-bind:to="{name: 'home'}">Home</router-link>
+      <router-link id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>
       &nbsp;&nbsp;
       
       <router-link 
@@ -57,6 +57,10 @@ export default {
   justify-content: center;
   margin-top: 3%;
 }
+
+
+
+
 #edit-profile-link {
   grid-area: edit-profile-link;
   margin-top: 3%;
@@ -67,6 +71,7 @@ export default {
   font-weight: bold;
   font-size: 1.5em;
   margin-top: 3%;
+  text-decoration: none;
 }
 #login-link {
   grid-area: login-link;
@@ -74,7 +79,11 @@ export default {
   font-weight: bold;
   font-size: 1.5em;
   margin-top: 3%;
+  text-decoration: none;
 }
+
+
+
 #add-meal-link {
   grid-area: add-meal-link;
 }
@@ -94,12 +103,12 @@ export default {
   grid-area: insulinbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #f4511e;
+  background-color: #FD7F00;
   border: none;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
   font-size: 28px;
-  padding: 20px;
+  padding: 16px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
@@ -107,12 +116,13 @@ export default {
   text-decoration: none;
   height: 75px;
   margin: auto;
+  
 }
 .logbuttons {
   grid-area: insulinbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #f4511e;
+  background-color: #FD7F00;
   border: none;
   text-align: center;
   font-size: 28px;

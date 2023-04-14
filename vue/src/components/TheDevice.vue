@@ -48,7 +48,7 @@ export default {
   grid-area: insulinbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #f4511e;
+  background-color: #FD6600;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -65,7 +65,7 @@ export default {
   grid-area: mealbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #f4511e;
+  background-color: #FD6600;
   border: none;
   color: #FFFFFF;
   text-align: center;
