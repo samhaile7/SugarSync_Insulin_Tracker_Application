@@ -17,7 +17,7 @@
     
     
     
-    <p>Suggested dose (mL): {{calculatedDoseFromServer}}</p>
+    <p>Suggested dose (Units): {{calculatedDoseFromServer.toFixed(2)}}</p>
     
     
 
