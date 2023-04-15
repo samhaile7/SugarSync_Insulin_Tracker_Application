@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Meal {
 
     private int mealId;
@@ -7,6 +9,7 @@ public class Meal {
     private int numberOfCarbs;
     private int bloodSugarAtMealtime;
     private double suggestedDose;
+    private LocalDate dateCreated;
 
     public int getMealId() {
         return mealId;
@@ -46,5 +49,13 @@ public class Meal {
 
     public void setSuggestedDose(double suggestedDose) {
         this.suggestedDose = suggestedDose;
+    }
+
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
     }
 }

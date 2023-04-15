@@ -7,6 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,11 @@ public class JdbcMealDao implements MealDao {
 
     @Override
     public Meal addMeal(Meal incomingMeal) {
-        String sql = "INSERT INTO meal (user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose) VALUES (?, ?, ?, ?) " +
-                " RETURNING meal_id;";
+        incomingMeal.setDateCreated(LocalDate.now());
+        String sql = "INSERT INTO meal (user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created) VALUES (?, ?, ?, ?, ?) " +
+                "RETURNING meal_id;";
         Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, incomingMeal.getUserId(), incomingMeal.getNumberOfCarbs(),
-                incomingMeal.getBloodSugarAtMealtime(), incomingMeal.getSuggestedDose());
+                incomingMeal.getBloodSugarAtMealtime(), incomingMeal.getSuggestedDose(), incomingMeal.getDateCreated());
 
         incomingMeal.setMealId(mealId);
 
@@ -45,7 +47,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public Meal getMealById(int mealId) {
         Meal meal = null;
-        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose FROM meal" +
+        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created FROM meal" +
                 " WHERE meal_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
@@ -59,7 +61,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public List<Meal> getAllMealsByUserId(int userId) {
         List<Meal> allMeals = new ArrayList<>();
-        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose FROM meal" +
+        String sql = "SELECT meal_id, user_id, number_of_carbs, blood_sugar_at_mealtime, suggested_dose, date_created FROM meal" +
                 " WHERE user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
@@ -71,6 +73,96 @@ public class JdbcMealDao implements MealDao {
         return allMeals;
     }
 
+    @Override
+    public List<Double> getAllInsulinDosageAverages(int userId) {
+        // This list contains daily, 3 day, weekly, 2 week , monthly averages in that order
+        List<Double> insulinDosageAverages = new ArrayList<>();
+       LocalDate todaysDate = LocalDate.now();
+
+        String sql_daily = "SELECT AVG(suggested_dose)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created = ?;";
+
+        Double dailyAverage = jdbcTemplate.queryForObject(sql_daily, Double.class, userId, todaysDate);
+
+        String sql_3dayAverage = "SELECT AVG(suggested_dose)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '3' day;";
+
+        Double threeDayAverage = jdbcTemplate.queryForObject(sql_3dayAverage, Double.class, userId, todaysDate);
+
+        String sql_7dayAverage = "SELECT AVG(suggested_dose)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '7' day;";
+
+        Double sevenDayAverage = jdbcTemplate.queryForObject(sql_7dayAverage, Double.class, userId, todaysDate);
+
+        String sql_14dayAverage = "SELECT AVG(suggested_dose)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '14' day;";
+
+        Double twoWeekAverage = jdbcTemplate.queryForObject(sql_14dayAverage, Double.class, userId, todaysDate);
+
+        String sql_monthlyAverage = "SELECT AVG(suggested_dose)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '1' month;";
+
+        Double monthlyAverage = jdbcTemplate.queryForObject(sql_monthlyAverage, Double.class, userId, todaysDate);
+
+        insulinDosageAverages.add(dailyAverage);
+        insulinDosageAverages.add(threeDayAverage);
+        insulinDosageAverages.add(sevenDayAverage);
+        insulinDosageAverages.add(twoWeekAverage);
+        insulinDosageAverages.add(monthlyAverage);
+
+        return insulinDosageAverages;
+    }
+
+    @Override
+    public List<Double> geAllBloodSugarAverages(int userId) {
+        // This list contains daily, 3 day, weekly, 2 week , monthly averages in that order
+        List<Double> bloodSugarAverages = new ArrayList<>();
+        LocalDate todaysDate = LocalDate.now();
+
+        String sql_daily = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created = ?;";
+
+        Double dailyAverage = jdbcTemplate.queryForObject(sql_daily, Double.class, userId, todaysDate);
+
+        String sql_3dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '3' day;";
+
+        Double threeDayAverage = jdbcTemplate.queryForObject(sql_3dayAverage, Double.class, userId, todaysDate);
+
+        String sql_7dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '7' day;";
+
+        Double sevenDayAverage = jdbcTemplate.queryForObject(sql_7dayAverage, Double.class, userId, todaysDate);
+
+        String sql_14dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '14' day;";
+
+        Double twoWeekAverage = jdbcTemplate.queryForObject(sql_14dayAverage, Double.class, userId, todaysDate);
+
+        String sql_monthlyAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '1' month;";
+
+        Double monthlyAverage = jdbcTemplate.queryForObject(sql_monthlyAverage, Double.class, userId, todaysDate);
+
+        bloodSugarAverages.add(dailyAverage);
+        bloodSugarAverages.add(threeDayAverage);
+        bloodSugarAverages.add(sevenDayAverage);
+        bloodSugarAverages.add(twoWeekAverage);
+        bloodSugarAverages.add(monthlyAverage);
+
+
+        return bloodSugarAverages;
+    }
 
 
     private Meal mapRowToMeal (SqlRowSet row) {
@@ -80,7 +172,8 @@ public class JdbcMealDao implements MealDao {
         newMeal.setUserId(row.getInt("user_id"));
         newMeal.setNumberOfCarbs(row.getInt("number_of_carbs"));
         newMeal.setBloodSugarAtMealtime(row.getInt("blood_sugar_at_mealtime"));
-        newMeal.setSuggestedDose(row.getInt("suggested_dose"));
+        newMeal.setSuggestedDose(row.getDouble("suggested_dose"));
+        newMeal.setDateCreated(row.getDate("date_created").toLocalDate());
 
         return newMeal;
     }

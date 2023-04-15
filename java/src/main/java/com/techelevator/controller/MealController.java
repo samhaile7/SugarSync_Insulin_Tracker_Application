@@ -31,6 +31,7 @@ public class MealController {
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping (path = "/insulinmealdevice", method = RequestMethod.POST)
     public Meal addMeal(@RequestBody Meal meal, Principal principal) {
+        //add error catching for null pointer exception in case user is not logged in and principal is null
         int id = userInputDao.findIdByUsername(principal.getName());
 
         meal.setUserId(id);
@@ -38,7 +39,7 @@ public class MealController {
         int userInsulinStrength = insulinTypeDao.getInsulinStrengthOfCurrentUser(id);
         UserInput userInput = userInputDao.getUserInputByUserId(id);
 
-        // CAlculations here dosecalculator.calculateDose (incoming) = meal
+        // Calculations here dosecalculator.calculateDose (incoming) = meal
        Meal mealWithDose = doseCalculator.calculateDose(meal, userInsulinStrength, userInput);
 
         return mealDao.addMeal(mealWithDose);
@@ -55,10 +56,27 @@ public class MealController {
         return mealDao.getMealById(mealId);
     }
 
+
+
+
     @RequestMapping(path = "/meal/allmeals", method = RequestMethod.GET)
     public List<Meal> getAllMealsByUserID(Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
         return mealDao.getAllMealsByUserId(id);
     }
+
+    @RequestMapping(path = "/bloodsugarhistory", method = RequestMethod.GET)
+    public List<Double> getAveragesForLoggedInUser(Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        return mealDao.geAllBloodSugarAverages(id);
+    }
+
+    @RequestMapping(path = "/insulindosagehistory", method = RequestMethod.GET)
+    public List<Double> getAveragesInsulinDosageForLoggedInUser(Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        return mealDao.getAllInsulinDosageAverages(id);
+    }
+
+
 
 }

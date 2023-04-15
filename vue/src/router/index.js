@@ -10,8 +10,14 @@ import NewUser from '../views/NewUser.vue'
 import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
 //import LogAMeal from '../views/LogAMeal'
 import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
+<<<<<<< HEAD
 import MealViewCopy from '../views/MealViewCopy.vue'
 import Dash from '../views/Dash.vue'
+=======
+
+import mealLogTest from '../views/mealLogTest.vue'
+
+>>>>>>> 39bd7fb61ec87920f3d25249aab05bfdf784a95c
 
 Vue.use(Router)
 
@@ -44,6 +50,7 @@ const router = new Router({
         requiresAuth: false
       }
     },
+   
 
     // {
     //   path: '/meal',
@@ -105,6 +112,15 @@ const router = new Router({
       path: "/insulinmealdevice",
       name: "insulinmealdevice",
       component: AddMealDeviceUserView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
+    {
+      path: "/mealtest",
+      name: "mealtest",
+      component: mealLogTest,
       meta: {
         requiresAuth: false
       }
