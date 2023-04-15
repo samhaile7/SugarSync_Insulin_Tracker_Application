@@ -56,10 +56,21 @@ public class MealController {
         return mealDao.getMealById(mealId);
     }
 
+
+
+
     @RequestMapping(path = "/meal/allmeals", method = RequestMethod.GET)
     public List<Meal> getAllMealsByUserID(Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
         return mealDao.getAllMealsByUserId(id);
     }
+
+    @RequestMapping(path = "/bloodsugarhistory", method = RequestMethod.GET)
+    public List<Double> getAveragesForLoggedInUser(Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        return mealDao.getAllAverages(id);
+    }
+
+
 
 }

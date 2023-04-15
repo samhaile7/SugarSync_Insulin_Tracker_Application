@@ -15,6 +15,7 @@ public interface MealDao {
     Meal getMealById(int mealId);
 
     List<Meal> getAllMealsByUserId(int userId);
+    List<Double> getAllAverages(int userId);
 
 
 

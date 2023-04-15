@@ -1,9 +1,29 @@
 <template>
   <div class="main-grid">
-       <h1> Alerts here </h1>
-       <button v-on:click="callAllMeals()"> CLICK HERE  </button>
 
-       <p> TEST ALL MEALS FROM SERVER : {{allMealsFromServer}} </p>
+      <button v-on:click="callAllMeals()"> CLICK HERE  </button>
+
+       <p> Daily AVG : {{allMealsFromServer}} </p>
+       <p> 3 Day : {{allMealsFromServer}} </p>
+       <p> 7 day  : {{allMealsFromServer}} </p>
+       <p> 2 week  : {{allMealsFromServer}} </p>
+
+       <p> Month : {{allMealsFromServer}} </p>
+   
+
+
+       <br>
+        <br>
+         <br>
+          <br>
+           <br>
+            <br>
+             <br>
+              <br>
+               <br>
+                <br>
+       <h1> Alerts here </h1>
+       
        <p>Target Min: {{currentTargetMinFromServer}}</p>
        <p>Target Max: {{currentTargetMaxFromServer}}</p>
 
@@ -63,6 +83,9 @@ export default {
             allMealsFromServer: {},
         }
     },
+
+
+     
 
     methods: {
         callAllMeals() {
