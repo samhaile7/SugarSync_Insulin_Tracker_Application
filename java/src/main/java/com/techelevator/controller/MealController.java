@@ -68,7 +68,13 @@ public class MealController {
     @RequestMapping(path = "/bloodsugarhistory", method = RequestMethod.GET)
     public List<Double> getAveragesForLoggedInUser(Principal principal) {
         int id = userInputDao.findIdByUsername(principal.getName());
-        return mealDao.getAllAverages(id);
+        return mealDao.geAllBloodSugarAverages(id);
+    }
+
+    @RequestMapping(path = "/insulindosagehistory", method = RequestMethod.GET)
+    public List<Double> getAveragesInsulinDosageForLoggedInUser(Principal principal) {
+        int id = userInputDao.findIdByUsername(principal.getName());
+        return mealDao.getAllInsulinDosageAverages(id);
     }
 
 

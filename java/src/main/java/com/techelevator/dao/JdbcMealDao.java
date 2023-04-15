@@ -74,9 +74,9 @@ public class JdbcMealDao implements MealDao {
     }
 
     @Override
-    public List<Double> getAllAverages(int userId) {
+    public List<Double> getAllInsulinDosageAverages(int userId) {
         // This list contains daily, 3 day, weekly, 2 week , monthly averages in that order
-        List<Double> bloodSugarAverages = new ArrayList<>();
+        List<Double> insulinDosageAverages = new ArrayList<>();
        LocalDate todaysDate = LocalDate.now();
 
         String sql_daily = "SELECT AVG(suggested_dose)  " +
@@ -109,11 +109,57 @@ public class JdbcMealDao implements MealDao {
 
         Double monthlyAverage = jdbcTemplate.queryForObject(sql_monthlyAverage, Double.class, userId, todaysDate);
 
+        insulinDosageAverages.add(dailyAverage);
+        insulinDosageAverages.add(threeDayAverage);
+        insulinDosageAverages.add(sevenDayAverage);
+        insulinDosageAverages.add(twoWeekAverage);
+        insulinDosageAverages.add(monthlyAverage);
+
+        return insulinDosageAverages;
+    }
+
+    @Override
+    public List<Double> geAllBloodSugarAverages(int userId) {
+        // This list contains daily, 3 day, weekly, 2 week , monthly averages in that order
+        List<Double> bloodSugarAverages = new ArrayList<>();
+        LocalDate todaysDate = LocalDate.now();
+
+        String sql_daily = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created = ?;";
+
+        Double dailyAverage = jdbcTemplate.queryForObject(sql_daily, Double.class, userId, todaysDate);
+
+        String sql_3dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '3' day;";
+
+        Double threeDayAverage = jdbcTemplate.queryForObject(sql_3dayAverage, Double.class, userId, todaysDate);
+
+        String sql_7dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '7' day;";
+
+        Double sevenDayAverage = jdbcTemplate.queryForObject(sql_7dayAverage, Double.class, userId, todaysDate);
+
+        String sql_14dayAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '14' day;";
+
+        Double twoWeekAverage = jdbcTemplate.queryForObject(sql_14dayAverage, Double.class, userId, todaysDate);
+
+        String sql_monthlyAverage = "SELECT AVG(blood_sugar_at_mealtime)  " +
+                "FROM meal  " +
+                "WHERE user_id = ? AND date_created > ? - interval '1' month;";
+
+        Double monthlyAverage = jdbcTemplate.queryForObject(sql_monthlyAverage, Double.class, userId, todaysDate);
+
         bloodSugarAverages.add(dailyAverage);
         bloodSugarAverages.add(threeDayAverage);
         bloodSugarAverages.add(sevenDayAverage);
         bloodSugarAverages.add(twoWeekAverage);
         bloodSugarAverages.add(monthlyAverage);
+
 
         return bloodSugarAverages;
     }

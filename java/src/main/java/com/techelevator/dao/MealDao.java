@@ -15,7 +15,10 @@ public interface MealDao {
     Meal getMealById(int mealId);
 
     List<Meal> getAllMealsByUserId(int userId);
-    List<Double> getAllAverages(int userId);
+
+    List<Double> getAllInsulinDosageAverages(int userId);
+
+    List<Double> geAllBloodSugarAverages(int userId);
 
 
 
