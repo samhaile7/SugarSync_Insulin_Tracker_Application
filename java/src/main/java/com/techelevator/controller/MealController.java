@@ -39,7 +39,7 @@ public class MealController {
         int userInsulinStrength = insulinTypeDao.getInsulinStrengthOfCurrentUser(id);
         UserInput userInput = userInputDao.getUserInputByUserId(id);
 
-        // CAlculations here dosecalculator.calculateDose (incoming) = meal
+        // Calculations here dosecalculator.calculateDose (incoming) = meal
        Meal mealWithDose = doseCalculator.calculateDose(meal, userInsulinStrength, userInput);
 
         return mealDao.addMeal(mealWithDose);

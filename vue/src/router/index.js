@@ -10,7 +10,9 @@ import NewUser from '../views/NewUser.vue'
 import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
 //import LogAMeal from '../views/LogAMeal'
 import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
-import MealViewCopy from '../views/MealViewCopy.vue'
+
+import mealLogTest from '../views/mealLogTest.vue'
+
 
 Vue.use(Router)
 
@@ -27,14 +29,7 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/mealcopy',
-      name: 'meal-copy',
-      component: MealViewCopy,
-      meta: {
-        requiresAuth: false
-      }
-    },
+   
 
     // {
     //   path: '/meal',
@@ -96,6 +91,15 @@ const router = new Router({
       path: "/insulinmealdevice",
       name: "insulinmealdevice",
       component: AddMealDeviceUserView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
+    {
+      path: "/mealtest",
+      name: "mealtest",
+      component: mealLogTest,
       meta: {
         requiresAuth: false
       }

@@ -1,6 +1,9 @@
 <template>
   <div class="main-grid">
        <h1> Alerts here </h1>
+       <button v-on:click="callAllMeals()"> CLICK HERE  </button>
+
+       <p> TEST ALL MEALS FROM SERVER : {{allMealsFromServer}} </p>
        <p>Target Min: {{currentTargetMinFromServer}}</p>
        <p>Target Max: {{currentTargetMaxFromServer}}</p>
 
@@ -37,6 +40,7 @@
 <script>
 
 import UserInputService from "../services/UserInputService.js";
+import MealService from "../services/MealService.js";
 
 
 export default {
@@ -56,10 +60,25 @@ export default {
             displayHighWarningMessage: false,
             displayLowAlertMessage: false, 
             displayLowWarningMessage: false,
+            allMealsFromServer: {},
         }
     },
 
     methods: {
+        callAllMeals() {
+            MealService.getAllMeals().then((response) => {
+                 if (response.status === 200) { 
+
+                   this.allMealsFromServer = response.data;
+                }
+            }).catch((err) => console.log(err));
+
+            
+
+
+        }
+
+        ,
         postMealToServer() {
             UserInputService.addMeal(this.mealInput).then((response) => {
                 if (response.status === 201) {
