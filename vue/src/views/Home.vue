@@ -4,27 +4,22 @@
       <div class="sub-grid">
         <div class="site-description">
           <h1>Manage your insulin. Easy.</h1><br>
-          <!--Get ready to say goodbye to the hassle of managing insulin doses with
-          SugarSync, the ultimate insulin tracking app. 
-          Plus, 
-          with personalized dose recommendations and analytics, you can gain 
-          valuable insights into your glucose levels and make informed decisions 
-          regarding <br>your health.
-          With intuitive features
-          like blood sugar logging and dose tracking, you can be confident that 
-          you're taking the right amount of insulin at the right time.
-          -->
 
-          If you are living with diabetes or need to monitor your insulin intake, SugarSync
-          makes it easy to stay on top of your health. Sign up for a SugarSync demo today and take control
+          If you are living with diabetes or need to monitor <br>your insulin intake, SugarSync
+          makes it easy to <br>stay on top of your health. Try SugarSync today and <br>take control
           of your insulin management!
+          
+          <div class="button-class" id="button-div">
+          <button id="register-button" v-on:click="routeToRegister()">
+            <span>Try SugarSync</span>
+            
+          </button>
+          </div>
         </div>
         <!--<div class="buttons" v-if="$store.state.token == ''">
           <button id="login-button" v-on:click="routeToLogin()">Login</button
           ><br />-->
-          <button id="register-button" v-on:click="routeToRegister()">
-            Try SugarSync
-          </button>
+          
         </div> 
       <!-- </div>
       <img
@@ -98,11 +93,44 @@ h1 {
 }
 
 #register-button {
-  border-radius: 12px;
+  border-radius: 50px;
   grid-area: register-button;
   padding: 10px 24px;
-  width: 50%;
+  width: 30%;
+  height: 50%;
+  cursor: pointer;
 }
+
+#button-div {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.button-class span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-class span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-class:hover span {
+  padding-right: 25px;
+}
+
+.button-class:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 
 #main-grid {
   display: grid;
@@ -120,7 +148,7 @@ h1 {
   grid-template-areas:
     "site-description ."
     "site-description ."
-    "register-button .";
+    "button-div .";
   background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681593141/capstone_assets/resizehomepage_pdvyoo.png");
   height: 100vh;
   background-size: cover;
