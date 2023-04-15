@@ -1,25 +1,27 @@
 <template>
   <div class="main-grid">
       <div class="tracker">
-      <h1 id="header">Log your meal here:</h1>
+      <h1 id="header">Log your meal here:</h1> <br>
     
     <form action="" v-on:submit.prevent="postMealToServer()">
       <label id="numofcarbs" for="">Number of Carbs (grams):</label>&nbsp;&nbsp;
-      <input required type="text" v-model.number="mealInput.numberOfCarbs" /><br>
-
+      <input id="numofcarbs-input" required type="text" v-model.number="mealInput.numberOfCarbs" /><br>
+        <br>
       <label id="bloodsugar" for="">Blood Sugar at Mealtime (mmol/L):</label>&nbsp;&nbsp;
-      <input required type="text" v-model.number="mealInput.bloodSugarAtMealtime" /><br>
-
-    <button type="submit">Submit</button>
-
+      <input id="bloodsugar-input" required type="text" v-model.number="mealInput.bloodSugarAtMealtime" /><br>
+        <br>
+    <div id="button-div">
+    <button id="submit-button" type="submit">Submit</button>
+    </div>
     </form>
-
     
+    <h3 id="suggested-dose">Suggested dose (Units): <br></h3>
+    <h3 id="dose-number" v-if="this.calculatedDoseFromServer === NaN">""</h3>
+    <h3 id="dose-number" v-else>{{calculatedDoseFromServer.toFixed(2)}}</h3>
     
-    
-    <p>Suggested dose (Units): {{calculatedDoseFromServer.toFixed(2)}}</p>
-    
-    
+    <div id="button-div">
+    <button id="submit-button" type="">Approve?</button>
+    </div>
 
     </div>
     <!-- <p v-show="$store.state.userInputSuccess == false">You have not entered your information. Please click here to set your information.</p> -->
@@ -71,6 +73,10 @@ export default {
         //     }).catch((err) => console.log(err));
         // },
 
+
+        toggleCalculatedDose() {
+
+        },
         
         postMealToServer() {
             UserInputService.addMeal(this.mealInput).then((response) => {
@@ -154,6 +160,44 @@ input {
     width: 30%;
 }
 
+#suggested-dose {
+    text-align: center;
+    padding-top: 5%;
+    
+}
+
+#dose-number {
+    text-align: center;
+    font-size: 5em;
+}
+
+#numofcarbs {
+    font-size: 1.15em;
+}
+
+#numofcarbs-input {
+    float: right;
+}
+
+#bloodsugar {
+    font-size: 1.15em;
+}
+
+#bloodsugar-input {
+    float: right;
+}
+
+#submit-button {
+    margin: auto;
+    border-radius: 10px;
+    background-color: #1874D2;
+    color: white;
+    font-weight: bold;
+}
+
+#button-div {
+    text-align: center;
+}
 
 
 

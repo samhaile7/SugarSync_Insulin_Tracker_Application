@@ -3,26 +3,31 @@
     <main id="main-grid">
       <div class="sub-grid">
         <div class="site-description">
-          Get ready to say goodbye to the hassle of managing insulin doses with
-          SugarSync, the ultimate insulin tracking app. If you are living
-          with diabetes or simply need to monitor your insulin intake, SugarSync
-          makes it easy to stay on top of your health. With intuitive features
-          like blood sugar logging and dose tracking, you can be confident that 
-          you're taking the right amount of insulin at the right time. Plus, 
+          <h1>Manage your insulin. Easy.</h1><br>
+          <!--Get ready to say goodbye to the hassle of managing insulin doses with
+          SugarSync, the ultimate insulin tracking app. 
+          Plus, 
           with personalized dose recommendations and analytics, you can gain 
           valuable insights into your glucose levels and make informed decisions 
-          regarding <br>your health. Download SugarSync today and take <br> control
+          regarding <br>your health.
+          With intuitive features
+          like blood sugar logging and dose tracking, you can be confident that 
+          you're taking the right amount of insulin at the right time.
+          -->
+
+          If you are living with diabetes or need to monitor your insulin intake, SugarSync
+          makes it easy to stay on top of your health. Sign up for a SugarSync demo today and take control
           of your insulin management!
         </div>
-        <div class="buttons" v-if="$store.state.token == ''">
+        <!--<div class="buttons" v-if="$store.state.token == ''">
           <button id="login-button" v-on:click="routeToLogin()">Login</button
-          ><br />
+          ><br />-->
           <button id="register-button" v-on:click="routeToRegister()">
-            Register
+            Try SugarSync
           </button>
-        </div>
-      </div>
-      <!-- <img
+        </div> 
+      <!-- </div>
+      <img
           id="homepage-image"
           src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg"
           alt=""
@@ -69,6 +74,7 @@ h1 {
   z-index: 1;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
+  color:white;
   font-size: 1.25em;
   text-align: center;
   padding-top: 100px;
@@ -112,11 +118,15 @@ h1 {
   justify-content: space-evenly;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "site-description login-button"
-    "site-description register-button";
-  background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg");
+    "site-description ."
+    "site-description ."
+    "register-button .";
+  background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681593141/capstone_assets/resizehomepage_pdvyoo.png");
   height: 100vh;
   background-size: cover;
+  
+  background-repeat: no-repeat;
+  background-position-x: center;
   background-color: transparent;
 }
 </style>

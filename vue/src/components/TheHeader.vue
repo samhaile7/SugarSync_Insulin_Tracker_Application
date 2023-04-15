@@ -8,23 +8,44 @@
         src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681440554/capstone_assets/sugarsync_1_j4p8yx.png"
         alt=""
       />
-      <router-link id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>
-      &nbsp;&nbsp;
+      <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>&nbsp;&nbsp;
+
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}"><span>Dashboard</span></router-link> &nbsp;&nbsp;
       
-      <router-link 
+      <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}"><span>Profile</span></router-link> &nbsp;&nbsp;
+      
+      <router-link class ="router" id="meal-link" v-bind:to="{name: 'insulinmealdevice'}"><span>Add Meal</span></router-link> &nbsp;&nbsp;
+
+      <div class = "buttons">
+      <button class="logbuttons"
+        id="logout-link"
+        v-on:click="routeToLogout()"
+        v-if="$store.state.token != ''">
+        Logout
+      </button >
+        
+      <button class="logbuttons"
+        id="login-link"
+        v-on:click="routeToLogin()"
+        v-if="$store.state.token == ''">
+        Login
+      </button>
+      </div>
+
+
+      <!--<router-link 
         class="logbuttons"
         id="logout-link"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
+        >Logout</router-link>
       <router-link
       class="logbuttons"
         id="login-link"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token == ''"
         >Login</router-link
-      >
+      > -->
     </main>
   </div>
 </template>
@@ -35,6 +56,12 @@ export default {
   methods: {
     routeToHome() {
       this.$router.push({name: 'home'})
+    },
+    routeToLogout() {
+      this.$router.push({name: 'logout'})
+    },
+    routeToLogin() {
+      this.$router.push({name: 'login'})
     }
   }
 };
@@ -45,21 +72,9 @@ export default {
 
 #logo {
   grid-area: logo;
-  width: 10%;
+  width: 6%;
+  height: 4%;
 }
-
-#home-link {
-  grid-area: home-link;
-  display: flex;
-  color: rgb(252,141,62);
-  font-weight: bold;
-  font-size: 1.5em;
-  justify-content: center;
-  margin-top: 3%;
-}
-
-
-
 
 #edit-profile-link {
   grid-area: edit-profile-link;
@@ -82,32 +97,29 @@ export default {
   text-decoration: none;
 }
 
-
-
 #add-meal-link {
   grid-area: add-meal-link;
 }
 
 #header-grid {
-   background-color: rgb(52, 61, 182); /* For browsers that do not support gradients */
-  background-image: linear-gradient( rgb(138, 175, 255),rgb(157,207,237));
+  /*background-color: rgb(52, 61, 182); /* For browsers that do not support gradients */
+  /* background-image: linear-gradient( rgb(138, 175, 255),rgb(157,207,237));*/
   display: flex;
   /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "logo home-link edit-profile-link add-meal-link login-link"; */
   justify-content: space-around;
   align-content: space-between;
-
   max-width: 100%;
 }
-#home-link {
+
+.router {
   grid-area: insulinbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #FD7F00;
+  color: #0141CF;
   border: none;
-  color: white;
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
   padding: 16px;
   width: 200px;
   transition: all 0.5s;
@@ -125,14 +137,14 @@ export default {
   background-color: #FD7F00;
   border: none;
   text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
+  font-size: 20px;
+  padding: 10px;
+  width: 150px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  height: 75px;
+  height: 50px;
   margin: auto;
   color: white;
 }

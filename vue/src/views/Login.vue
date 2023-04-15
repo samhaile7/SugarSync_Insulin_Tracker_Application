@@ -1,125 +1,90 @@
 <template>
-  <div id="login">
-    <!-- <form @submit.prevent="login">
-      <h1>Please Sign In</h1>
-      <div role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
-      <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
-      </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-      </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
-      </div>
-      <button type="submit">Sign in</button>
-      <p>
-        <router-link :to="{ name: 'register' }"
-          >Need an account? Sign up.</router-link
-        >
-      </p>
-    </form> -->
+<div id="login" class="text-center">
 
-    <section class="vh-100">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6 text-black">
-            <div class="px-5 ms-xl-4">
-              <i
-                class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4"
-                style="color: #709085"
-              ></i>
-              
-            </div>
-
-            <div
-              class="
-                d-flex
-                align-items-center
-                h-custom-2
-                px-5
-                ms-xl-4
-                mt-5
-                pt-5 pt-xl-0
-                mt-xl-n5
-              "
-            >
-              <!--FORM STARTS HERE-->
-              <form style="width: 23rem" @submit.prevent="login">
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-                  Log in
-                </h3>
-                <div role="alert" v-if="invalidCredentials">
-                  Invalid username and password!
-                </div>
-                <div role="alert" v-if="this.$route.query.registration">
-                  Thank you for registering, please sign in.
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input
-                    type="text"
-                    
-                    id="form2Example18" class="form-control form-control-lg"
-                    v-model="user.username"
-                    required
-                    autofocus
-                  />
-                  <label class="form-label" for="form2Example18"
-                    >Username</label
-                  >
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input
-                    type="password"
-                    id="password"
-                    class="form-control form-control-lg"
-                    v-model="user.password"
-                    required
-                  />
-                  <label class="form-label" for="form2Example28"
-                    >Password</label
-                  >
-                </div>
-
-                <div class="pt-1 mb-4">
-                  <button class="btn btn-info btn-lg btn-block" type="submit">
+    <section
+      class="vh-100 bg-image"
+      
+    >
+      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+              <div class="card" style="border-radius: 15px">
+                <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center mb-5">
                     Login
-                  </button>
-                </div>
+                  </h2>
 
-                <p>
-                  Don't have an account?
-                  <router-link :to="{ name: 'register' }"
-                    >Register here.</router-link
-                  >
-                </p>
-              </form>
+                  <form @submit.prevent="login">
+                    <div role="alert" v-if="invalidCredentials">
+                      Invalid username and password!
+                    </div>
+                    <div role="alert" v-if="this.$route.query.registration">
+                      Thank you for registering, please sign in.
+                    </div>
+
+
+                   
+                    <div class="form-outline mb-4">
+                      <input
+                        type="text"
+                        id="form3Example1cg"
+                        class="form-control form-control-lg"
+                        v-model="user.username"
+                        required
+                        autofocus
+                      />
+                      <label class="form-label" for="form3Example1cg"
+                        >Enter Username</label
+                      >
+                    </div>
+
+                    <!-- <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                </div> -->
+
+                    <div class="form-outline mb-4">
+                      <input
+                        type="password"
+                        id="form3Example4cg"
+                        class="form-control form-control-lg"
+                        v-model="user.password"
+                        required
+                      />
+                      <label class="form-label" for="form3Example4cg"
+                        >Enter Password</label
+                      >
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        class="
+                          btn btn-success btn-block btn-lg
+                          gradient-custom-4
+                          text-body
+                        " 
+                      >
+                        Login
+                      </button>
+                    </div>
+                    <p>
+                      Don't have an account?
+                      <router-link :to="{ name: 'register' }">Register Here.</router-link>
+                    </p>
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 px-0 d-none d-sm-block">
-            <img
-              src="../assets/verticaldiabietesphoto.png"
-              alt="Login image"
-              class="w-100 vh-100"
-              style="object-fit: cover; object-position: left"
-            />
           </div>
         </div>
       </div>
     </section>
   </div>
+
 </template>
 
 <script>
@@ -168,6 +133,15 @@ label {
   margin-right: 0.5rem;
 }
 
+.vh-100 {
+  background-image: url("https://images.pexels.com/photos/6941882/pexels-photo-6941882.jpeg");
+  background-color: transparent;
+  justify-content: space-evenly;
+  background-size: cover;
+  /*background-size: 1150px;*/
+  height: 100vh;
+}
+
 
 .bg-image-vertical {
 position: relative;
@@ -183,15 +157,19 @@ height: 100%;
 }
 }
 
-.btn-lg:hover {
-  background-color: #0141CF;
-  border-color: #0141CF;
+.btn-success{
+  background-color: #FD7F00;
+  border-color: #FD7F00;
 
 }
-
-.btn-lg {
-  background-color: #1874D2;
-  border-color: #1874D2;
+.btn-success:hover {
+  background-color: #FD6600;
+  border-color: #FD6600;
+  
+}
+.btn-success:active {
+  background-color: #FD6600;
+  border-color: #FD6600;
   
 }
 
@@ -205,10 +183,7 @@ height: 100%;
   
 }
 
-#login {
- 
 
-}
 
 
 

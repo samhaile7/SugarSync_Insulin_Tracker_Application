@@ -11,6 +11,7 @@ import AddMealDeviceUserView from '../views/AddMealDeviceUserView.vue'
 //import LogAMeal from '../views/LogAMeal'
 import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
 import MealViewCopy from '../views/MealViewCopy.vue'
+import Dash from '../views/Dash.vue'
 
 Vue.use(Router)
 
@@ -27,6 +28,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dash,
+      meta: {
+        requiresAuth: false
+      }
+    },
     {
       path: '/mealcopy',
       name: 'meal-copy',
