@@ -5,11 +5,21 @@
    
        <div id= "alert">
         <p class = " speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayLowWarningMessage">Blood Sugar is<br>Lower than Range   </p>
-       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage"          >Blood Sugar is<br> Critcially Low    </p>
+       <p class = "speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayLowAlertMessage"          >Blood Sugar <br>is Critically Low &nbsp;&nbsp;&nbsp;&nbsp; </p>
        <p class ="speech-yellow-bubble speech-yellow-bubble:after" v-if="this.$store.state.displayHighWarningMessage"  >Blood Sugar is<br>Higher than Range  </p>
-       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage"        >Blood Sugar is<br>Critically High    </p>
+       <p class = " speech-red-bubble speech-red-bubble:after" v-if="this.$store.state.displayHighAlertMessage"        >Blood Sugar <br>is Critically High &nbsp;&nbsp;&nbsp;&nbsp;   </p>
         <p class = "  speech-green-bubble speech-green-bubble:after" v-if="this.$store.state.displayNormalMessage"     >Blood Sugar is<br>Within Normal Range</p>
-       
+       <img id="happy-cube" src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681671882/capstone_assets/meditatingcube_mkklnw.png" alt=""
+       v-if="this.$store.state.displayNormalMessage">
+       <img id="question-cube" src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681671882/capstone_assets/questioncube_k69nia.png" alt=""
+       v-if="this.$store.state.displayHighWarningMessage">
+      <img id="mad-cube" src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681671882/capstone_assets/madcube_ocflbf.png" alt=""
+      v-if="this.$store.state.displayHighAlertMessage">
+      <img id="question-cube" src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681671882/capstone_assets/questioncube_k69nia.png" alt=""
+       v-if="this.$store.state.displayLowWarningMessage">
+      <img id="mad-cube" src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681671882/capstone_assets/madcube_ocflbf.png" alt=""
+      v-if="this.$store.state.displayLowAlertMessage">
+
        </div>
 
     
@@ -137,34 +147,22 @@ export default {
   ;
   display: flex;
 }
-/* 
-.parent-container {
 
-display: grid;
-grid-template-columns: 0.1fr 1fr;
-  grid-template-areas: 
-    "alert . "
-    " . deviceborder "
-    ". . "
-    
-    
-  ;
-
-} */
 
 .speech-red-bubble {
 	position: absolute;
 	background: #f20202;
 	border-radius: .4em;
        padding: 5vh;
-        text-align: center;
-  color: black;
+        text-align: left;
+  color: white;
   font-weight: bold;
   font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    margin-left: 5%;
    margin-top: 5%;
    box-shadow: 10px 10px 5px gray;
+   z-index: -1;
 }
 
 .speech-red-bubble:after {
@@ -180,6 +178,7 @@ content: '';
 	border-bottom: 0;
 	margin-top: -23.5px;
 	margin-right: -47px;
+  z-index: -1;
 }
 
 .speech-yellow-bubble {
@@ -187,14 +186,15 @@ content: '';
 	background: #ff9500;
 	border-radius: .4em;
        padding: 5vh;
-        text-align: center;
-  color: black;
+        text-align: left;
+  color: white;
   font-weight: bold;
   font-size: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    margin-left: 5%;
    margin-top: 5%;
    box-shadow: 10px 10px 5px gray;
+   z-index: -1;
   /* margin-right: 30%;  */
 }
 
@@ -211,6 +211,8 @@ content: '';
 	border-bottom: 0;
 	margin-top: -23.5px;
 	margin-right: -47px;
+  z-index: -1;
+
 }
 
 
@@ -219,7 +221,7 @@ content: '';
 	background: #086e0d;
 	border-radius: .4em;
   padding: 5vh;
-  text-align: center;
+  text-align: left;
   color: black;
   font-weight: bold;
   font-size: 1.5em;
@@ -227,6 +229,8 @@ content: '';
   margin-left: 5%;
   margin-top: 5%;
   box-shadow: 10px 10px 5px gray;
+  color: white;
+  z-index: -1;
 }
 
 .speech-green-bubble:after {
@@ -242,6 +246,7 @@ content: '';
 	border-bottom: 0;
 	margin-top: -23.5px;
 	margin-right: -47px;
+  z-index: -1;
 }
 
 #alert {
@@ -250,6 +255,29 @@ content: '';
   
 }
 
+#happy-cube {
+  position: absolute;
+  width: 90px;
+  
+  margin-left: 280px;
+  margin-top: 75px
+}
+
+#question-cube {
+  position: absolute;
+  width: 75px;
+  
+  margin-left: 268px;
+  margin-top: 77px
+}
+
+#mad-cube {
+  position: absolute;
+  width: 90px;
+  
+  margin-left: 255px;
+  margin-top: 75px
+}
 
 
 

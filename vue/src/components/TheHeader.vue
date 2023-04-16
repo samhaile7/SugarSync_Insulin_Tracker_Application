@@ -105,9 +105,9 @@ export default {
   /*background-color: rgb(52, 61, 182); /* For browsers that do not support gradients */
   /* background-image: linear-gradient( rgb(138, 175, 255),rgb(157,207,237));*/
   display: flex;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "logo home-link edit-profile-link add-meal-link login-link"; */
-  justify-content: space-around;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-areas: "logo insulinbtn"; */
+  justify-content: right;
   align-content: space-between;
   max-width: 100%;
 }
@@ -124,9 +124,8 @@ export default {
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
   text-decoration: none;
-  height: 75px;
+  height: 60px;
   margin: auto;
   
 }
@@ -134,19 +133,19 @@ export default {
   grid-area: insulinbtn;
   display: inline-block;
   border-radius: 100px;
-  background-color: #FD7F00;
+  background-color: #FF6A4C;
   border: none;
   text-align: center;
   font-size: 20px;
-  padding: 10px;
   width: 150px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin-top: 50px;
   text-decoration: none;
   height: 50px;
-  margin: auto;
   color: white;
+  position: relative;
+  
 }
   
 </style>
