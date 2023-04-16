@@ -152,7 +152,7 @@ label {
 }
 
 .vh-100 {
-  background-image: url("https://images.pexels.com/photos/6941882/pexels-photo-6941882.jpeg");
+  background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681593141/capstone_assets/resizehomepage_pdvyoo.png");
   background-color: transparent;
   justify-content: space-evenly;
   background-size: cover;
