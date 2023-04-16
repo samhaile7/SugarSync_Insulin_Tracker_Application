@@ -90,9 +90,12 @@ h1 {
   padding: 10px 24px;
   width: 50%;
   justify-content: center;
+  
 }
 
 #register-button {
+  background-color: #1874D2;
+  color: white;
   border-radius: 50px;
   grid-area: register-button;
   padding: 10px 24px;
