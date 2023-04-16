@@ -148,5 +148,6 @@ export default {
   margin: auto;
   color: white;
 }
-  
+
+
 </style>
