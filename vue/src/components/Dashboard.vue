@@ -49,8 +49,8 @@ export default {
             insulinDosageAvgList: [],
             allMealsFromServer: [],
             currentTargetMinFromServer: 0,
-            currentTargetMaxFromServer: 0
-
+            currentTargetMaxFromServer: 0,
+            
 
         }
     },

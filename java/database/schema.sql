@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS meal cascade;
 DROP TABLE IF EXISTS user_input cascade;
 DROP TABLE IF EXISTS insulin_type cascade;
 DROP TABLE IF EXISTS users cascade;
-
+DROP TABLE IF EXISTS logger cascade;
+DROP TABLE IF EXISTS log_type cascade;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -35,6 +36,27 @@ CREATE TABLE insulin_type (
 
 );
 
+CREATE TABLE log_type (
+	log_type_id serial,
+	activity_type varchar(60),
+	CONSTRAINT PK_log_type PRIMARY KEY (log_type_id) 
+
+);
+
+
+CREATE TABLE logger (
+	log_id SERIAL,
+	user_id int, 
+	log_type_id int,
+	date_time_logged timestamp without time zone,
+	CONSTRAINT PK_logger PRIMARY KEY (log_id),
+	CONSTRAINT FK_logger_users FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_logger_log_type FOREIGN KEY (log_type_id) REFERENCES log_type (log_type_id)
+
+);
+
+
+
 CREATE TABLE user_input (
 	input_id SERIAL,
 	user_id int,
@@ -52,6 +74,15 @@ CREATE TABLE user_input (
 
 );
 
+
+INSERT INTO log_type (activity_type) VALUES ('Updated Profile');
+INSERT INTO log_type (activity_type) VALUES ('Added Meal');
+INSERT INTO log_type (activity_type) VALUES ('Blood Sugar Low');
+INSERT INTO log_type (activity_type) VALUES ('Blood Sugar High');
+INSERT INTO log_type (activity_type) VALUES ('Blood Sugar Critically Low');
+INSERT INTO log_type (activity_type) VALUES ('Blood Sugar Critically High');
+
+
 INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U100','NovaLog',100);
 INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U200','NovaLog',200);
 INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strength) VALUES ('U300','NovaLog',300);
@@ -61,7 +92,10 @@ INSERT INTO insulin_type (insulin_type_name, insulin_brand_name, insulin_strengt
 
 COMMIT TRANSACTION;
 
-SELECT * FROM user_input
+
+
+
+
 
 
 

@@ -55,8 +55,10 @@ public class JdbcUserInputDao implements UserInputDao{
     @Override
     public UserInput getUserInputByUserId(int userId) {
         UserInput userInput = null;
-        String sql = "SELECT input_id, user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id FROM user_input" +
-                " WHERE user_id = ?;";
+        String sql = "SELECT input_id, user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id FROM user_input " +
+                " WHERE user_id = ? " +
+                " ORDER BY input_id DESC " +
+                " LIMIT 1;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
