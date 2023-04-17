@@ -75,7 +75,7 @@ CREATE TABLE user_input (
 );
 
 
-INSERT INTO log_type (activity_type) VALUES ('Updated Profile');
+INSERT INTO log_type (activity_type) VALUES ('Added/Updated Profile');
 INSERT INTO log_type (activity_type) VALUES ('Added Meal');
 INSERT INTO log_type (activity_type) VALUES ('Blood Sugar Low');
 INSERT INTO log_type (activity_type) VALUES ('Blood Sugar High');
