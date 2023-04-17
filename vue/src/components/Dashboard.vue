@@ -6,7 +6,7 @@
 
 
   <div>
-    <div id="chart_div"> </div>
+    
     
     <p> Daily Blood Sugar AVG : {{bloodSugarAvgList[0]}} </p>
        <p> 3 Day : {{bloodSugarAvgList[1]}} </p>
@@ -26,8 +26,59 @@
        <p> Target Minimum Blood Sugar: {{currentTargetMinFromServer}}</p> 
        <p> Target Maximum Blood Sugar: {{currentTargetMaxFromServer}} </p>
 
+        
+          
+
+          <table>
+              <thead>
+                  <tr>
+                    <th>Log Id</th>
+                    <th>Log Type</th>
+                    <th>Date/Time Logged</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(log, index) in userLogs" v-bind:key="index">
+                  <td>{{userLogs[index].logId}}</td>
+                  <td>{{logTypeStrings[userLogs[index].logTypeId -1]}}</td>
+                  <td>{{userLogs[index].dateTimeLogged}}</td>
+
+                </tr>
+                 
+
+                  
+
+                
+
+
+
+              </tbody>
+
+
+
+
+
+
+
+
+          </table>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+        
 
   </div>
+  
 </template>
 
 
@@ -40,6 +91,7 @@
 
 import MealService from "../services/MealService.js";
 import UserInputService from "../services/UserInputService.js";
+import LogService from "../services/LogService.js";
 
 
 export default {
@@ -50,7 +102,8 @@ export default {
             allMealsFromServer: [],
             currentTargetMinFromServer: 0,
             currentTargetMaxFromServer: 0,
-            
+            userLogs: [],
+            logTypeStrings: ["Added/Updated Profile", "Added Meal", "Blood Sugar Low", "Blood Sugar High", "Blood Sugar Critically Low", "Blood Sugar Critically High"]
 
         }
     },
@@ -93,6 +146,13 @@ export default {
                 }
             }).catch((err) => console.log(err));
         },
+        getAllLogs() {
+          LogService.getAllLogsByUserId().then((response) => {
+            if (response.status === 200) {
+              this.userLogs = response.data
+            }
+          }).catch((err) => console.log(err));
+        }
 
     
 },
@@ -101,6 +161,7 @@ export default {
       this.getBloodSugarAverages();
       this.callAllMeals();
       this.getTargetRange();
+      this.getAllLogs();
     }
 
 }

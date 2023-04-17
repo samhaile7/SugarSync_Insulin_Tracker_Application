@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.logwriter.LogWriter;
 import com.techelevator.model.UserInput;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -8,10 +9,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcUserInputDao implements UserInputDao{
 
+    private LogWriter logWriter;
+    private final int ADD_UPDATE_USERINPUT_ID = 1;
+
+
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcUserInputDao(JdbcTemplate jdbcTemplate) {
+    public JdbcUserInputDao(JdbcTemplate jdbcTemplate, LogWriter logWriter) {
         this.jdbcTemplate = jdbcTemplate;
+        this.logWriter= logWriter;
     }
 
     public int findIdByUsername (String username) {
@@ -35,7 +41,9 @@ public class JdbcUserInputDao implements UserInputDao{
                 incomingUserInput.getCriticalHigh(), incomingUserInput.getInsulinTypeId());
 
         incomingUserInput.setInputId(userInputId);
-
+        if (incomingUserInput.getInputId() != 0) {
+            logWriter.writeLog(ADD_UPDATE_USERINPUT_ID, incomingUserInput.getUserId());
+        }
         return incomingUserInput;
     }
 
@@ -47,7 +55,9 @@ public class JdbcUserInputDao implements UserInputDao{
             jdbcTemplate.update(sql, updatedUserInput.getWeight(),
                     updatedUserInput.getBaseLevel(), updatedUserInput.getTargetRangeMin(), updatedUserInput.getTargetRangeMax(),
                     updatedUserInput.getCriticalLow(), updatedUserInput.getCriticalHigh(), updatedUserInput.getInsulinTypeId(), id);
-
+        if (updatedUserInput.getInputId() != 0) {
+            logWriter.writeLog(ADD_UPDATE_USERINPUT_ID, updatedUserInput.getUserId());
+        }
             return true;
         }
 

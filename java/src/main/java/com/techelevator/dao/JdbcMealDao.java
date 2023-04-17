@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.logwriter.LogWriter;
 import com.techelevator.model.Meal;
 import com.techelevator.model.UserInput;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,10 +15,18 @@ import java.util.List;
 @Component
 public class JdbcMealDao implements MealDao {
 
+    private LogWriter logWriter;
+    private final int ADD_MEAL_LOG_TYPE_ID = 2;
+    private UserInputDao userInputDao;
+
+
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcMealDao(JdbcTemplate jdbcTemplate) {
+    public JdbcMealDao(JdbcTemplate jdbcTemplate, LogWriter logWriter, UserInputDao userInputDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.logWriter = logWriter;
+        this.userInputDao = userInputDao;
+
     }
 
 
@@ -30,10 +39,20 @@ public class JdbcMealDao implements MealDao {
                 incomingMeal.getBloodSugarAtMealtime(), incomingMeal.getSuggestedDose(), incomingMeal.getDateCreated());
 
         incomingMeal.setMealId(mealId);
+        if (incomingMeal.getMealId() != 0) {
+            logWriter.writeLog(ADD_MEAL_LOG_TYPE_ID, incomingMeal.getUserId());
+        }
+        UserInput latestUserInput = userInputDao.getUserInputByUserId(incomingMeal.getUserId());
+
+        int logTypeBloodSugarAlert = determineLogType(latestUserInput, incomingMeal.getBloodSugarAtMealtime());
+
+        if (logTypeBloodSugarAlert != 0) {
+            logWriter.writeLog(logTypeBloodSugarAlert, incomingMeal.getUserId());
+        }
+
 
         return incomingMeal;
     }
-
 
 
     @Override
@@ -53,7 +72,7 @@ public class JdbcMealDao implements MealDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
 
         if (results.next()) {
-            meal= mapRowToMeal(results);
+            meal = mapRowToMeal(results);
         }
         return meal;
     }
@@ -77,7 +96,7 @@ public class JdbcMealDao implements MealDao {
     public List<Double> getAllInsulinDosageAverages(int userId) {
         // This list contains daily, 3 day, weekly, 2 week , monthly averages in that order
         List<Double> insulinDosageAverages = new ArrayList<>();
-       LocalDate todaysDate = LocalDate.now();
+        LocalDate todaysDate = LocalDate.now();
 
         String sql_daily = "SELECT AVG(suggested_dose)  " +
                 "FROM meal  " +
@@ -165,7 +184,7 @@ public class JdbcMealDao implements MealDao {
     }
 
 
-    private Meal mapRowToMeal (SqlRowSet row) {
+    private Meal mapRowToMeal(SqlRowSet row) {
         Meal newMeal = new Meal();
 
         newMeal.setMealId(row.getInt("meal_id"));
@@ -178,5 +197,27 @@ public class JdbcMealDao implements MealDao {
         return newMeal;
     }
 
+    private int determineLogType(UserInput userInput, double bloodSugar) {
+        int output = 0;
+        if (bloodSugar < userInput.getTargetRangeMin() &&
+                bloodSugar > userInput.getCriticalLow()) {
+            output = 3;
 
+        }
+//        if (bloodSugar > userInput.getTargetRangeMin() &&
+//                bloodSugar < userInput.getTargetRangeMax()) {
+//            //if logging normal
+//        }
+        if (bloodSugar <= userInput.getCriticalLow()) {
+            output = 5;
+        }
+        if (bloodSugar > userInput.getTargetRangeMax() &&
+                bloodSugar < userInput.getCriticalHigh()) {
+            output = 4;
+        }
+        if (bloodSugar >= userInput.getCriticalHigh()) {
+            output = 6;
+        }
+        return output;
+    }
 }

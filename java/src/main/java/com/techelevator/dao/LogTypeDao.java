@@ -10,4 +10,5 @@ public interface LogTypeDao {
 
     List<LogType> getAllLogTypes();
 
+
 }

@@ -4,6 +4,7 @@ import com.techelevator.dao.JdbcInsulinTypeDao;
 import com.techelevator.dao.JdbcUserInputDao;
 import com.techelevator.dao.MealDao;
 import com.techelevator.dao.UserInputDao;
+import com.techelevator.logwriter.LogWriter;
 import com.techelevator.model.DoseCalculatorService;
 import com.techelevator.model.Meal;
 import com.techelevator.model.UserInput;
@@ -21,6 +22,8 @@ public class MealController {
     private UserInputDao userInputDao;
     private DoseCalculatorService doseCalculator = new DoseCalculatorService();
     private JdbcInsulinTypeDao insulinTypeDao;
+
+
 
     public MealController(MealDao mealDao, UserInputDao userInputDao, JdbcInsulinTypeDao insulinTypeDao) {
         this.mealDao = mealDao;
