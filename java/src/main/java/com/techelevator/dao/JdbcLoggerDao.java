@@ -70,7 +70,8 @@ public class JdbcLoggerDao implements LoggerDao{
         List<Logger> allLogs = new ArrayList<>();
         String sql = "SELECT log_id, user_id, log_type_id, date_time_logged " +
                 "FROM logger " +
-                "WHERE user_id = ? ";
+                "WHERE user_id = ?  " +
+                "ORDER BY date_time_logged desc";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 

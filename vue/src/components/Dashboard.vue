@@ -6,7 +6,7 @@
 
 
   <div>
-    <div id="chart_div"> </div>
+    
     
     <p> Daily Blood Sugar AVG : {{bloodSugarAvgList[0]}} </p>
        <p> 3 Day : {{bloodSugarAvgList[1]}} </p>
@@ -26,8 +26,8 @@
        <p> Target Minimum Blood Sugar: {{currentTargetMinFromServer}}</p> 
        <p> Target Maximum Blood Sugar: {{currentTargetMaxFromServer}} </p>
 
-        <div>
-          {{userLogs}}
+        
+          
 
           <table>
               <thead>
@@ -40,7 +40,7 @@
               <tbody>
                 <tr v-for="(log, index) in userLogs" v-bind:key="index">
                   <td>{{userLogs[index].logId}}</td>
-                  <td>{{userLogs[index].logTypeId}}</td>
+                  <td>{{logTypeStrings[userLogs[index].logTypeId -1]}}</td>
                   <td>{{userLogs[index].dateTimeLogged}}</td>
 
                 </tr>
@@ -75,7 +75,7 @@
 
 
 
-        </div>
+        
 
   </div>
   
@@ -102,7 +102,8 @@ export default {
             allMealsFromServer: [],
             currentTargetMinFromServer: 0,
             currentTargetMaxFromServer: 0,
-            userLogs: []
+            userLogs: [],
+            logTypeStrings: ["Added/Updated Profile", "Added Meal", "Blood Sugar Low", "Blood Sugar High", "Blood Sugar Critically Low", "Blood Sugar Critically High"]
 
         }
     },
