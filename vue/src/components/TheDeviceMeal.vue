@@ -137,9 +137,6 @@ export default {
     box-shadow: black 10px 10px;
     margin-bottom: 50px;
     width: 40%;
-  /* padding: 20px;
-  width: 100vh;
-  height: 150px; */
 
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
   grid-template-areas: 
@@ -199,7 +196,7 @@ content: '';
    margin-top: 5%;
    box-shadow: 10px 10px 5px gray;
    z-index: -1;
-  /* margin-right: 30%;  */
+  
 }
 
 .speech-yellow-bubble:after {

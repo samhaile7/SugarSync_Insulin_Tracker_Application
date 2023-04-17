@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     getFromServer() {
-        //const userId = this.$route.params.id;
       UserInputService.getUserInputTest()
         .then((response) => {
           this.userInput = response.data;

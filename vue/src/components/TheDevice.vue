@@ -110,10 +110,6 @@ export default {
     margin-left: auto;
     margin-right: auto;
 
-    
-  /* padding: 20px;
-  width: 100vh;
-  height: 150px; */
 
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
   grid-template-areas: 

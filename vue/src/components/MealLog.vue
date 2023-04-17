@@ -20,7 +20,7 @@
     <h3 id="dose-number" v-else>{{calculatedDoseFromServer.toFixed(2)}}</h3>
     
     <div id="button-div">
-    <button id="submit-button" type="" v-show="!isNaN(calculatedDoseFromServer)" v-on:click="routeToDashboard" >Approve?</button> <!--fix to appear later-->
+    <button id="submit-button" type="" v-show="!isNaN(calculatedDoseFromServer)" v-on:click="routeToDashboard" >Approve?</button> 
     </div>
 
     </div>
@@ -54,28 +54,9 @@ export default {
         }
     },
 
-    // computed: {
-    //     calculatedDoseFromServer: 0,
-    //     calculateDose() {
-    //         const mealInput = this.mealInput.suggestedDose;
-
-    //         return mealInput
-    //     },
-    // },
+    
     methods: {
-        // postMealToServer() {
-        //     UserInputService.addMeal(this.mealInput).then((response) => {
-        //         if (response.status === 201) {
-        //             this.calculatedDoseFromServer = response.data.suggestedDose;
-                    
-        //             //display suggested dose ad don't actually push to home
-        //         }
-        //     }).catch((err) => console.log(err));
-        // },
-
-
         toggleCalculatedDose() {
-
         },
         
         postMealToServer() {
@@ -215,7 +196,5 @@ input {
           font-family: 'Poppins', sans-serif;
   font-weight:bold;
 }
-
-
 
 </style>

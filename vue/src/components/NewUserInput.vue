@@ -96,15 +96,10 @@ export default {
 
   methods: {
     postToServer() {
-      //const userId = this.$route.params.id;
-      // this.userInput.criticalLow = this.userInput.targetRangeMin + this.userInput.criticalLow,
-      // this.userInput.criticalHigh =  this.userInput.targetRangeMax + this.userInput.criticalHigh
       UserInputService.addUserInput(this.userInput)
         .then((response) => {
           if (response.status === 201) {
-            // this.$router.push({ name: "home" });
             this.clearForm();
-            // alert("Your information was updated successfully!");
             this.$store.state.userInputSuccess = true;
             this.$router.push({name: 'insulinmealdevice'})
           }
@@ -119,23 +114,6 @@ export default {
 </script>
 
 <style scoped>
-/* .input-grid {
-  grid-area: input;
-  
-  font-family: sans-serif;
-  line-height: 2;
-  justify-content: center;
-}
-
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 
-  ". . ."
-  ". input ."
-  ". . ."
-  ;
-} */
 
 h4 {
   font-family: 'Poppins', sans-serif;
