@@ -88,30 +88,11 @@ export default {
         criticalLow: 0,
         criticalHigh: 0,
 
-        //criticalLow: criticalLowCalculator(),
-        /* userInput: {
-        userId: 0,
-        insulinTypeId: 0,
-        targetRangeMin: 0,
-        targetRangeMax: 0,
-        criticalLow : this.userInput.targetRangeMin - 40,
-        criticaLHigh: this.userInput.targetRangeMax + 40
-      }, */
       },
       successmsg: "",
       value: '75',
     };
   },
-
-  // computed: {
-  //   criticalLowCalculator() {
-  //      return this.targetRangeMin - 40;
-  //   },
-  //   criticalHighCalculator() {
-  //     return this.targetRangeMax + 40;
-  //   }
-
-  // },
 
   methods: {
     postToServer() {

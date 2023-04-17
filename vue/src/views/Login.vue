@@ -41,11 +41,6 @@
                       >
                     </div>
 
-                    <!-- <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
-                </div> -->
-
                     <div class="form-outline mb-4">
                       <input
                         type="password"
@@ -59,8 +54,9 @@
                       >
                     </div>
 
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center" id="submit-button">
                       <button
+                      
                         type="submit"
                         class="
                           btn btn-success btn-block btn-lg
@@ -138,8 +134,12 @@ label {
   background-color: transparent;
   justify-content: space-evenly;
   background-size: cover;
-  /*background-size: 1150px;*/
   height: 100vh;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-weight: bold;
 }
 
 
@@ -158,34 +158,41 @@ height: 100%;
 }
 
 .btn-success{
-  background-color: #FD7F00;
-  border-color: #FD7F00;
+  background-color: #1874D2;
+  border-color: #1874D2;
 
 }
 .btn-success:hover {
-  background-color: #FD6600;
-  border-color: #FD6600;
+  background-color: #0141CF;
+  border-color: #0141CF;
   
 }
 .btn-success:active {
-  background-color: #FD6600;
-  border-color: #FD6600;
+  background-color: #0141CF;
+  border-color: #0141CF;
   
 }
 
 .fw-normal {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
   
 }
 
 .form-label {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
   
 }
 
+.d-flex {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
 
-
-
+.btn {
+  color: white;
+}
 
 
 </style>

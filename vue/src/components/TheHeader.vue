@@ -73,22 +73,6 @@ export default {
   grid-area: profile-link;
   display: inline-block;
 }
-/*#logout-link {
-  grid-area: logout-link;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5em;
-  margin-top: 3%;
-  text-decoration: none;
-}
-#login-link {
-  grid-area: login-link;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5em;
-  margin-top: 3%;
-  text-decoration: none;
-} */
 
 #dashboard-link {
   grid-area: dashboard;
@@ -105,26 +89,13 @@ export default {
 }
 
 #header-grid {
-  /*background-color: rgb(52, 61, 182); /* For browsers that do not support gradients */
-  /* background-image: linear-gradient( rgb(138, 175, 255),rgb(157,207,237));*/
-  
-  /* grid-template-columns: 1fr 1fr;
-  grid-template-areas: "logo insulinbtn"; */
- /* display: flex;
-  justify-content: right;
-  align-content: space-between;
-  max-width: 100%;*/
-
   display: grid;
   grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-  "logo home dashboard profile-link meal-link logbutton";
-
+  "logo dashboard profile-link meal-link home logbutton";
 }
 
 .router {
-  /*grid-area: router;
-  display: inline-block;*/
   border-radius: 100px;
   color: #0141CF;
   border: none;

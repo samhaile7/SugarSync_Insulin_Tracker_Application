@@ -16,20 +16,8 @@
           </button>
           </div>
         </div>
-        <!--<div class="buttons" v-if="$store.state.token == ''">
-          <button id="login-button" v-on:click="routeToLogin()">Login</button
-          ><br />-->
-          
         </div> 
-      <!-- </div>
-      <img
-          id="homepage-image"
-          src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681224356/capstone_assets/pexels-nataliya-vaitkevich-6941878_owqzuc.jpg"
-          alt=""
-        /> -->
     </main>
-        
-    
   </div>
 </template>
 
@@ -166,11 +154,6 @@ h1 {
   background-position-x: center;
   background-color: transparent;
 }
-
-
-
-
-
 
 
 </style>

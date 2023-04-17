@@ -13,10 +13,9 @@
             <div class="col-12 col-md-9 col-lg-7 col-xl-6">
               <div class="card" style="border-radius: 15px">
                 <div class="card-body p-5">
-                  <h2 class="text-uppercase text-center mb-5">
+                  <h2 id="h2" class="text-uppercase text-center mb-5">
                     Create an account
                   </h2>
-                  <!--<emailjs /> -->
                   
 
                   <form id="form" @submit.prevent="registerForm">
@@ -106,9 +105,7 @@ import emailjs from '@emailjs/browser';
 
 export default {
   name: "register",
-  components: {
-    //emailjs
-  },
+  
   data() {
     return {
       user: {
@@ -174,8 +171,14 @@ export default {
 .form-input-group {
   margin-bottom: 1rem;
 }
+
 label {
   margin-right: 0.5rem;
+}
+
+#h2 {
+  font-family: 'Lora', serif;
+  font-weight: bold;
 }
 
 .vh-100 {
@@ -183,34 +186,28 @@ label {
   background-color: transparent;
   justify-content: space-evenly;
   background-size: cover;
-  /*background-size: 1150px;*/
   height: 100vh;
-
 }
 
 .btn-success{
-  background-color: #FD7F00;
-  border-color: #FD7F00;
-
+  background-color: #1874D2;
+  border-color: #1874D2;
 }
+
 .btn-success:hover {
-  background-color: #FD6600;
-  border-color: #FD6600;
-  
+  background-color: #0141CF;
+  border-color: #0141CF;
 }
+
 .btn-success:active {
-  background-color: #FD6600;
-  border-color: #FD6600;
+  background-color: #0141CF;
+  border-color: #0141CF;
   
 }
 
-/* [v-cloak] {
-  display: none;
-
-} */
 .text-center {
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 </style>
