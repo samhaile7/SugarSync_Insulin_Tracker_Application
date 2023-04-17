@@ -5,7 +5,7 @@
       <img 
         v-on:click="routeToHome"
         id="logo"
-        src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681440554/capstone_assets/sugarsync_1_j4p8yx.png"
+        src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681751904/capstone_assets/sugarsync_long_1_xey8ej.png"
         alt=""
       />
       <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>&nbsp;&nbsp;
@@ -58,10 +58,10 @@ export default {
 
 #logo {
   grid-area: logo;
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  
   display: inline-block;
-  margin-top: 10px;
+  
 }
 
 #home-link {
@@ -71,7 +71,6 @@ export default {
 
 #profile-link {
   grid-area: profile-link;
-  margin-top: 3%;
   display: inline-block;
 }
 /*#logout-link {
@@ -138,6 +137,8 @@ export default {
   text-decoration: none;
   height: 60px;
   margin: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
   
 }
 .logbuttons {
@@ -155,6 +156,10 @@ export default {
   height: 50px;
   color: white;
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
   
 }
 

@@ -83,6 +83,8 @@ export default {
   text-decoration: none;
   margin-top: 25px;
   box-shadow: black 5px 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 #add-meal-link {
@@ -102,6 +104,8 @@ export default {
   text-decoration: none;
   margin-top: 25px;
   box-shadow: black 5px 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 

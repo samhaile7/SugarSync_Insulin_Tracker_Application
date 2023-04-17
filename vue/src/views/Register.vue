@@ -19,7 +19,7 @@
                   <!--<emailjs /> -->
                   
 
-                  <form @submit.prevent="registerForm">
+                  <form id="form" @submit.prevent="registerForm">
                     <div role="alert" v-if="registrationErrors">
                       {{ registrationErrorMsg }}
                     </div>
@@ -130,7 +130,7 @@ export default {
 
     sendEmail() {
       console.log('send email')
-      emailjs.sendForm('service_rh1fri5', 'template_xthupel', this.$refs.form, 'KPvsLsZCDVoxWJbAQ')
+      emailjs.sendForm('service_rh1fri5', 'template_xthupel', '#form', 'KPvsLsZCDVoxWJbAQ')
         .then((result) => {
             console.log('SUCCESS!', result.text);
         }, (error) => {

@@ -54,6 +54,10 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  text-shadow: 3px 3px #040084;
 }
 
 #homepage-image {
@@ -67,14 +71,15 @@ h1 {
 .site-description {
   grid-area: site-description;
   z-index: 1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color:white;
-  font-size: 1.25em;
+  font-size: 1.5em;
   text-align: center;
   padding-top: 100px;
   padding-left: 25px;
   padding-right: 25px;
+  text-shadow: 1px 1px #040084;
 }
 
 .buttons {
@@ -102,6 +107,7 @@ h1 {
   width: 30%;
   height: 50%;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
 }
 
 #button-div {
@@ -160,4 +166,11 @@ h1 {
   background-position-x: center;
   background-color: transparent;
 }
+
+
+
+
+
+
+
 </style>
