@@ -17,5 +17,7 @@ public interface LoggerDao {
 
     int findIdByUsername (String username);
 
+    void deleteLog(int mealId);
+
 
 }
