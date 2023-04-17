@@ -16,14 +16,17 @@
                   <h2 class="text-uppercase text-center mb-5">
                     Create an account
                   </h2>
+                  <!--<emailjs /> -->
+                  
 
-                  <form @submit.prevent="register">
+                  <form id="form" @submit.prevent="registerForm">
                     <div role="alert" v-if="registrationErrors">
                       {{ registrationErrorMsg }}
                     </div>
                     <div class="form-outline mb-4">
                       <input
                         type="text"
+                        name="user_name"
                         id="form3Example1cg"
                         class="form-control form-control-lg"
                         v-model="user.username"
@@ -35,11 +38,10 @@
                       >
                     </div>
 
-                    <!-- <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                     <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="to_email"/>
                   <label class="form-label" for="form3Example3cg">Your Email</label>
-                </div> -->
-
+                </div> 
                     <div class="form-outline mb-4">
                       <input
                         type="password"
@@ -73,7 +75,8 @@
                           btn btn-success btn-block btn-lg
                           gradient-custom-4
                           text-body
-                        " 
+                        "
+                        value="Send" 
                       >
                         Register
                       </button>
@@ -90,14 +93,22 @@
         </div>
       </div>
     </section>
+      
+
   </div>
 </template>
 
 <script>
+
+
 import authService from "../services/AuthService";
+import emailjs from '@emailjs/browser';
 
 export default {
   name: "register",
+  components: {
+    //emailjs
+  },
   data() {
     return {
       user: {
@@ -111,6 +122,22 @@ export default {
     };
   },
   methods: {
+
+    registerForm() {
+      this.register();
+      this.sendEmail();
+    },
+
+    sendEmail() {
+      console.log('send email')
+      emailjs.sendForm('service_rh1fri5', 'template_xthupel', '#form', 'KPvsLsZCDVoxWJbAQ')
+        .then((result) => {
+            console.log('SUCCESS!', result.text);
+        }, (error) => {
+            console.log('FAILED...', error.text);
+        });
+    },
+
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;

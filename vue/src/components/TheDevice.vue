@@ -59,6 +59,8 @@ export default {
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 #add-meal-link {
@@ -76,6 +78,8 @@ export default {
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 

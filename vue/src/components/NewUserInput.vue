@@ -36,9 +36,9 @@
         <label for="">Minimum Blood Sugar Range (mmol/L):</label>&nbsp;&nbsp;
         <input required type="text" v-model.number="userInput.targetRangeMin" />
         <label for="">Maximum Blood Sugar Range (mmol/L):</label>&nbsp;&nbsp;
-        <input required type="text" v-model.number="userInput.targetRangeMax" />
+        <input required type="text" v-model.number="userInput.targetRangeMax" /> 
 
-        <h5>Please select your insulin medication information:</h5>
+        <br><br><p id="med-info">Please select your insulin medication information:</p>
         <div>
           <b-form-select
             required
@@ -66,6 +66,7 @@
             </div>
           </b-form-select>
         </div>
+        
 
         <button id="submit" type="submit">Submit</button>
       </form>
@@ -122,8 +123,9 @@ export default {
           if (response.status === 201) {
             // this.$router.push({ name: "home" });
             this.clearForm();
-            alert("Your information was updated successfully!");
+            // alert("Your information was updated successfully!");
             this.$store.state.userInputSuccess = true;
+            this.$router.push({name: 'insulinmealdevice'})
           }
         })
         .catch((err) => console.log(err));
@@ -154,11 +156,20 @@ export default {
   ;
 } */
 
-h1 {
-  text-align: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
+  margin-bottom: 15px;
 }
 
+h1 {
+  text-align: center;
+    font-family: 'Lora', serif;
+  font-weight: bold;
+}
+#med-info {
+  font-size: 1.1em
+}
 .dropdown {
   max-width: 65%;
 }
@@ -166,12 +177,23 @@ h1 {
   margin: 5%;
 }
 #submit {
+  margin-top: 10px;
+      border-radius: 10px;
+    background-color: #1874D2;
+    color: white;
+    font-weight: bold;
 }
 
 input {
+  float: right;
+  width: 120px;
 }
 
 .scrollable {
   overflow-y: scroll;
+}
+form {
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 </style>

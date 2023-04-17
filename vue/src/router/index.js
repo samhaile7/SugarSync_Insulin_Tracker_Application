@@ -35,7 +35,7 @@ const router = new Router({
       name: 'dashboard',
       component: Dash,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     // {
@@ -61,7 +61,7 @@ const router = new Router({
       name: 'new-user',
       component: NewUser,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -101,7 +101,7 @@ const router = new Router({
       name: "insulindevice",
       component: InsulinDeviceUserView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -109,7 +109,7 @@ const router = new Router({
       name: "insulinmealdevice",
       component: AddMealDeviceUserView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
 

@@ -16,11 +16,11 @@
     </form>
     
     <h3 id="suggested-dose">Suggested dose (Units): <br></h3>
-    <h3 id="dose-number" v-if="this.calculatedDoseFromServer === NaN">""</h3>
+    <h3 id="dose-number" v-if="isNaN(calculatedDoseFromServer)"></h3>
     <h3 id="dose-number" v-else>{{calculatedDoseFromServer.toFixed(2)}}</h3>
     
     <div id="button-div">
-    <button id="submit-button" type="">Approve?</button>
+    <button id="submit-button" type="" v-show="!isNaN(calculatedDoseFromServer)" v-on:click="routeToDashboard" >Approve?</button> <!--fix to appear later-->
     </div>
 
     </div>
@@ -138,6 +138,10 @@ export default {
                 }
             }).catch((err) => console.log(err));
         },
+
+        routeToDashboard() {
+            this.$router.push({name: 'dashboard'})
+        },
     }
 
     }
@@ -149,7 +153,8 @@ export default {
 
 #header {
     text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Lora', serif;
+  font-weight: bold;
 }
 
 .main-grid { 
@@ -163,16 +168,22 @@ input {
 #suggested-dose {
     text-align: center;
     padding-top: 5%;
+      font-family: 'Poppins', sans-serif;
+  font-weight: bold;
     
 }
 
 #dose-number {
     text-align: center;
     font-size: 5em;
+          font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 #numofcarbs {
     font-size: 1.15em;
+      font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 #numofcarbs-input {
@@ -181,6 +192,8 @@ input {
 
 #bloodsugar {
     font-size: 1.15em;
+      font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 #bloodsugar-input {
@@ -193,10 +206,14 @@ input {
     background-color: #1874D2;
     color: white;
     font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 #button-div {
     text-align: center;
+          font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 
