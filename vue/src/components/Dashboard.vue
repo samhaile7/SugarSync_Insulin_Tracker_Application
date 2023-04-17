@@ -26,8 +26,59 @@
        <p> Target Minimum Blood Sugar: {{currentTargetMinFromServer}}</p> 
        <p> Target Maximum Blood Sugar: {{currentTargetMaxFromServer}} </p>
 
+        <div>
+          {{userLogs}}
+
+          <table>
+              <thead>
+                  <tr>
+                    <th>Log Id</th>
+                    <th>Log Type</th>
+                    <th>Date/Time Logged</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(log, index) in userLogs" v-bind:key="index">
+                  <td>{{userLogs[index].logId}}</td>
+                  <td>{{userLogs[index].logTypeId}}</td>
+                  <td>{{userLogs[index].dateTimeLogged}}</td>
+
+                </tr>
+                 
+
+                  
+
+                
+
+
+
+              </tbody>
+
+
+
+
+
+
+
+
+          </table>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+        </div>
 
   </div>
+  
 </template>
 
 
@@ -40,6 +91,7 @@
 
 import MealService from "../services/MealService.js";
 import UserInputService from "../services/UserInputService.js";
+import LogService from "../services/LogService.js";
 
 
 export default {
@@ -50,7 +102,7 @@ export default {
             allMealsFromServer: [],
             currentTargetMinFromServer: 0,
             currentTargetMaxFromServer: 0,
-            
+            userLogs: []
 
         }
     },
@@ -93,6 +145,13 @@ export default {
                 }
             }).catch((err) => console.log(err));
         },
+        getAllLogs() {
+          LogService.getAllLogsByUserId().then((response) => {
+            if (response.status === 200) {
+              this.userLogs = response.data
+            }
+          }).catch((err) => console.log(err));
+        }
 
     
 },
@@ -101,6 +160,7 @@ export default {
       this.getBloodSugarAverages();
       this.callAllMeals();
       this.getTargetRange();
+      this.getAllLogs();
     }
 
 }
