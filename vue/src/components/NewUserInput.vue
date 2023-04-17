@@ -66,6 +66,7 @@
             </div>
           </b-form-select>
         </div>
+        
 
         <button id="submit" type="submit">Submit</button>
       </form>
@@ -122,8 +123,9 @@ export default {
           if (response.status === 201) {
             // this.$router.push({ name: "home" });
             this.clearForm();
-            alert("Your information was updated successfully!");
+            // alert("Your information was updated successfully!");
             this.$store.state.userInputSuccess = true;
+            this.$router.push({name: 'insulinmealdevice'})
           }
         })
         .catch((err) => console.log(err));
