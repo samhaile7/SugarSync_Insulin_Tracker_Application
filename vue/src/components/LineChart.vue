@@ -44,7 +44,7 @@ export default {
     },
     dateArray() {
       return this.arrayToPass[0].map((meal) => {
-        return new Date(meal.dateCreated).toLocaleString();
+        return new Date(meal.dateCreated).toLocaleDateString();
       });
     },
     insulinHistory() {
