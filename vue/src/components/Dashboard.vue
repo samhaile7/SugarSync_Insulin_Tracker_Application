@@ -89,9 +89,9 @@ export default {
       else {
         return false
       }
-    }
+    },
 
-
+    
 
 
   },
@@ -166,6 +166,11 @@ export default {
         })
         .catch((err) => console.log(err));
     },
+    formatDate() {
+
+    },
+
+
   },
   created() {
     this.getInsulinDosageAverages();
@@ -187,14 +192,14 @@ export default {
   border-radius: 20px;
   border-spacing: 0;
   
-  border: 1px solid black;
+  border: 1px solid #040084;
   overflow: hidden;
   margin-bottom: 5%;
 
 }
 
 th:not(:last-child), td:not(:last-child) {
-  border-right: 1px solid black;
+  border-right: 1px solid #040084;
   
 }
 #avg-table>thead>tr:not(:last-child)>th,
@@ -208,7 +213,7 @@ th:not(:last-child), td:not(:last-child) {
 #avg-table>thead:not(:last-child),
 #avg-table>tbody:not(:last-child),
 #avg-table>tfoot:not(:last-child) {
- border-bottom: 1px solid black;
+ border-bottom: 1px solid #040084;
 }
 
  #avg-header {
@@ -225,6 +230,7 @@ th:not(:last-child), td:not(:last-child) {
 .dosage, .bloodsugar {
   text-align: center;
   font-size: 1.25em;
+  color: rgb(46, 45, 45);
 
 }
 
@@ -237,6 +243,7 @@ th:not(:last-child), td:not(:last-child) {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  color: rgb(46, 45, 45);
 }
 
 #log-header {
@@ -256,7 +263,7 @@ th:not(:last-child), td:not(:last-child) {
   border-radius: 20px;
   border-spacing: 0;
   
-  border: 1px solid black;
+  border: 1px solid #040084;
   overflow: hidden;
   margin-bottom: 5%;
 
@@ -272,19 +279,21 @@ th:not(:last-child), td:not(:last-child) {
 #log-table>thead:not(:last-child),
 #log-table>tbody:not(:last-child),
 #log-table>tfoot:not(:last-child) {
- border-bottom: 1px solid black;
+ border-bottom: 1px solid #040084;
 }
 
 #column-title {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #040084;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   text-align: center;
+    color: rgb(46, 45, 45);
 }
 #row-data {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  color: rgb(46, 45, 45);
   padding-left: 10px;
 }
 .log-id {
