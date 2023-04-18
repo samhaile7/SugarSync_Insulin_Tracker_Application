@@ -45,7 +45,7 @@
     
     
     
-    <PieChart v-if="isDataLoaded" v-bind:userLogs="userLogs" class="pie-chart" />
+    <PieChart v-bind:userLogs="userLogs" class="pie-chart" />
     </div>
 
 
