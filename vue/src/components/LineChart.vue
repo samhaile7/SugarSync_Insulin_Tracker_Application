@@ -21,9 +21,13 @@ export default {
   name: "chart",
   computed: {
     targetmin() {
+            let outputArray = [];
 
+        for (let i = 0; i < this.bloodSugarHistory.length; i++) {
+        outputArray.push(this.arrayToPass[1]);
+      }
      
-      return this.arrayToPass[1];
+      return outputArray;
     },
     targetmax() {
       let outputArray = [];
@@ -40,7 +44,7 @@ export default {
     },
     dateArray() {
       return this.arrayToPass[0].map((meal) => {
-        return new Date(meal.dateCreated);
+        return new Date(meal.dateCreated).toLocaleDateString();
       });
     },
     insulinHistory() {
@@ -99,10 +103,10 @@ export default {
         scales: {
           y: {
             beginAtZero: true,
-            steps: 50,
-            stepValue: 5,
+            // steps: 50,
+            // stepValue: 5,
             max:250,
-          }
+          },
           // x: {
           // type : 'date'
             
