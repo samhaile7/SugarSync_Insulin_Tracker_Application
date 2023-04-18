@@ -52,7 +52,9 @@ export default {
             displayLowAlertMessage: false, 
             displayLowWarningMessage: false,
         }
-    },
+    },  unmounted() {
+  console.log('testing unmounted')
+},
 
     
     methods: {

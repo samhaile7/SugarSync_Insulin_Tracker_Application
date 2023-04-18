@@ -49,8 +49,11 @@ export default {
       
   
     MealLog },
+   
 
 }
+
+
     
 </script>
 
