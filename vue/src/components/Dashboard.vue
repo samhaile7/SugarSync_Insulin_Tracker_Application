@@ -58,7 +58,7 @@
         <tr v-for="(log, index) in userLogs" v-bind:key="index">
           <td id="row-data" class="log-id">{{ userLogs[index].logId }}</td>
           <td id="row-data">{{ logTypeStrings[userLogs[index].logTypeId - 1] }}</td>
-          <td id="row-data">{{ userLogs[index].dateTimeLogged }}</td>
+          <td id="row-data">{{ new Date(userLogs[index].dateTimeLogged).toLocaleString() }}</td>
         </tr>
       </tbody>
     </table>
