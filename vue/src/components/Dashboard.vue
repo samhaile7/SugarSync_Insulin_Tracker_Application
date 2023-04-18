@@ -1,5 +1,12 @@
 <template>
   <div>
+    <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
+    <LineChart v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
+
+    <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
+    <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
+    <p>7 day : {{ bloodSugarAvgList[2] }}</p>
+    <p>2 week : {{ bloodSugarAvgList[3] }}</p>
 
     <table id="avg-table" class="center">
       <tr>
@@ -67,14 +74,38 @@ import PieChart from "../components/PieChart.vue";
 
 export default {
   components: { LineChart, PieChart }, 
+  computed: {
+    arrayToPass() {
+
+
+      return [this.allMealsFromServer, this.currentTargetMinFromServer, this.currentTargetMaxFromServer]
+
+    },
+    isDataLoaded() {
+
+      if(this.allMealsFromServer.length > 0) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
+
+
+
+
+  },
+  
   data() {
     return {
+    
       bloodSugarAvgList: [],
       insulinDosageAvgList: [],
       allMealsFromServer: [],
       currentTargetMinFromServer: 0,
       currentTargetMaxFromServer: 0,
       userLogs: [],
+
       logTypeStrings: [
         "Added/Updated Profile",
         "Added Meal",
