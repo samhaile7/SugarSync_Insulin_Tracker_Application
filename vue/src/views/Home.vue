@@ -92,7 +92,7 @@ h1 {
   border-radius: 50px;
   grid-area: register-button;
   padding: 10px 24px;
-  width: 30%;
+  width: 35%;
   height: 50%;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
