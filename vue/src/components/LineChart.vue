@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="whole-chart">
     <canvas id="myChart"></canvas>
 
-    {{bloodSugarHistory}}
+    <!-- {{bloodSugarHistory}}
     {{insulinHistory}}
-    Array to pass is here {{ this.arrayToPass }}
+    Array to pass is here {{ this.arrayToPass }} -->
 
     <br />
     <br />
-    {{ this.dateArray }}
+    <!-- {{ this.dateArray }}
     {{ this.targetmin }}
-     {{ this.targetmax }}
+     {{ this.targetmax }} -->
   </div>
 </template>
 
@@ -115,4 +115,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+/* .whole-chart {
+    width: 40%;
+    border-style: 10px solid black;
+} */
+
+</style>

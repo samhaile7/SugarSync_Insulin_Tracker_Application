@@ -1,14 +1,7 @@
 <template>
   <div>
-    <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
-    <LineChart v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
-
-    <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
-    <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
-    <p>7 day : {{ bloodSugarAvgList[2] }}</p>
-    <p>2 week : {{ bloodSugarAvgList[3] }}</p>
-
-    <table id="avg-table" class="center">
+    <h1></h1>
+        <table id="avg-table" class="center">
       <tr>
         <th id="avg-header" colspan="6">Blood Sugar & Dosage Averages</th>
       </tr>
@@ -37,9 +30,21 @@
         <td id="avg-row">{{ insulinDosageAvgList[4].toFixed(2) }}</td>
       </tr>
     </table>
+    <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
+    <LineChart class="line-chart" v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
+
+    <!-- <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
+    <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
+    <p>7 day : {{ bloodSugarAvgList[2] }}</p>
+    <p>2 week : {{ bloodSugarAvgList[3] }}</p> -->
+
+
 
     <LineChart v-bind:allMealsFromServer="allMealsFromServer" v-bind:currentTargetMinFromServer = "currentTargetMinFromServer"  />
-    <pie-chart />
+    
+    
+    
+    <pie-chart class="pie-chart" />
 
 
     <p>Target Minimum Blood Sugar: {{ currentTargetMinFromServer }}</p>
@@ -184,6 +189,17 @@ export default {
 
 <style>
 
+.line-chart {
+  width: 40%;
+  border-style: 1px solid black;
+  display: inline-block;
+}
+.pie-chart {
+  width: 30%;
+  border-style: 1px solid black;
+  display: inline-block;
+}
+
 #avg-table {
   width: 95%;
   margin-left: auto;
@@ -224,7 +240,6 @@ th:not(:last-child), td:not(:last-child) {
   font-size: 1.5em;
   font-family: 'Lora', serif;
   font-weight: bold;
-  
   
 } 
 .dosage, .bloodsugar {
