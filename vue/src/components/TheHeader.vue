@@ -38,6 +38,9 @@
 
 <script>
 export default {
+  data() {
+
+  },
   name: "the-header",
   methods: {
     routeToHome() {
@@ -48,6 +51,9 @@ export default {
     },
     routeToLogin() {
       this.$router.push({name: 'login'})
+    },
+    forceRerender() {
+      this.$router.push({name: 'insulinmealdevice'})
     }
   }
 };

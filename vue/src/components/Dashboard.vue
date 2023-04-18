@@ -45,12 +45,15 @@
     
     
     
+    <PieChart v-bind:userLogs="userLogs" class="pie-chart" />
+        <div class="targets">
+    <p id="min">Target Minimum Blood Sugar: {{ currentTargetMinFromServer }}</p>
+    <p id="max">Target Maximum Blood Sugar: {{ currentTargetMaxFromServer }}</p>
+    </div>
     <PieChart v-if="isUserLogsLoaded" v-bind:userLogs="userLogs" class="pie-chart" />
     </div>
 
 
-    <p>Target Minimum Blood Sugar: {{ currentTargetMinFromServer }}</p>
-    <p>Target Maximum Blood Sugar: {{ currentTargetMaxFromServer }}</p>
 
     <table id="log-table">
       <thead>
@@ -202,6 +205,22 @@ export default {
 
 <style>
 
+.targets {
+  grid-area: targets;
+  border-style: 1px solid black;
+  border-radius: 10px;
+}
+
+#min {
+border-style: 1px solid black;
+  border-radius: 10px;
+}
+
+#max {
+border-style: 1px solid black;
+  border-radius: 10px;
+}
+
 .line-chart {
   
   border-style: 1px solid black;
@@ -218,7 +237,10 @@ export default {
 .chart-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "line-chart pie-chart";
+  grid-template-areas: 
+  "line-chart pie-chart"
+  "targets pie-chart";
+
 }
 
 #avg-table {

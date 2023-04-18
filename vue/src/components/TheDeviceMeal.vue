@@ -51,6 +51,11 @@ export default {
     MealLog },
    
 
+    created() {
+      this.$store.commit("CLEAR_ALERTS")
+    },
+    
+
 }
 
 

@@ -38,24 +38,7 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: '/mealcopy',
-    //   name: 'meal-copy',
-    //   component: MealViewCopy,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
-   
 
-    // {
-    //   path: '/meal',
-    //   name: 'meal-log',
-    //   component: LogAMeal,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
     {
       path: '/userinput',
       name: 'new-user',
