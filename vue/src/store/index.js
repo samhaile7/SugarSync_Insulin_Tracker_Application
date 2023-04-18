@@ -48,6 +48,14 @@ export default new Vuex.Store({
       state.displayLowAlertMessage= false, 
       state.displayLowWarningMessage= false,
       state.displayNormalMessage = false
+    },
+    CLEAR_ALERTS(state) {
+      state.displayHighAlertMessage=  false, 
+      state.displayHighWarningMessage= false,
+      state.displayLowAlertMessage= false, 
+      state.displayLowWarningMessage= false,
+      state.displayNormalMessage = false
     }
+    
   }
 })
