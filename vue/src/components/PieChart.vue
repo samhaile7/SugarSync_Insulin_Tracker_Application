@@ -80,8 +80,8 @@ export default {
 </script>
 
 <style>
-.whole-chart {
+/* .whole-chart {
     width: 40%;
-}
+} */
 
 </style>

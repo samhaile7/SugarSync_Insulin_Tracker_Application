@@ -31,7 +31,7 @@
       </tr>
     </table>
     <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
-    <LineChart class="line-chart" v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
+    
 
     <!-- <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
     <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
@@ -39,12 +39,14 @@
     <p>2 week : {{ bloodSugarAvgList[3] }}</p> -->
 
 
-
+  <div class="chart-grid">
+    <LineChart class="line-chart" v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
     <LineChart v-bind:allMealsFromServer="allMealsFromServer" v-bind:currentTargetMinFromServer = "currentTargetMinFromServer"  />
     
     
     
     <pie-chart class="pie-chart" />
+    </div>
 
 
     <p>Target Minimum Blood Sugar: {{ currentTargetMinFromServer }}</p>
@@ -190,14 +192,22 @@ export default {
 <style>
 
 .line-chart {
-  width: 40%;
+  
   border-style: 1px solid black;
   display: inline-block;
+  grid-area: line-chart;
 }
 .pie-chart {
-  width: 30%;
+  
   border-style: 1px solid black;
   display: inline-block;
+  grid-area: pie-chart;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "line-chart pie-chart";
 }
 
 #avg-table {

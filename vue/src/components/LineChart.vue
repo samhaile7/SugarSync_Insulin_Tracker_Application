@@ -1,6 +1,6 @@
 <template>
-  <div class="whole-chart">
-    <canvas id="myChart"></canvas>
+  <div >
+    <canvas id="myChart" class="whole-chart"></canvas>
 
     <!-- {{bloodSugarHistory}}
     {{insulinHistory}}
@@ -70,7 +70,7 @@ export default {
             label: "Blood Sugar",
             data: this.bloodSugarHistory,
             fill: false,
-            borderColor: "rgb(255, 0, 0)",
+            borderColor: "#ff4041",
             tension: 0,
           },
 
@@ -85,7 +85,7 @@ export default {
            {label: 'Target Blood Sugar Max',
           data: this.targetmax,
           fill: false,
-          borderColor: '	rgb(50,205,50)',
+          borderColor: '	#0141CF',
           backgroundColor: 'rgba(55, 173, 221)',
 
           tension: 0
@@ -94,7 +94,7 @@ export default {
            {label: 'Target Blood Sugar Minimum',
           data: this.targetmin,
           fill: false,
-          borderColor: 'rgb(50, 205, 50)',
+          borderColor: '#0141CF',
           tension: 0
           }
         ],
