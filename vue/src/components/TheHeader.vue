@@ -8,13 +8,13 @@
         src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681751904/capstone_assets/sugarsync_long_1_xey8ej.png"
         alt=""
       />
-      <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>&nbsp;&nbsp;
+      <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>
 
-      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link> &nbsp;&nbsp;
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link>
       
-      <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}" v-if="$store.state.token != ''"><span>Profile</span></router-link> &nbsp;&nbsp;
+      <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}" v-if="$store.state.token != ''"><span>Profile</span></router-link>
       
-      <router-link class ="router" id="meal-link" v-bind:to="{name: 'insulinmealdevice'}" v-if="$store.state.token != ''"><span>Add Meal</span></router-link> &nbsp;&nbsp;
+      <router-link class ="router" id="meal-link" v-bind:to="{name: 'insulinmealdevice'}" v-if="$store.state.token != ''"><span>Add Meal</span></router-link>
 
       <div class = "buttons">
       <button class="logbuttons"
@@ -93,6 +93,7 @@ export default {
   grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
   "logo dashboard profile-link meal-link home logbutton";
+  margin-bottom: 0;
 }
 
 .router {

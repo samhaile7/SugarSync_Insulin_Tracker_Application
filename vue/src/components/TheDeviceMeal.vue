@@ -56,6 +56,8 @@ export default {
 
 <style>
 
+
+
 .devicescreen {
   grid-area: devicescreen;
   background-color: white;
@@ -131,9 +133,9 @@ export default {
     border: 2px solid #73AD21;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 4%;
-    padding-bottom: 4%;
-    margin-top: 6%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
     box-shadow: black 10px 10px;
     margin-bottom: 50px;
     width: 40%;
@@ -146,7 +148,7 @@ export default {
     ". . fakebtn1 . ."
     
   ;
-  display: flex;
+  
 }
 
 

@@ -44,7 +44,7 @@ export default {
     },
     dateArray() {
       return this.arrayToPass[0].map((meal) => {
-        return meal.dateCreated;
+        return new Date(meal.dateCreated).toLocaleDateString();
       });
     },
     insulinHistory() {
@@ -64,38 +64,41 @@ export default {
     const myChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: labels,
+        labels: labels, 
         datasets: [
           {
             label: "Blood Sugar",
             data: this.bloodSugarHistory,
             fill: false,
             borderColor: "#ff4041",
-            tension: 0,
+            backgroundColor: '#ff4041',
+            tension: 0.25,
           },
 
           {
             label: "Insulin",
             data: this.insulinHistory,
             fill: false,
-            borderColor: "rgb(0, 0, 255)",
-            tension: 0,
+            borderColor: "#faab33",
+            backgroundColor: '#faab33',
+            tension: 0.25,
           },
 
            {label: 'Target Blood Sugar Max',
           data: this.targetmax,
           fill: false,
-          borderColor: '	#0141CF',
-          backgroundColor: 'rgba(55, 173, 221)',
+          borderColor: '	#487be3',
+          backgroundColor: '#487be3',
 
-          tension: 0
+          tension: 0.25,
           },
 
            {label: 'Target Blood Sugar Minimum',
           data: this.targetmin,
           fill: false,
           borderColor: '#0141CF',
-          tension: 0
+          backgroundColor: '#0141cf',
+          tension: 0.25,
           }
         ],
       },
