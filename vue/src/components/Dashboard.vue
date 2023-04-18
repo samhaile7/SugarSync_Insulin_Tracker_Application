@@ -1,6 +1,7 @@
 <template>
   <div>
-    <LineChart v-bind:allMealsFromServer="allMealsFromServer" v-bind:currentTargetMinFromServer = "currentTargetMinFromServer"  />
+    <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
+    <LineChart v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" />
 
     <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
     <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
@@ -45,15 +46,38 @@ import LogService from "../services/LogService.js";
 import LineChart from "../components/LineChart.vue";
 
 export default {
+  computed: {
+    arrayToPass() {
+
+
+      return [this.allMealsFromServer, this.currentTargetMinFromServer, this.currentTargetMaxFromServer]
+
+    },
+    isDataLoaded() {
+
+      if(this.allMealsFromServer.length > 0) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
+
+
+
+
+  },
   components: { LineChart },
   data() {
     return {
+    
       bloodSugarAvgList: [],
       insulinDosageAvgList: [],
       allMealsFromServer: [],
       currentTargetMinFromServer: 0,
       currentTargetMaxFromServer: 0,
       userLogs: [],
+
       logTypeStrings: [
         "Added/Updated Profile",
         "Added Meal",
