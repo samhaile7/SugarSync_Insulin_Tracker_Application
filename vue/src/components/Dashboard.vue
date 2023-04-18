@@ -45,7 +45,7 @@
     
     
     
-    <PieChart v-bind:userLogs="userLogs" class="pie-chart" />
+    <PieChart v-if="isDataLoaded" v-bind:userLogs="userLogs" class="pie-chart" />
     </div>
 
 
@@ -186,6 +186,8 @@ export default {
     this.getTargetRange();
     this.getAllLogs();
   },
+
+  
 };
 </script>
 
