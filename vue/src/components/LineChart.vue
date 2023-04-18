@@ -1,8 +1,7 @@
 <template>
   <div>
-
-    <canvas id = "myChart"></canvas>
-    </div>
+    <canvas id="myChart"></canvas>
+  </div>
 </template>
 
 <script>
@@ -11,8 +10,14 @@ import Chart from 'chart.js/auto';
 
 export default {
 
-  name: 'chart', 
-  props: {}, 
+  name: 'chart',
+  computed: {
+    bloodSugarHistory() {
+     return this.allMealsFromServer.map((meal) => {
+       return meal.suggestedDose;
+     })
+  }},
+  props: ['allMealsFromServer'],
   mounted() {
     console.log('Component Mounted')
 
@@ -27,7 +32,7 @@ export default {
 
 
         label: 'Blood Sugar',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: this.bloodSugarHistory,
         fill: false,
         borderColor: 'rgb(255, 0, 0)',
         tension: 0
@@ -45,9 +50,9 @@ export default {
         fill: '-1',
         borderColor: '	rgb(50,205,50)',
         backgroundColor: 'rgba(55, 173, 221)',
-        
+
         tension: 0
-        }, 
+        },
 
          {label: 'Target Blood Sugar Minimum',
         data: [65, 65,65,65,65,65,65],
@@ -55,10 +60,10 @@ export default {
         borderColor: 'rgb(50, 205, 50)',
         tension: 0
         }
-        
-        
-        
-        
+
+
+
+
         ]
     },
     options: {
@@ -73,9 +78,6 @@ export default {
   }
 
 }
-
 </script>
 
-<style>
-
-</style>
+<style></style>

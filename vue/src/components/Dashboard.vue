@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LineChart />
+    <LineChart v-bind:allMealsFromServer="allMealsFromServer" v-bind:currentTargetMinFromServer = "currentTargetMinFromServer"  />
 
     <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
     <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
