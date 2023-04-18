@@ -45,7 +45,7 @@
     
     
     
-    <PieChart v-bind:userLogs="userLogs" class="pie-chart" />
+    <PieChart v-if="isUserLogsLoaded" v-bind:userLogs="userLogs" class="pie-chart" />
     </div>
 
 
@@ -91,6 +91,15 @@ export default {
     isDataLoaded() {
 
       if(this.allMealsFromServer.length > 0) {
+        return true
+      }
+      else {
+        return false
+      }
+    },
+     isUserLogsLoaded() {
+
+      if(this.userLogs.length > 0) {
         return true
       }
       else {
