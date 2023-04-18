@@ -1,5 +1,5 @@
 <template>
-  <div class="chart">
+  <div class="whole-chart">
     <canvas id="pieChart"></canvas>
   </div>
 </template>
@@ -80,8 +80,8 @@ export default {
 </script>
 
 <style>
-.chart {
-    width: 10%;
+.whole-chart {
+    width: 40%;
 }
 
 </style>
