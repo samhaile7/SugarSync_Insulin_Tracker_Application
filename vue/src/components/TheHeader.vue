@@ -10,8 +10,10 @@
       />
       <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>
 
-      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link>
-      
+      <!-- <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link> -->
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'admindashboard'}" v-if="isAdmin"><span>AdminDashboard</span></router-link>
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-else ><span>Dashboard</span></router-link>
+
       <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}" v-if="$store.state.token != ''"><span>Profile</span></router-link>
       
       <router-link class ="router" id="meal-link" v-bind:to="{name: 'insulinmealdevice'}" v-if="$store.state.token != ''"><span>Add Meal</span></router-link>
@@ -38,9 +40,7 @@
 
 <script>
 export default {
-  data() {
-
-  },
+  
   name: "the-header",
   methods: {
     routeToHome() {
@@ -55,7 +55,17 @@ export default {
     forceRerender() {
       this.$router.push({name: 'insulinmealdevice'})
     }
-  }
+  },
+  computed: {
+    isAdmin() {
+      if (this.$store.state.token != '' && this.$store.state.user.authorities[0].name === "ROLE_ADMIN") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    
+  },
 };
 </script>
 

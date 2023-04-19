@@ -13,6 +13,7 @@ import InsulinDeviceUserView from '../views/InsulinDeviceUserView.vue'
 import Dash from '../views/Dash.vue'
 
 import mealLogTest from '../views/mealLogTest.vue'
+import AdminDash from '../views/AdminDash.vue'
 
 
 Vue.use(Router)
@@ -102,6 +103,14 @@ const router = new Router({
       component: mealLogTest,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/admindashboard',
+      name: 'admindashboard',
+      component: AdminDash,
+      meta: {
+        requiresAuth: true
       }
     },
 

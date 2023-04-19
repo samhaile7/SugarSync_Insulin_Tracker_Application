@@ -10,4 +10,8 @@ export default{
         return axios.get(`/alllogs`)
     },
 
+    getEveryLog() {
+        return axios.get(`/everylog`)
+    }
+
 }
