@@ -8,10 +8,12 @@
         src="https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681751904/capstone_assets/sugarsync_long_1_xey8ej.png"
         alt=""
       />
+     
+
       <router-link class ="router" id="home-link" v-bind:to="{name: 'home'}"><span>Home</span></router-link>
 
       <!-- <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link> -->
-      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'admindashboard'}" v-if="isAdmin"><span>AdminDashboard</span></router-link>
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'admindashboard'}" v-if="isAdmin"><span>Admin Dashboard</span></router-link>
       <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-else-if="$store.state.token != ''"><span>Dashboard</span></router-link>
 
       <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}" v-if="$store.state.token != ''"><span>Profile</span></router-link>
@@ -71,6 +73,12 @@ export default {
 
 <style>
 
+#swoop {
+  height: 100px;
+  width:  100%;
+  display: inline-block;
+  opacity: 25%;
+}
 
 #logo {
   grid-area: logo;
@@ -93,6 +101,7 @@ export default {
 #dashboard-link {
   grid-area: dashboard;
   display: inline-block;
+  white-space: nowrap;
 }
 
 #meal-link {
@@ -106,11 +115,12 @@ export default {
 
 #header-grid {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-  "logo dashboard profile-link meal-link home logbutton";
+  "logo swoop dashboard profile-link meal-link home logbutton";
   margin-bottom: 0;
   border-bottom: #040084 2px solid;
+  
   
 }
 
@@ -150,7 +160,8 @@ export default {
   margin-bottom: 0px;
   font-family: 'Poppins', sans-serif;
   font-weight:bold;
-  
+  box-shadow:black 2px 2px 2px;
+  margin-right: 10px;
 }
 
 

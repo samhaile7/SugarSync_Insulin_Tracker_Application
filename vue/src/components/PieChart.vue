@@ -1,5 +1,7 @@
 <template>
   <div class="whole-chart">
+    <h1>Blood Sugar Alerts</h1>
+    <br>
     <canvas id="pieChart"></canvas>
   </div>
 </template>
@@ -53,10 +55,10 @@ return this.userLogs.filter((log) => {
             label: "My First Dataset",
             data: [this.numberOfLogTypeThree, this.numberOfLogTypeFour, this.numberOfLogTypeFive, this.numberOfLogTypeSix],
             backgroundColor: [
-              "rgb(0, 0, 255)",
-              "rgb(54, 162, 235)",
-              "rgb(255, 205, 86)",
-              "rgb(255,69,1)"
+              "#F99244",
+              "#487be3",
+              "#0141CF",
+              "#FF6A4C"
             ],
             hoverOffset: 4,
           }
@@ -69,8 +71,17 @@ return this.userLogs.filter((log) => {
      
 </script>
 
-<style>
-/* .whole-chart {
-    width: 40%;
-} */
+<style scoped>
+
+h1 {
+    font-family: 'Lora', serif;
+  font-weight: bold;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-bottom: #232069 solid ;
+  color: #232069;
+  
+  
+}
+
 </style>

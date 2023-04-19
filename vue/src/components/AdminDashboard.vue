@@ -149,10 +149,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 #dash-grid {
-  background-color: #fecc98;
+  background-color: #487BE3;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 
@@ -172,6 +174,8 @@ export default {
   color: white;
   text-shadow: #040084 1px 1px;
   box-shadow: #040084 3px 3px;
+  
+
   
 }
 #targets-header {
@@ -322,12 +326,13 @@ td:not(:last-child) {
 }
 
 #log-header {
-  background: #1874d2;
+  background: #FD7F00;
   color: white;
   text-align: center;
   font-size: 1.5em;
   font-family: "Lora", serif;
   font-weight: bold;
+  text-shadow: black 2px 2px 2px;
 }
 
 #log-table {
@@ -340,9 +345,10 @@ td:not(:last-child) {
 
   border: 1px solid #040084;
   overflow: hidden;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  
+  margin-top: 0;
   background: white;
+  box-shadow:black 5px 5px 10px;
 }
 #log-table > thead > tr:not(:last-child) > th,
 #log-table > thead > tr:not(:last-child) > td,
@@ -364,12 +370,12 @@ td:not(:last-child) {
   font-weight: bold;
   font-size: 1.25em;
   text-align: center;
-  color: rgb(46, 45, 45);
+  color: #232069;
 }
 #row-data {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  color: rgb(46, 45, 45);
+  color: #232069;
   padding-left: 10px;
 }
 .log-id {

@@ -11,10 +11,10 @@ export default {
 </script>
 
 <style>
-/* .parent-container {
-  background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681841908/capstone_assets/devicebg_1_r5uirl.png");
+.parent-container {
+  background-image: url("https://res.cloudinary.com/dzw4n2mgp/image/upload/v1681928555/capstone_assets/devicebgflip_smfvt7.png");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -2;
-} */
+}
 </style>

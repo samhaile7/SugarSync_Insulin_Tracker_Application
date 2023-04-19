@@ -53,13 +53,13 @@
            {{ currentTargetMinFromServer }}
         </p>
         <p id="units1">(mmol/L)</p>
-        <p id="min-text">Minimum</p>
+        <p id="min-text">Minimum:</p>
         
         <p id="max-num">
            {{ currentTargetMaxFromServer }}
         </p>
         <p id="units2">(mmol/L)</p>
-        <p id="max-text">Maximum</p>
+        <p id="max-text">Maximum:</p>
       </div>
       <PieChart
         v-if="isUserLogsLoaded"
@@ -209,7 +209,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 #dash-grid {
   background-color: #487BE3;
@@ -223,17 +223,22 @@ export default {
   grid-area: targets;
   border-style: 1px solid black;
   border-radius: 10px;
-  background-color: #ff4041;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
+  background-color: #FD6600;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-  "targets-header targets-header targets-header targets-header"
-  "min-num units1 max-num units2"
-  "min-text . max-text . ";
+  "targets-header targets-header targets-header targets-header targets-header targets-header"
+  "min-text min-num units1 max-text max-num units2";
   margin: auto;
-  width: 90%;
+  width: 95%;
   color: white;
-  text-shadow: #040084 1px 1px;
+  text-shadow: black 2px 2px 2px;
   box-shadow:black 5px 5px 10px;
+  
+  margin-left: 5%;
+  margin-bottom: 0;
+  margin-top: 2%;
+
+
   
 }
 #targets-header {
@@ -243,6 +248,9 @@ export default {
   color: white;
   text-align: center;
   text-decoration-line: underline;
+  padding-top: 3%;
+  margin-bottom: 0;
+
 }
 
 #units1 {
@@ -269,6 +277,7 @@ export default {
     text-align: right;
     margin: 0;
     padding-bottom: 0;
+    
 }
 
 #max-num {
@@ -284,8 +293,10 @@ export default {
    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     grid-area: min-text;
-    margin-left: 50%;
     margin-top:0;
+    text-align: right;
+    font-size: 1.5em;
+    
 
 }
 
@@ -293,8 +304,10 @@ export default {
    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     grid-area: max-text;
-    text-align: left;
-  
+    text-align: right;
+    border-left: 3px solid white;
+    font-size: 1.5em;
+    
 }
 
 .line-chart {
@@ -358,18 +371,19 @@ td:not(:last-child) {
 }
 
 #avg-header {
-  background: #1874d2;
+  background: #FD7F00;
   color: white;
   text-align: center;
   font-size: 1.5em;
   font-family: "Lora", serif;
   font-weight: bold;
+  text-shadow: black 2px 2px 2px;
 }
 .dosage,
 .bloodsugar {
   text-align: center;
   font-size: 1.25em;
-  color: rgb(46, 45, 45);
+  color: #232069;
   
 }
 
@@ -382,17 +396,18 @@ td:not(:last-child) {
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  color: rgb(46, 45, 45);
+  color: #232069;
   background: white;
 }
 
 #log-header {
-  background: #1874d2;
+  background: #FD7F00;
   color: white;
   text-align: center;
   font-size: 1.5em;
   font-family: "Lora", serif;
   font-weight: bold;
+  text-shadow: black 2px 2px 2px;
 }
 
 #log-table {
@@ -406,7 +421,7 @@ td:not(:last-child) {
   border: 1px solid #040084;
   overflow: hidden;
   
-  margin-top: 5%;
+  margin-top: 2%;
   background: white;
   box-shadow:black 5px 5px 10px;
 }
@@ -430,12 +445,12 @@ td:not(:last-child) {
   font-weight: bold;
   font-size: 1.25em;
   text-align: center;
-  color: rgb(46, 45, 45);
+  color: #232069;
 }
 #row-data {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  color: rgb(46, 45, 45);
+  color: #232069;
   padding-left: 10px;
 }
 .log-id {
