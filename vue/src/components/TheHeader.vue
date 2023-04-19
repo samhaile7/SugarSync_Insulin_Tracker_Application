@@ -100,6 +100,8 @@ export default {
   grid-template-areas: 
   "logo dashboard profile-link meal-link home logbutton";
   margin-bottom: 0;
+  border-bottom: #040084 2px solid;
+  
 }
 
 .router {

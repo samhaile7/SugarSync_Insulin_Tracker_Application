@@ -71,17 +71,17 @@
     <table id="log-table">
       <thead>
         <tr>
-          <th id="log-header" colspan="3">Activity Log</th>
+          <th id="log-header" colspan="2">Activity Log</th>
         </tr>
         <tr>
-          <th id="column-title">Log Id</th>
+          <!-- <th id="column-title">Log Id</th> -->
           <th id="column-title">Log Type</th>
           <th id="column-title">Date/Time Logged</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(log, index) in userLogs" v-bind:key="index">
-          <td id="row-data" class="log-id">{{ userLogs[index].logId }}</td>
+          <!-- <td id="row-data" class="log-id">{{ userLogs[index].logId }}</td> -->
           <td id="row-data">
             {{ logTypeStrings[userLogs[index].logTypeId - 1] }}
           </td>
@@ -212,7 +212,9 @@ export default {
 <style>
 
 #dash-grid {
-  background-color: #fecc98;
+  background-color: #487BE3;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 
@@ -231,7 +233,7 @@ export default {
   width: 90%;
   color: white;
   text-shadow: #040084 1px 1px;
-  box-shadow: #040084 3px 3px;
+  box-shadow:black 5px 5px 10px;
   
 }
 #targets-header {
@@ -302,6 +304,7 @@ export default {
   background: white;
   border-radius: 10px;
   margin-left: 5%;
+  box-shadow:black 5px 5px 10px;
 }
 .pie-chart {
   border-style: 1px solid black;
@@ -311,6 +314,7 @@ export default {
   margin: auto;
   background: white;
   border-radius: 10px;
+  box-shadow:black 5px 5px 10px;
 }
 
 .chart-grid {
@@ -332,6 +336,7 @@ export default {
   border: 1px solid #040084;
   overflow: hidden;
   margin-bottom: 2%;
+  box-shadow:black 5px 5px 10px;
 }
 
 th:not(:last-child),
@@ -400,9 +405,10 @@ td:not(:last-child) {
 
   border: 1px solid #040084;
   overflow: hidden;
-  margin-bottom: 5%;
+  
   margin-top: 5%;
   background: white;
+  box-shadow:black 5px 5px 10px;
 }
 #log-table > thead > tr:not(:last-child) > th,
 #log-table > thead > tr:not(:last-child) > td,

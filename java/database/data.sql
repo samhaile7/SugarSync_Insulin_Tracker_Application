@@ -8,6 +8,11 @@ INSERT INTO users (username,password_hash,role) VALUES ('sam','$2a$08$UkVvwpULis
 INSERT INTO users (username,password_hash,role) VALUES ('mohamed','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('kelly','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
+INSERT INTO user_input (user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id)
+	VALUES (1, 150, 60, 50, 100, 10, 140, 1);
+
+
+
 --inserts into other users for Admin Summary
 
 INSERT INTO user_input (user_id, weight, base_level, target_range_min, target_range_max, critical_low, critical_high, insulin_type_id)
