@@ -1,71 +1,12 @@
 <template>
   <div>
     
-    <!-- <h1 id="dash-head">Welcome to your SugarSync dashboard! </h1> -->
+    
     <div id="dash-grid">
-    <!-- <table id="avg-table" class="center">
-      <tr>
-        <th id="avg-header" colspan="6">Blood Sugar & Dosage Averages</th>
-      </tr>
-      <tr>
-        <th id="avg-row"></th>
-        <th id="avg-row" class="timeranges">Daily</th>
-        <th id="avg-row" class="timeranges">3-Day</th>
-        <th id="avg-row" class="timeranges">7-Day</th>
-        <th id="avg-row" class="timeranges">2-Week</th>
-        <th id="avg-row" class="timeranges">Monthly</th>
-      </tr>
-      <tr>
-        <th id="avg-row" class="bloodsugar">Blood Sugar</th>
-        <td id="avg-row">{{ bloodSugarAvgList[0].toFixed(2) }}</td>
-        <td id="avg-row">{{ bloodSugarAvgList[1].toFixed(2) }}</td>
-        <td id="avg-row">{{ bloodSugarAvgList[2].toFixed(2) }}</td>
-        <td id="avg-row">{{ bloodSugarAvgList[3].toFixed(2) }}</td>
-        <td id="avg-row">{{ bloodSugarAvgList[4].toFixed(2) }}</td>
-      </tr>
-      <tr>
-        <th id="avg-row" class="dosage">Dosage</th>
-        <td id="avg-row">{{ insulinDosageAvgList[0].toFixed(2) }}</td>
-        <td id="avg-row">{{ insulinDosageAvgList[1].toFixed(2) }}</td>
-        <td id="avg-row">{{ insulinDosageAvgList[2].toFixed(2) }}</td>
-        <td id="avg-row">{{ insulinDosageAvgList[3].toFixed(2) }}</td>
-        <td id="avg-row">{{ insulinDosageAvgList[4].toFixed(2) }}</td>
-      </tr>
-    </table> -->
-    <!-- <LineChart v-bind:allMealsFromServer="allMealsFromServer" /> -->
-
-    <!-- <p>Daily Blood Sugar AVG : {{ bloodSugarAvgList[0] }}</p>
-    <p>3 Day : {{ bloodSugarAvgList[1] }}</p>
-    <p>7 day : {{ bloodSugarAvgList[2] }}</p>
-    <p>2 week : {{ bloodSugarAvgList[3] }}</p> -->
+    
 
     <div class="chart-grid">
-      <!-- <LineChart
-        class="line-chart"
-        v-if="isDataLoaded"
-        v-bind:arrayToPass="arrayToPass"
-      /> -->
-      <!-- <LineChart class="line-chart" v-if="isDataLoaded" v-bind:arrayToPass="arrayToPass" v-bind:allMealsFromServer="allMealsFromServer" v-bind:currentTargetMinFromServer = "currentTargetMinFromServer"  /> -->
-
-      <!-- <div class="targets"> 
-        <h3 id="targets-header">Blood Sugar Targets</h3>
-        <p id="min-num">
-           {{ currentTargetMinFromServer }}
-        </p>
-        <p id="units1">(mmol/L)</p>
-        <p id="min-text">Minimum</p>
-        
-        <p id="max-num">
-           {{ currentTargetMaxFromServer }}
-        </p>
-        <p id="units2">(mmol/L)</p>
-        <p id="max-text">Maximum</p>
-      </div>
-      <PieChart
-        v-if="isUserLogsLoaded"
-        v-bind:userLogs="userLogs"
-        class="pie-chart"
-      /> -->
+      
     </div>
 
     <table id="log-table">
@@ -99,14 +40,10 @@
 import MealService from "../services/MealService.js";
 import UserInputService from "../services/UserInputService.js";
 import LogService from "../services/LogService.js";
-// import LineChart from "../components/LineChart.vue";
-// import PieChart from "../components/PieChart.vue";
+
 
 export default {
-  components: { 
-    // LineChart, 
-    // PieChart 
-    },
+ 
   computed: {
     arrayToPass() {
       return [
