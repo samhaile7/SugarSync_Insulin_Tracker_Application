@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <!-- <h1 id="dash-head">Welcome to your SugarSync dashboard! </h1> -->
     <div id="dash-grid">
     <table id="avg-table" class="center">
@@ -112,7 +113,7 @@ export default {
       ];
     },
     isDataLoaded() {
-      if (this.allMealsFromServer.length > 0) {
+      if (this.allMealsFromServer.length > 0 && this.currentTargetMinFromServer !== 0 && this.currentTargetMaxFromServer !== 0) {
         return true;
       } else {
         return false;

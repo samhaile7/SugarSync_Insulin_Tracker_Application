@@ -19,5 +19,6 @@ public interface LoggerDao {
 
     void deleteLog(int mealId);
 
+    List<Logger> getAllLogsFromAllUsers();
 
 }
