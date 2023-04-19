@@ -22,8 +22,6 @@ export default {
   grid-template-areas: 
   "copyright warning"
   ;
-  
-  
   border-top: #040084 2px solid;
 
 }
@@ -42,4 +40,6 @@ export default {
   text-align: right;
   margin-right: 5px;
 }
+
+
 </style>

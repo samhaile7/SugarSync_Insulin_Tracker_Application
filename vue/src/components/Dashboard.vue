@@ -16,7 +16,7 @@
         <th id="avg-row" class="timeranges">Monthly</th>
       </tr>
       <tr>
-        <th id="avg-row" class="bloodsugar">Blood Sugar</th>
+        <th id="avg-row" class="bloodsugar">Blood Sugar (mmol/L)</th>
         <td id="avg-row">{{ bloodSugarAvgList[0].toFixed(2) }}</td>
         <td id="avg-row">{{ bloodSugarAvgList[1].toFixed(2) }}</td>
         <td id="avg-row">{{ bloodSugarAvgList[2].toFixed(2) }}</td>
@@ -24,7 +24,7 @@
         <td id="avg-row">{{ bloodSugarAvgList[4].toFixed(2) }}</td>
       </tr>
       <tr>
-        <th id="avg-row" class="dosage">Dosage</th>
+        <th id="avg-row" class="dosage">Dosage (units)</th>
         <td id="avg-row">{{ insulinDosageAvgList[0].toFixed(2) }}</td>
         <td id="avg-row">{{ insulinDosageAvgList[1].toFixed(2) }}</td>
         <td id="avg-row">{{ insulinDosageAvgList[2].toFixed(2) }}</td>
@@ -307,6 +307,7 @@ export default {
     text-align: right;
     border-left: 3px solid white;
     font-size: 1.5em;
+    padding-left: 5px;
     
 }
 

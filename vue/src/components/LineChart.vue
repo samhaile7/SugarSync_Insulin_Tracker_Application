@@ -1,5 +1,8 @@
 <template>
   <div >
+    <h1>Blood Sugar & Insulin Dosage History</h1>
+    <br>
+    <br>
     <canvas id="myChart" class="whole-chart"></canvas>
 
     <!-- {{bloodSugarHistory}}
@@ -126,11 +129,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-/* .whole-chart {
-    width: 40%;
-    border-style: 10px solid black;
-} */
+
+
+h1 {
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-bottom: #232069 solid ;
+  color: #232069;
+  
+  
+}
+
+#myChart {
+  margin:5px;
+}
+
 
 </style>
