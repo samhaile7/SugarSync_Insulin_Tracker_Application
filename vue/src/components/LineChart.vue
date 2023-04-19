@@ -11,6 +11,10 @@
     <!-- {{ this.dateArray }}
     {{ this.targetmin }}
      {{ this.targetmax }} -->
+
+     <!-- {{this.arrayToPass[0]}}
+     {{this.arrayToPass[1]}}
+     {{this.arrayToPass[2]}} -->
   </div>
 </template>
 
