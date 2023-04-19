@@ -1,5 +1,7 @@
 <template>
   <div >
+    {{this.targetmin}}
+    {{this.targetmax}}
     <canvas id="myChart" class="whole-chart"></canvas>
 
     <!-- {{bloodSugarHistory}}
