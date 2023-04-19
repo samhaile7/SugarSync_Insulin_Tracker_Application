@@ -102,6 +102,22 @@ public class JdbcLoggerDao implements LoggerDao{
         jdbcTemplate.update(sql, logId);
     }
 
+    @Override
+    public List<Logger> getAllLogsFromAllUsers() {
+        List<Logger> everyLog = new ArrayList<>();
+        String sql = "SELECT log_id, user_id, log_type_id, date_time_logged " +
+                "FROM logger " +
+                "ORDER BY date_time_logged desc";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while (results.next()) {
+            Logger log = mapRowToLog(results);
+            everyLog.add(log);
+        }
+        return everyLog;
+    }
+
 
     private Logger mapRowToLog(SqlRowSet row) {
         Logger log = new Logger();

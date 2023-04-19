@@ -4,12 +4,14 @@ import com.techelevator.dao.LoggerDao;
 import com.techelevator.dao.UserInputDao;
 import com.techelevator.model.Logger;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
+
 
 @RestController
 @CrossOrigin
@@ -58,5 +60,11 @@ public class LoggerController {
     @RequestMapping (path = "/log/{logId}", method = RequestMethod.DELETE)
     public void deleteLog(@PathVariable int logId) {
         loggerDao.deleteLog(logId);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping(path = "/everylog", method = RequestMethod.GET)
+    public List<Logger> getAllLogs( ) {
+        return loggerDao.getAllLogsFromAllUsers();
     }
 }
