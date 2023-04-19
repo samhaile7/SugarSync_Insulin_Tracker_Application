@@ -1,7 +1,7 @@
 <template >
   <div class="main-grid">
     <div class="input-grid">
-      <h1>Welcome!</h1>
+      <h1>Welcome {{this.$store.state.user.username}}</h1>
       <h4>Please enter your information below:</h4>
 
       <form action="" v-on:submit.prevent="postToServer()">

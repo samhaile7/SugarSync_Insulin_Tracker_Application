@@ -12,7 +12,7 @@
 
       <!-- <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-if="$store.state.token != ''"><span>Dashboard</span></router-link> -->
       <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'admindashboard'}" v-if="isAdmin"><span>AdminDashboard</span></router-link>
-      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-else ><span>Dashboard</span></router-link>
+      <router-link class ="router" id="dashboard-link" v-bind:to="{name: 'dashboard'}" v-else-if="$store.state.token != ''"><span>Dashboard</span></router-link>
 
       <router-link class ="router" id="profile-link" v-bind:to="{name: 'insulindevice'}" v-if="$store.state.token != ''"><span>Profile</span></router-link>
       
