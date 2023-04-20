@@ -73,12 +73,7 @@ export default {
 
 <style>
 
-#swoop {
-  height: 100px;
-  width:  100%;
-  display: inline-block;
-  opacity: 25%;
-}
+
 
 #logo {
   grid-area: logo;

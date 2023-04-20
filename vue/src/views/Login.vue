@@ -67,7 +67,7 @@
                         Login
                       </button>
                     </div>
-                    <p>
+                    <p class="form-label">
                       Don't have an account?
                       <router-link :to="{ name: 'register' }">Register Here.</router-link>
                     </p>
@@ -122,6 +122,13 @@ export default {
 </script>
 
 <style scoped>
+
+.mb-5, .form-label {
+  color: #232069
+}
+
+
+
 .form-input-group {
   margin-bottom: 1rem;
 }
@@ -158,18 +165,18 @@ height: 100%;
 }
 
 .btn-success{
-  background-color: #1874D2;
-  border-color: #1874D2;
+  background-color: #80AAFF;
+  border-color: #80AAFF;
 
 }
 .btn-success:hover {
-  background-color: #0141CF;
-  border-color: #0141CF;
+  background-color: #5990ff;
+  border-color: #5990ff;
   
 }
 .btn-success:active {
-  background-color: #0141CF;
-  border-color: #0141CF;
+  background-color: #5990ff;
+  border-color: #5990ff;
   
 }
 

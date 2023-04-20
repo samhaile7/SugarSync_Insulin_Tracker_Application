@@ -63,24 +63,24 @@
                         required
                       />
                       <label class="form-label" for="form3Example4cdg"
-                        >Confirm your password</label
+                        >Confirm your Password</label
                       >
                     </div>
 
                     <div class="d-flex justify-content-center">
-                      <button
+                      <button id="reg"
                         type="submit"
                         class="
                           btn btn-success btn-block btn-lg
                           gradient-custom-4
-                          text-body
+                          text-body btn-primary
                         "
                         value="Send" 
                       >
                         Register
                       </button>
                     </div>
-                    <p>
+                    <p class="form-label">
                       Already have an account?
                       <router-link :to="{ name: 'login' }">Log in.</router-link>
                     </p>
@@ -168,6 +168,16 @@ export default {
 </script>
 
 <style scoped>
+
+.btn-primary, .btn {
+    font-style: white;
+    color:white;
+}
+
+.mb-5, .form-label {
+  color: #232069
+}
+
 .form-input-group {
   margin-bottom: 1rem;
 }
@@ -190,24 +200,28 @@ label {
 }
 
 .btn-success{
-  background-color: #1874D2;
-  border-color: #1874D2;
+  background-color: #80AAFF;
+  border-color: #80AAFF;
+  color: white;
 }
 
 .btn-success:hover {
-  background-color: #0141CF;
-  border-color: #0141CF;
+  background-color: #5990ff;
+  border-color: #5990ff;
+  color: white;
 }
 
 .btn-success:active {
-  background-color: #0141CF;
-  border-color: #0141CF;
+  background-color: #5990ff;
+  border-color: #5990ff;
+  color: white;
   
 }
 
 .text-center {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+
 }
 
 </style>
