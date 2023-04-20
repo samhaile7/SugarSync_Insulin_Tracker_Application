@@ -33,13 +33,13 @@
                         autofocus
                       />
                       <label class="form-label" for="form3Example1cg"
-                        >Create a Username</label
+                        >Username</label
                       >
                     </div>
 
                      <div class="form-outline mb-4">
                   <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="to_email"/>
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <label class="form-label" for="form3Example3cg">Email Address</label>
                 </div> 
                     <div class="form-outline mb-4">
                       <input

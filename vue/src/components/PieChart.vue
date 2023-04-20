@@ -52,7 +52,7 @@ return this.userLogs.filter((log) => {
         labels: labels,
         datasets: [
           {
-            label: "My First Dataset",
+            label: "Alerts",
             data: [this.numberOfLogTypeThree, this.numberOfLogTypeFour, this.numberOfLogTypeFive, this.numberOfLogTypeSix],
             backgroundColor: [
               "#F99244",

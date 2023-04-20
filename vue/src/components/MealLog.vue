@@ -15,7 +15,7 @@
     </div>
     </form>
     
-    <h3 id="suggested-dose">Suggested dose (Units): <br></h3>
+    <h3 id="suggested-dose">Suggested dose (units): <br></h3>
     <h3 id="dose-number" v-if="isNaN(calculatedDoseFromServer)"></h3>
     <h3 id="dose-number" v-else>{{calculatedDoseFromServer.toFixed(2)}}</h3>
     

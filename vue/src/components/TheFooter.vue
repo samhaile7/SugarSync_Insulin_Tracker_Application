@@ -1,6 +1,6 @@
 <template>
   <div id="foot-grid">
-    <p id="copyright">&#169; Copyright 2023 Insulin Tracker </p>
+    <p id="copyright">&#169; Copyright 2023 SugarSync </p>
     <p id="warning">SugarSync is a non-HIPAA compliant application and should only be used for demos.</p>
 
 
